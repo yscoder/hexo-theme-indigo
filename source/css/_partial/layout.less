@@ -1,0 +1,214 @@
+.container,
+#main {
+    position: relative;
+}
+
+#menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 66;
+    width: @menuWidth;
+    min-height: 100%;
+    background: #fff;
+    will-change: left;
+    box-shadow: @boxShadow;
+    .transition(.4s);
+
+    .inner {
+        position: relative;
+        height: 100%;
+    }
+
+    .brand-wrap {
+        //border-bottom: 1px solid @borderColor;
+        // background: @primaryColor;
+        background: url(../img/brand.jpg);
+        background-size: 100% 100%;
+    }
+
+    .brand {
+        padding: 40px @menuPadding 2em;
+        background: fade(@primaryColor, 50%);
+    }
+
+    .avatar {
+        display: block;
+        width: 80px;
+        height: 80px;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: @boxShadow;
+    }
+
+    .introduce {
+        margin: 1em 0 0;
+        color: @textPrimaryColor;
+    }
+
+    .nickname {
+    }
+
+    .mail {
+        display: inline-block;
+        padding-top: 4px;
+        color: @lightPrimaryColor;
+        font-size: 13px;
+    }
+
+    .social {
+        margin: 2em 0 0;
+
+        a {
+            opacity: .8;
+
+            &.weibo {
+                color: #DC5442;
+            }
+
+            &.github {
+                color: #363F45;
+            }
+
+            &.rss {
+                color: #FF9800;
+            }
+
+            &:hover {
+                opacity: 1;
+            }
+
+        }
+
+    }
+
+    .nav {
+        padding: 0;
+        list-style: none;
+        line-height: @navH;
+
+        li {
+            padding: 0 @menuPadding;
+
+            .icon {
+                padding-right: @menuPadding*1.5;
+            }
+
+            &:hover,
+            &.active {
+                background: rgba(0, 0, 0, 0.05);
+
+                a,
+                .icon {
+                    color: @primaryColor;
+                }
+
+            }
+
+        }
+
+        a {
+            display: block;
+            height: @navH;
+            font-weight: 500;
+            color: @secondaryTextColor;
+        }
+
+    }
+
+    .footer {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        font-size: 12px;
+        font-family: @font-code;
+        padding: 10px @menuPadding;
+        border-top: 1px solid @borderColor;
+        .rss {
+            position: absolute;
+            right: @menuPadding;
+            bottom: 20px;
+            color: #E64A19;
+        }
+    }
+
+}
+
+#main {
+    padding-left: 240px;
+    min-height: 100%;
+    background: @backColor;
+    .transition(.6s);
+}
+
+.body-wrap {
+    padding: 30px 0 40px;
+}
+
+.container {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 88;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: .5;
+    filter: alpha(opacity=50);
+    display: none;
+}
+
+@media screen and (max-width:1240px) {
+    .container {
+        width: 720px;
+    }
+
+    #menu {
+        z-index: 99;
+        .transform(translateX(-100%));
+
+        &.show {
+            .transform(none);
+        }
+
+    }
+
+    #main {
+        padding-left: 0;
+    }
+
+}
+
+@media screen and (max-width:760px) {
+    .container {
+        width: 100%;
+        padding: 20px 16px;
+    }
+
+    #menu {
+        .brand {
+            padding-top: 20px;
+            padding-bottom: 1em;
+        }
+
+        .nav {
+            line-height: @mNavH;
+
+            a {
+                height: @mNavH;
+            }
+
+        }
+
+    }
+
+}

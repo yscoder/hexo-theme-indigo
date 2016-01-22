@@ -1,0 +1,18 @@
+<header class="header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-circle-light" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"><%=page.title || config.title %></div>
+        <a href="javascript:;" class="header-icon waves-circle-light" id="menu-share">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header">
+  <nav></nav>
+  <div class="container">
+    <h1 class="author"><%=page.title || config.title %></h1>
+    <h5 class="subtitle"><%=(page.date && !page.noDate ? date(page.date, config.date_format) : config.subtitle) %></h5>
+  </div>
+</header>

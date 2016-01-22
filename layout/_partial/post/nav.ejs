@@ -1,0 +1,27 @@
+<% if (post.prev || post.next){ %>
+<nav class="post-nav flex-row">
+  <div class="flex-col waves-block prev">
+    <% if (post.prev){ %>
+      <a href="<%- url_for(post.prev.path) %>" title="前一篇" id="post-prev" class="post-nav-link">
+        <i class="icon icon-chevron-left"></i>
+        <span class="article-nav-title">
+          <% if (post.prev.title){ %>
+            <%= post.prev.title %>
+          <% } else { %>
+            (no title)
+          <% } %>
+        </span>
+      </a>
+    <% } %>
+  </div>
+  <div class="flex-col waves-block next">
+    <% if (post.next){ %>
+      <a href="<%- url_for(post.next.path) %>" title="后一篇" id="post-next" class="post-nav-link">
+        <span class="article-nav-title"><%= post.next.title %></span>
+        <i class="icon icon-chevron-right"></i>
+      </a>
+    <% } %>
+  </div>
+
+</nav>
+<% } %>

@@ -1,0 +1,8 @@
+<section class="tags-wrap">
+  <h2 class="tags-title"><%= theme.tags.title%></h2>
+  <%- list_tags({
+        transform: function (t,s,d) {
+            return '#' + t;
+        }
+    }) %>  
+</section>

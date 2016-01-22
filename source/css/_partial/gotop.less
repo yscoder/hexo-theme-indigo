@@ -1,0 +1,31 @@
+#gotop {
+    position: fixed;
+    right: 16px;
+    bottom: 30px;
+    z-index: 30;
+    width: 56px;
+    height: 56px;
+    line-height: 56px;
+    text-align: center;
+    color: #fff;
+    background: @accentColor;
+    border-radius: 50%;
+    opacity: 0;
+    .boxShadow();
+    .transform(translateX(200%));
+
+    &.in {
+        opacity: 1;
+        .transform(none);
+    }
+
+}
+
+@media screen and (max-width:760px) {
+    #gotop {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+    }
+
+}

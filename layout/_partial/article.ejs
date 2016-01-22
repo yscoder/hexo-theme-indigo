@@ -1,0 +1,82 @@
+<% if(post.type == 'tags') { %>
+  <%- partial('post/tags') %>
+<% } else { %>
+  <article id="<%= post.layout %>-<%= post.slug %>" class="article article-type-<%= post.layout %>" itemscope itemprop="blogPost">
+    <% if(index) { %>
+      <%- partial('post/title') %>
+      <div class="post-meat flex-row">
+        <div class="flex-col"><%- partial('post/tag') %></div>
+        <%- partial('post/date', {date_format: config.date_format}) %>
+      </div>
+      <div class="post-content" itemprop="postContent" >
+        <% if (post.excerpt){ %>
+          <%- post.excerpt %>
+        <% } else { %>
+          <%- post.content %>
+        <% } %>
+      </div>
+      <div class="post-footer clearfix">
+        <a href="<%- url_for(post.path) %>" class="post-more waves-button-light">MORE</a>
+      </div>
+    <% } else { %>
+      <div class="post-meat flex-row">
+        <div class="flex-col"><%- partial('post/tag') %></div>
+      </div>
+      <div class="post-body flex-row">
+
+        <div class="post-content flex-col" itemprop="postContent"><%- post.content %></div>
+
+        <aside class="post-widget" id="post-widget">
+
+          <% if(theme.share){ %>
+          <%- partial('post/share', {
+                className: 'post-share'
+            }) %>
+          <% } %>
+
+          <% if(theme.toc){ %>
+          <nav class="post-toc-wrap" id="post-toc">
+            <%- toc(post.content, {
+                class: 'post-toc',
+                list_number: theme.toc.list_number
+                }) %>
+          </nav>
+          <% } %>
+        </aside>
+
+      </div>
+      <%- partial('post/nav') %>
+
+    <% } %>
+
+  </article>
+
+
+
+  <% if (!index && theme.duoshuo && post.comments){ %>
+  <%- partial('post/duoshuo', {
+      key: post.slug,
+      title: post.title,
+      url: url
+    }) %>
+  <% } %>
+
+  <% if (!index && post.comments && config.disqus_shortname){ %>
+  <section id="comments">
+    <div id="disqus_thread"></div>
+      <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = '<%=config.disqus_shortname%>'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </section>
+  <% } %>
+
+<% } %>

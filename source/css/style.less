@@ -1,0 +1,433 @@
+@import '_partial/variable';
+@import '_partial/roboto';
+@import '_partial/fontawesome';
+
+*,
+*::before,
+*::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #fff;
+    color: @primaryTextColor;
+    font-size: @font-size;
+    line-height: 1.5;
+}
+
+body {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+html,
+body {
+    position: relative;
+    min-height: 100%;
+    height: 100%;
+}
+
+body,
+input,
+button,
+textarea,
+select,
+option {
+    font: normal 1em @font;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+pre,
+dl,
+dd,
+blockquote,
+button,
+input {
+    margin: 0;
+}
+
+input,
+legend,
+input,
+textarea,
+button {
+    padding: 0;
+}
+
+form,
+fieldset,
+th,
+td {
+    margin: 0;
+    padding: 0;
+}
+
+ol,
+ul {
+    margin: 12px 0;
+    padding: 0 0 0 32px;
+
+    &.reset {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+}
+
+ol ol,
+ol ul,
+ul ol,
+ul ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+p {
+    margin: 12px 0;
+}
+
+small {
+    font-size: 75%;
+    line-height: 1;
+}
+
+img {
+    max-width: 100%;
+    border: none;
+}
+
+img,
+input,
+button,
+label {
+    vertical-align: middle;
+}
+
+em,
+i {
+    font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 400;
+}
+
+h1,
+.h1 {
+    font-size: 44px;
+    line-height: 48px;
+}
+
+h2,
+.h2 {
+    font-size: 34px;
+    line-height: 40px;
+}
+
+h3,
+.h3 {
+    font-size: 24px;
+    line-height: 32px;
+}
+
+h4,
+.h4 {
+    font-size: 20px;
+    line-height: 28px;
+}
+
+h5,
+.h5 {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+h6,
+.h6 {
+    font-size: 12px;
+    line-height: 20px;
+}
+
+input[type="button"],
+input[type="submit"],
+input[type="search"],
+input[type="reset"] {
+    cursor: pointer;
+    -webkit-appearance: button;
+}
+
+input:focus,
+select:focus,
+button:focus,
+textarea:focus {
+    outline: none;
+}
+
+textarea {
+    resize: none;
+}
+
+a {
+    background-color: transparent;
+    background-image: none;
+    color: @primaryColor;
+    text-decoration: none;
+}
+
+a:hover {
+    color: @darkPrimaryColor;
+    outline: 0;
+}
+
+hr,
+.hr {
+    border: 0;
+    border-top: 1px solid @borderColor;
+    box-sizing: content-box;
+    display: block;
+    height: 0;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.tr {
+    text-align: right;
+}
+
+.tc {
+    text-align: center;
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+    overflow: hidden;
+}
+
+.ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* flex布局  */
+.flex-row,
+.flex-row-vertical {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.flex-row-vertical {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+/* 多行布局 */
+.flex-row-wrap {
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+/* 子元素反向排列 */
+.flex-row-reverse {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+}
+
+/* 子元素默认平均分布 */
+.flex-row > * {
+    display: block;
+}
+
+.flex-col {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+/* 垂直居中 */
+.flex-middle {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+/* 底部对齐 */
+.flex-bottom {
+    -webkit-box-align: end;
+    -webkit-align-items: flex-end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+}
+
+/* 沿主轴方向排列方式 */
+.flex-justify-start {
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+.flex-justify-end {
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+
+.flex-justify-between {
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+/* 沿侧轴方向排列方式 */
+.flex-align-start {
+    -webkit-align-content: flex-start;
+    -ms-flex-line-pack: start;
+    align-content: flex-start;
+}
+
+.flex-align-end {
+    -webkit-align-content: flex-end;
+    -ms-flex-line-pack: end;
+    align-content: flex-end;
+}
+
+.flex-align-around {
+    -webkit-align-content: space-around;
+    -ms-flex-line-pack: distribute;
+    align-content: space-around;
+}
+
+.flex-align-between {
+    -webkit-align-content: space-between;
+    -ms-flex-line-pack: justify;
+    align-content: space-between;
+}
+
+.flex-col-auto {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 auto;
+    -ms-flex: 0 auto;
+    flex: 0 auto;
+}
+
+.flex-col-2 {
+    -webkit-box-flex: 2;
+    -webkit-flex: 2;
+    -ms-flex: 2;
+    flex: 2;
+    width: 0;
+}
+
+.flex-col-3 {
+    -webkit-box-flex: 3;
+    -webkit-flex: 3;
+    -ms-flex: 3;
+    flex: 3;
+    width: 0;
+}
+
+.flex-col-4 {
+    -webkit-box-flex: 4;
+    -webkit-flex: 4;
+    -ms-flex: 4;
+    flex: 4;
+    width: 0;
+}
+
+.flex-col-5 {
+    -webkit-box-flex: 5;
+    -webkit-flex: 5;
+    -ms-flex: 5;
+    flex: 5;
+    width: 0;
+}
+
+.flex-col-6 {
+    -webkit-box-flex: 6;
+    -webkit-flex: 6;
+    -ms-flex: 6;
+    flex: 6;
+    width: 0;
+}
+
+.flex-col-7 {
+    -webkit-box-flex: 7;
+    -webkit-flex: 7;
+    -ms-flex: 7;
+    flex: 7;
+    width: 0;
+}
+
+.flex-col-8 {
+    -webkit-box-flex: 8;
+    -webkit-flex: 8;
+    -ms-flex: 8;
+    flex: 8;
+    width: 0;
+}
+
+.flex-col-9 {
+    -webkit-box-flex: 9;
+    -webkit-flex: 9;
+    -ms-flex: 9;
+    flex: 9;
+    width: 0;
+}
+
+.flex-col-10 {
+    -webkit-box-flex: 10;
+    -webkit-flex: 10;
+    -ms-flex: 10;
+    flex: 10;
+    width: 0;
+}
+
+@import '_partial/waves';
+@import '_partial/layout';
+@import '_partial/header';
+@import '_partial/postlist';
+@import '_partial/gotop';
+@import '_partial/share';
+@import '_partial/article';
+@import '_partial/archives';
+@import '_partial/tags';
+@import '_partial/highlight';
+

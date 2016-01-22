@@ -1,0 +1,223 @@
+@h-background: #f5f5f5;
+@h-current-line: #efefef;
+@h-selectioon: #d6d6d6;
+@h-foreground: #4d4d4c;
+@h-comment: #8e908c;
+@h-red: #c82829;
+@h-orange: #f5871f;
+@h-yellow: #eab700;
+@h-green: #718c00;
+@h-aqua: #3e999f;
+@h-blue: #4271ae;
+@h-purple: #8959a8;
+@h-fs: 12px;
+
+.codeBlock() {
+    background: @h-background;
+    padding: 10px 10px;
+    overflow: auto;
+    line-height: @h-fs*1.6;
+    border: 1px solid @borderColor;
+    border-radius: 2px;
+}
+
+.line-numbers() {
+    color: @secondaryTextColor;
+    font-size: 0.85em;
+}
+
+.post-content {
+    pre {
+        .codeBlock();
+        color: @h-foreground;
+
+        code {
+            background: none;
+            text-shadow: 0 1px #fff;
+            padding: 0;
+            color: @h-foreground;
+        }
+
+    }
+
+    .highlight {
+        .codeBlock();
+
+        pre {
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            margin: 0;
+            width: auto;
+        }
+
+        td {
+            border: none;
+            padding: 0;
+        }
+
+        figcaption {
+            font-size: 0.85em;
+            color: @h-comment;
+            line-height: 1em;
+            margin-bottom: 1em;
+
+            a {
+                float: right
+            }
+
+        }
+
+        .gutter pre {
+            .line-numbers();
+            text-align: right;
+            padding-right: 20px;
+
+            .line {
+                text-shadow: none
+            }
+
+        }
+
+        .line {
+            font-size: @h-fs;
+            height: @h-fs * 1.6;
+        }
+
+    }
+
+    .gist {
+        border-style: solid;
+        border-color: @borderColor;
+        border-width: 1px 0;
+        background: @h-background;
+        padding: 15px 0;
+
+        .gist-file {
+            border: none;
+            font-family: @font-code;
+            margin: 0;
+
+            .gist-data {
+                background: none;
+                border: none;
+
+                .line-numbers {
+                    .line-numbers();
+                    background: none;
+                    border: none;
+                    padding: 0 20px 0 0
+                }
+
+                .line-data {
+                    padding: 0 !important
+                }
+
+            }
+
+            .highlight {
+                margin: 0;
+                padding: 0;
+                border: none;
+            }
+
+            .gist-meta {
+                background: @h-background;
+                color: @h-comment;
+                font: 0.85em @font-code;
+                text-shadow: 0 0;
+                padding: 0;
+                margin-top: 1em;
+
+                a {
+                    color: @accentColor;
+                    font-weight: normal;
+
+                    &:hover {
+                        text-decoration: underline
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
+pre {
+    .comment {
+        color: @h-comment
+    }
+
+    .tag {
+        color: @h-comment
+    }
+
+    .variable,
+    .title,
+    .type,
+    .regexp,
+    .ruby .constant,
+    .xml .tag .title,
+    .xml .pi,
+    .xml .doctype,
+    .html .doctype,
+    .css .id,
+    .css .class,
+    .css .pseudo {
+        color: @h-red
+    }
+
+    .class,
+    .number,
+    .preprocessor,
+    .built_in,
+    .literal,
+    .params,
+    .constant {
+        color: @h-orange
+    }
+
+    .attribute,
+    .label,
+    .ruby .class .title,
+    .css .rules .attribute {
+        color: @h-green
+    }
+
+    .string,
+    .value,
+    .inheritance,
+    .header,
+    .ruby .symbol,
+    .xml .cdata {
+        color: @h-blue
+    }
+
+    .css .hexcolor {
+        color: @h-aqua
+    }
+
+    .function,
+    .python .decorator,
+    .python .title,
+    .ruby .function .title,
+    .ruby .title .keyword,
+    .perl .sub,
+    .javascript .title,
+    .coffeescript .title {
+        color: @h-blue
+    }
+
+    .keyword,
+    .javascript .function {
+        color: @h-purple
+    }
+
+}

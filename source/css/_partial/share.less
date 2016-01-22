@@ -1,0 +1,138 @@
+.share-icons {
+    li {
+        display: inline-block;
+    }
+
+    .icon-square:before {
+        display: inline-block;
+        text-align: center;
+        color: rgba(0,0,0,0);
+        border-radius: .2em;
+    }
+
+    a {
+        display: inline-block;
+        border-radius: .2em;
+        color: #fff;
+        text-align: center;
+        &.weibo {
+            background: #E6162D
+        }
+
+        &.qq {
+            background: #3D95D5
+        }
+
+        &.weixin {
+            background: #2BAD13
+        }
+
+        &.facebook {
+            background: #4862A3
+        }
+
+        &.twitter {
+            background: #55ACEE
+        }
+
+        &.douban {
+            background: #228A31
+        }
+
+    }
+
+}
+
+.global-share {
+    position: fixed;
+    top: 56px;
+    right: 56px;
+    z-index: 96;
+    width: 260px;
+    padding: 16px  6px;
+    background: #fff;
+    border-radius: 3px;
+    visibility: hidden;
+    .boxShadow(.3s);
+    .transform(scale(0));
+    transform-origin: top right;
+    -webkit-transform-origin: top right;
+
+    &.in {
+        visibility: visible;
+        .transform(none);
+    }
+
+    .share-icons {
+        margin: 0 auto;
+    }
+
+    .tit {
+        display: none
+    }
+
+    li {
+        width: 80px;
+        text-align: center;
+    }
+
+    .icon {
+
+    }
+
+    a {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        margin-bottom: 20px;
+        font-size: 1.33333333em;
+        &:after {
+            position: absolute;
+            bottom: -22px;
+            left: 50%;
+            content: attr(data-title);
+            white-space: nowrap;
+            line-height: 20px;
+            font-size: 12px;
+            color: @primaryColor;
+            .transform(translateX(-50%));
+        }
+
+    }
+
+}
+
+.post-share {
+    margin-bottom: 24px;
+    padding: 8px 12px;
+    background: #eee;
+
+    .tit {
+        margin-bottom: .5em;
+    }
+
+    .share-icons {
+        a {
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+            .tip();
+
+            &:before {
+                content: '分享到'attr(data-title)
+            }
+
+        }
+
+    }
+
+    li {
+        margin-left: .5em;
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+
+
+}

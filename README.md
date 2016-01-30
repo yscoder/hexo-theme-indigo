@@ -88,6 +88,9 @@ rss: /atom.xml
 #你的头像url
 avatar: /img/logo.jpg
 
+# email
+email: 634206017@qq.com
+
 # Content
 tags:
   title: 标签

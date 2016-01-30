@@ -13,6 +13,43 @@ Material Design 风格的Hexo主题，基于 Hexo 3.0+ 制作。预览 [我的�
 6. 添加了一些波纹效果。By [Waves](https://github.com/fians/Waves)
 7. 分享直接使用了 JiaThis API 接口，免去了一次加载请求。
 
+## 使用
+
+### 安装
+
+`$ git clone git@github.com:yscoder/hexo-theme-indigo.git themes/indigo`
+
+### less安装
+
+`npm install hexo-renderer-less --save`
+
+### 配置
+
+修改`hexo/_config.yml`
+
+```
+# 主题
+theme: indigo
+
+# 插件依赖
+plugins:
+  - hexo-renderer-less
+```
+
+### 开启标签页
+
+`hexo new page tags`
+
+修改`hexo/source/tags/index.md`的页面配置
+
+```
+type: "tags"
+noDate: true
+comments: false
+---
+```
+
+
 ## 截图
 
 ### PC

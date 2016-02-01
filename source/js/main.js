@@ -7,6 +7,7 @@
         mask = d.getElementById('mask'),
         menuToggle = d.getElementById('menu-toggle'),
         menuShare = d.getElementById('menu-share'),
+        loading = d.getElementById('loading'),
         animate = w.requestAnimationFrame,
         ua = navigator.userAgent,
         isMD = ua.indexOf('Mobile') != -1 || ua.indexOf('Android') != -1 || ua.indexOf('iPhone') != -1 || ua.indexOf('iPad') != -1 || ua.indexOf('KFAPWI') != -1,
@@ -88,7 +89,7 @@
                 summary = data.summary,
                 pic = data.pic,
                 div = d.createElement('div'),
-                sns = d.querySelectorAll('.share-sns'),
+                sns = d.getElementsByClassName('share-sns'),
                 interface;
 
             div.innerHTML = summary;
@@ -119,6 +120,11 @@
             }
         }
     }
+
+
+    w.addEventListener('load', function() {
+        loading.classList.remove('active');
+    });
 
     var share = Blog.share();
 

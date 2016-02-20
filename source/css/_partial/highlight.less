@@ -14,10 +14,9 @@
 
 .codeBlock() {
     background: @h-background;
-    padding: 10px 10px;
+    padding: 10px 15px;
     overflow: auto;
     line-height: @h-fs*1.6;
-    border: 1px solid @borderColor;
     border-radius: 2px;
 }
 
@@ -33,9 +32,8 @@
 
         code {
             background: none;
-            text-shadow: 0 1px #fff;
-            padding: 0;
             color: @h-foreground;
+            white-space: nowrap;
         }
 
     }
@@ -200,7 +198,8 @@ pre {
         color: @h-blue
     }
 
-    .css .hexcolor {
+    .css .hexcolor,
+    .css .tag {
         color: @h-aqua
     }
 

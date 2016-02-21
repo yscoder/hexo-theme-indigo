@@ -86,6 +86,7 @@
 }
 
 .post-content {
+    overflow: hidden;
     line-height: 1.8;
 
     p,
@@ -272,16 +273,6 @@
     }
 
     code,
-    kbd {
-        margin: 0 4px;
-        font-size: 80%;
-        padding: 3px 5px;
-        border-radius: 2px;
-        white-space: pre-wrap;
-        word-break: break-all;
-    }
-
-    code,
     pre {
         background: @codeBg
     }
@@ -290,10 +281,14 @@
     li code {
         color: @accentColor;
         line-height: 1;
+        margin: 0 4px;
+        font-size: 80%;
+        padding: 3px 5px;
+        border-radius: 2px;
+        word-break: break-all;
     }
 
     pre {
-        display: block;
         font-size: 12px;
         margin: 24px 0;
     }

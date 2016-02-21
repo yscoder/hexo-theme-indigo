@@ -22,9 +22,7 @@
       <div class="post-meat flex-row">
         <div class="flex-col"><%- partial('post/tag') %></div>
       </div>
-      <div class="post-body flex-row">
-
-        <div class="post-content flex-col" itemprop="postContent"><%- post.content %></div>
+      <div class="post-body">
 
         <aside class="post-widget" id="post-widget">
 
@@ -43,6 +41,9 @@
           </nav>
           <% } %>
         </aside>
+
+        <div class="post-content" itemprop="postContent"><%- post.content %></div>
+
 
       </div>
       <%- partial('post/nav') %>

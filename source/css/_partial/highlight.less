@@ -13,9 +13,10 @@
 @h-fs: 12px;
 
 .codeBlock() {
+    overflow-x: auto;
+    position: relative;
     background: @h-background;
     padding: 10px 15px;
-    overflow: auto;
     line-height: @h-fs*1.6;
     border-radius: 2px;
 }
@@ -28,25 +29,19 @@
 .post-content {
     pre {
         .codeBlock();
+        margin: 0;
         color: @h-foreground;
 
         code {
             background: none;
             color: @h-foreground;
-            white-space: nowrap;
         }
 
     }
 
     .highlight {
         .codeBlock();
-
-        pre {
-            border: none;
-            margin: 0;
-            padding: 0;
-            white-space: pre-wrap;
-        }
+        padding: 0;
 
         table {
             margin: 0;
@@ -55,7 +50,14 @@
 
         td {
             border: none;
+        }
+
+        tr,
+        td {
+            width: 100%;
+            border-collapse: collapse;
             padding: 0;
+            margin: 0;
         }
 
         figcaption {

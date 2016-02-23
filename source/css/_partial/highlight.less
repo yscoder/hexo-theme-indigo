@@ -29,7 +29,6 @@
 .post-content {
     pre {
         .codeBlock();
-        margin: 0;
         color: @h-foreground;
 
         code {
@@ -41,7 +40,10 @@
 
     .highlight {
         .codeBlock();
-        padding: 0;
+
+        pre {
+            margin: 0;
+        }
 
         table {
             margin: 0;
@@ -54,7 +56,6 @@
 
         tr,
         td {
-            width: 100%;
             border-collapse: collapse;
             padding: 0;
             margin: 0;

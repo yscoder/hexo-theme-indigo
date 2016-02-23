@@ -88,9 +88,6 @@ rss: /atom.xml
 #你的头像url
 avatar: /img/logo.jpg
 
-# email
-email: 634206017@qq.com
-
 # Content
 tags:
   title: 标签
@@ -101,10 +98,15 @@ archive_yearly: true
 
 #是否开启分享
 share: true
+
 #是否开启toc
 #toc: false
 toc:
   list_number: false  # 是否显示数字排序
+
+#站长统计，如要开启，输入CNZZ站点id
+#cnzz: false
+cnzz: 1255152447
 
 # Miscellaneous
 google_analytics: ''

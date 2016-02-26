@@ -6,6 +6,7 @@
         header = d.getElementById('header'),
         mask = d.getElementById('mask'),
         menuToggle = d.getElementById('menu-toggle'),
+        menuOff = d.getElementById('menu-off'),
         menuShare = d.getElementById('menu-share'),
         loading = d.getElementById('loading'),
         animate = w.requestAnimationFrame,
@@ -26,8 +27,8 @@
             return {
                 x: x,
                 y: y
-            }
-        }
+            };
+        };
 
     var Blog = {
         goTop: function() {
@@ -48,11 +49,16 @@
         },
         toggleMenu: function(flag) {
             if (flag) {
-                mask.style.display = 'block';
-                menu.classList.add('show');
+                menu.classList.remove('hide');
+
+                if(w.innerWidth < 1241) {
+                    mask.classList.add('in');
+                    menu.classList.add('show');
+                }
+
             } else {
                 menu.classList.remove('show');
-                mask.style.display = 'none';
+                mask.classList.remove('in');
             }
         },
         fixedHeader: function(top) {
@@ -78,7 +84,7 @@
                 } else {
                     toc.classList.remove('fixed');
                 }
-            }
+            };
         })(),
         share: function() {
 
@@ -110,20 +116,24 @@
 
             return {
                 show: function() {
-                    mask.style.display = 'block';
+                    mask.classList.add('in');
                     share.classList.add('in');
                 },
                 hide: function() {
                     share.classList.remove('in');
-                    mask.style.display = 'none';
+                    mask.classList.remove('in');
                 }
-            }
+            };
         }
-    }
+    };
 
 
     w.addEventListener('load', function() {
         loading.classList.remove('active');
+    });
+
+    w.addEventListener('resize', function() {
+        Blog.toggleMenu();
     });
 
     var share = Blog.share();
@@ -138,6 +148,10 @@
 
     menuToggle.addEventListener(even, function() {
         Blog.toggleMenu(true);
+    }, false);
+
+    menuOff.addEventListener(even, function() {
+        menu.classList.add('hide');
     }, false);
 
     mask.addEventListener(even, function() {

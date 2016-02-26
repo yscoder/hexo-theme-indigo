@@ -92,33 +92,15 @@
     }
 
     .gist {
-        border-style: solid;
-        border-color: @borderColor;
-        border-width: 1px 0;
         background: @h-background;
-        padding: 15px 0;
+
+        tr, td {
+            height: auto;
+        }
 
         .gist-file {
             border: none;
             font-family: @font-code;
-            margin: 0;
-
-            .gist-data {
-                background: none;
-                border: none;
-
-                .line-numbers {
-                    .line-numbers();
-                    background: none;
-                    border: none;
-                    padding: 0 20px 0 0
-                }
-
-                .line-data {
-                    padding: 0 !important
-                }
-
-            }
 
             .highlight {
                 margin: 0;
@@ -126,22 +108,34 @@
                 border: none;
             }
 
-            .gist-meta {
-                background: @h-background;
-                color: @h-comment;
-                font: 0.85em @font-code;
-                text-shadow: 0 0;
-                padding: 0;
-                margin-top: 1em;
+        }
+        .gist-data {
+            border: none;
 
-                a {
-                    color: @accentColor;
-                    font-weight: normal;
+            .line-numbers {
+                .line-numbers();
+                background: none;
+                border: none;
+                padding: 0 20px 0 0
+            }
 
-                    &:hover {
-                        text-decoration: underline
-                    }
+            .line-data {
+                padding: 0 !important
+            }
 
+        }
+
+        .gist-meta {
+            background: @h-background;
+            color: @h-comment;
+            font: 0.85em @font-code;
+
+            a {
+                color: @accentColor;
+                font-weight: normal;
+
+                &:hover {
+                    text-decoration: underline
                 }
 
             }

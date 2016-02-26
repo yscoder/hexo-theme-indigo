@@ -6,8 +6,8 @@
     color: @textPrimaryColor;
     height: @headerH;
     background: @primaryColor;
-    -webkit-transition: background-color .3s cubic-bezier(.4, 0, .2, 1), box-shadow .15s linear;
-    transition: background-color .3s cubic-bezier(.4, 0, .2, 1), box-shadow .15s linear;
+    -webkit-transition: padding-left .6s ease-in-out, background-color .3s cubic-bezier(.4, 0, .2, 1), box-shadow .15s linear;
+    transition: padding-left .6s ease-in-out, background-color .3s cubic-bezier(.4, 0, .2, 1), box-shadow .15s linear;
     z-index: 30;
 
     &.fixed {
@@ -32,10 +32,6 @@
         color: @textPrimaryColor;
     }
 
-}
-
-#menu-toggle {
-    visibility: hidden;
 }
 
 .header-title {
@@ -63,9 +59,7 @@
 }
 
 @media screen and (max-width:1240px) {
-    #menu-toggle {
-        visibility: visible;
-    }
+
     .header-title {
         text-align: left;
     }

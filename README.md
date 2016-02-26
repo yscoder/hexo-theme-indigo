@@ -99,14 +99,16 @@ archive_yearly: true
 #是否开启分享
 share: true
 
+#是否大屏幕下文章页隐藏导航
+hideMenu: true
+
 #是否开启toc
 #toc: false
 toc:
   list_number: false  # 是否显示数字排序
 
-#站长统计，如要开启，输入CNZZ站点id
-#cnzz: false
-cnzz: 1255152447
+#站长统计，如要开启，输入CNZZ站点id，如 cnzz: 1255152447
+cnzz: false
 
 # Miscellaneous
 google_analytics: ''

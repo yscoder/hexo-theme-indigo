@@ -4,9 +4,11 @@
           <i class="icon icon-lg icon-navicon"></i>
         </a>
         <div class="flex-col header-title ellipsis"><%=page.title || config.title %></div>
+        <% if(theme.share){ %>
         <a href="javascript:;" class="header-icon waves-circle-light" id="menu-share">
             <i class="icon icon-lg icon-share-alt"></i>
         </a>
+        <% } %>
     </div>
 </header>
 <header class="content-header">

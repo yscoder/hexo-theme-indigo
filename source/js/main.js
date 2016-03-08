@@ -11,7 +11,7 @@
         loading = d.getElementById('loading'),
         animate = w.requestAnimationFrame,
         ua = navigator.userAgent,
-        isMD = ua.indexOf('Mobile') != -1 || ua.indexOf('Android') != -1 || ua.indexOf('iPhone') != -1 || ua.indexOf('iPad') != -1 || ua.indexOf('KFAPWI') != -1,
+        isMD = ua.indexOf('Mobile') !== -1 || ua.indexOf('Android') !== -1 || ua.indexOf('iPhone') !== -1 || ua.indexOf('iPad') !== -1 || ua.indexOf('KFAPWI') !== -1,
         even = isMD ? 'touchstart' : 'click',
         noop = function() {},
         offset = function(el) {
@@ -96,16 +96,16 @@
                 pic = data.pic,
                 div = d.createElement('div'),
                 sns = d.getElementsByClassName('share-sns'),
-                interface;
+                api;
 
             div.innerHTML = summary;
             summary = div.innerText;
             div = undefined;
 
-            interface = 'http://www.jiathis.com/send/?webid={service}&url=' + url + '&title=' + title + '&summary=' + summary + '&pic=' + pic;
+            api = 'http://www.jiathis.com/send/?webid={service}&url=' + url + '&title=' + title + '&summary=' + summary + '&pic=' + pic;
 
             function goShare(service) {
-                w.open(encodeURI(interface.replace('{service}', service)));
+                w.open(encodeURI(api.replace('{service}', service)));
             }
 
             [].forEach.call(sns, function(el) {

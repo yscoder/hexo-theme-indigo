@@ -68,7 +68,12 @@ comments: false
 ## Config
 
 ```
-# Header
+#添加新菜单项遵循以下规则
+# menu:
+#  link:               fontawesome图标，省略前缀，本主题前缀为 icon-，必须
+#    text: About       菜单显示的文字，如果省略即默认与图标一致，首字母会转大写
+#    url: /about       链接，绝对或相对路径，必须。
+#    target: _blank    是否跳出，省略则在当前页面打开
 menu:
   home:
     url: /
@@ -82,11 +87,17 @@ menu:
   weibo:
     url: http://www.weibo.com/ysweb
     target: _blank
+  link:
+    text: 测试
+    url: /
 
 rss: /atom.xml
 
 #你的头像url
 avatar: /img/logo.jpg
+
+# email
+email: 634206017@qq.com
 
 # Content
 tags:
@@ -118,7 +129,6 @@ favicon: /favicon.ico
 less:
   paths:
     - source/css/style.less
-
 
 #是否开启多说评论，填写你在多说申请的项目名称 duoshuo: duoshuo-key
 #若使用disqus，请在博客config文件中填写disqus_shortname，并关闭多说评论

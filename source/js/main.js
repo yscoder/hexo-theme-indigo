@@ -127,6 +127,10 @@
         }
     };
 
+    menu.addEventListener('touchmove', function(e) {
+        e.preventDefault();
+    });
+
 
     w.addEventListener('load', function() {
         loading.classList.remove('active');

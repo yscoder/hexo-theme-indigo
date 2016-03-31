@@ -9,6 +9,7 @@
 #    target: _blank    是否跳出，省略则在当前页面打开
 menu:
   home:
+    text: 主页
     url: /
   archives:
     url: /archives

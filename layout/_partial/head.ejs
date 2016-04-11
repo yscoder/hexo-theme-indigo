@@ -35,6 +35,7 @@
   <% if (theme.rss){ %>
     <link rel="alternative" href="<%- theme.rss %>" title="<%= config.title %>" type="application/atom+xml">
   <% } %>
+  <meta name="summary" content="<%=(page.excerpt || config.description)%>">
   <%- favicon_tag(theme.favicon) %>
   <%- css('css/style') %>
 </head>

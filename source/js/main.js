@@ -7,7 +7,6 @@
         mask = d.getElementById('mask'),
         menuToggle = d.getElementById('menu-toggle'),
         menuOff = d.getElementById('menu-off'),
-        menuShare = d.getElementById('menu-share'),
         loading = d.getElementById('loading'),
         animate = w.requestAnimationFrame,
         ua = navigator.userAgent,
@@ -89,23 +88,32 @@
         share: function() {
 
             var share = d.getElementById('global-share'),
-                data = share.dataset,
-                title = data.title,
-                url = data.url,
-                summary = data.summary,
-                pic = data.pic,
+                menuShare = d.getElementById('menu-share'),
                 div = d.createElement('div'),
                 sns = d.getElementsByClassName('share-sns'),
-                api;
+                summary, api;
 
-            div.innerHTML = summary;
+            div.innerHTML = BLOG_SHARE.summary;
             summary = div.innerText;
             div = undefined;
 
-            api = 'http://www.jiathis.com/send/?webid={service}&url=' + url + '&title=' + title + '&summary=' + summary + '&pic=' + pic;
+            api = 'http://www.jiathis.com/send/?webid={service}&url=' + BLOG_SHARE.url
+                + '&title=' + BLOG_SHARE.title
+                + '&summary=' + summary
+                + '&pic=' + location.protocol + '//' + location.host + BLOG_SHARE.pic;
 
             function goShare(service) {
                 w.open(encodeURI(api.replace('{service}', service)));
+            }
+
+            function show() {
+                mask.classList.add('in');
+                share.classList.add('in');
+            }
+
+            function hide() {
+                share.classList.remove('in');
+                mask.classList.remove('in');
             }
 
             [].forEach.call(sns, function(el) {
@@ -114,23 +122,19 @@
                 }, false);
             });
 
-            return {
-                show: function() {
-                    mask.classList.add('in');
-                    share.classList.add('in');
-                },
-                hide: function() {
-                    share.classList.remove('in');
-                    mask.classList.remove('in');
-                }
-            };
+            menuShare.addEventListener(even, function() {
+                show();
+            }, false);
+
+            mask.addEventListener(even, function() {
+                hide();
+            }, false);
         }
     };
 
     menu.addEventListener('touchmove', function(e) {
         e.preventDefault();
     });
-
 
     w.addEventListener('load', function() {
         loading.classList.remove('active');
@@ -139,12 +143,6 @@
     w.addEventListener('resize', function() {
         Blog.toggleMenu();
     });
-
-    var share = Blog.share();
-
-    menuShare.addEventListener(even, function() {
-        share.show();
-    }, false);
 
     gotop.addEventListener(even, function() {
         animate(Blog.goTop);
@@ -160,7 +158,6 @@
 
     mask.addEventListener(even, function() {
         Blog.toggleMenu();
-        share.hide();
     }, false);
 
     d.addEventListener('scroll', function() {
@@ -169,6 +166,10 @@
         Blog.fixedHeader(top);
         Blog.fixedToc(top);
     }, false);
+
+    if(BLOG_SHARE) {
+        Blog.share();
+    }
 
     Waves.init();
     Waves.attach('.waves-button-light', ['waves-button', 'waves-light']);

@@ -50,7 +50,7 @@
             if (flag) {
                 menu.classList.remove('hide');
 
-                if(w.innerWidth < 1241) {
+                if (w.innerWidth < 1241) {
                     mask.classList.add('in');
                     menu.classList.add('show');
                 }
@@ -75,14 +75,37 @@
             }
 
             var tocOfs = offset(toc),
-                tocTop = tocOfs.y;
+                tocTop = tocOfs.y,
+                tocH = toc.offsetHeight,
+                isScroll = tocH > w.innerHeight,
+                titles = d.getElementById('post-content').querySelectorAll('h1, h2, h3, h4, h5, h6'),
+                cssTop = 150,
+                minTop = -1 * (tocH - w.innerHeight) - cssTop;
+
+            function scroll(top) {
+
+                for (var id, i = 0, len = titles.length; i < len; i++) {
+                    if (top > offset(titles[i]).y) {
+                        id = titles[i].id;
+                    }
+                }
+
+                var top = cssTop - toc.querySelectorAll('a[href="#' + id + '"]')[0].offsetTop;
+
+                toc.style.top = (top < minTop ? minTop : top) + 'px';
+            }
 
             return function(top) {
                 if (top > tocTop) {
                     toc.classList.add('fixed');
+
+                    if (isScroll) {
+                        scroll(top);
+                    }
                 } else {
                     toc.classList.remove('fixed');
                 }
+
             };
         })(),
         share: function() {
@@ -97,10 +120,7 @@
             summary = div.innerText;
             div = undefined;
 
-            api = 'http://www.jiathis.com/send/?webid={service}&url=' + BLOG_SHARE.url
-                + '&title=' + BLOG_SHARE.title
-                + '&summary=' + summary
-                + '&pic=' + location.protocol + '//' + location.host + BLOG_SHARE.pic;
+            api = 'http://www.jiathis.com/send/?webid={service}&url=' + BLOG_SHARE.url + '&title=' + BLOG_SHARE.title + '&summary=' + summary + '&pic=' + location.protocol + '//' + location.host + BLOG_SHARE.pic;
 
             function goShare(service) {
                 w.open(encodeURI(api.replace('{service}', service)));
@@ -167,7 +187,7 @@
         Blog.fixedToc(top);
     }, false);
 
-    if(BLOG_SHARE) {
+    if (BLOG_SHARE) {
         Blog.share();
     }
 

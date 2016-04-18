@@ -1,14 +1,14 @@
 <% if(post.type == 'tags') { %>
   <%- partial('post/tags') %>
 <% } else { %>
-  <article id="<%= post.layout %>-<%= post.slug %>" class="article article-type-<%= post.layout %>" itemscope itemprop="blogPost">
+  <article id="<%= post.layout %>-<%= post.slug %>" class="article article-type-<%= post.layout %>" itemprop="blogPost">
     <% if(index) { %>
       <%- partial('post/title') %>
       <div class="post-meat flex-row">
         <div class="flex-col"><%- partial('post/tag') %></div>
         <%- partial('post/date', {date_format: config.date_format}) %>
       </div>
-      <div class="post-content" itemprop="postContent" >
+      <div class="post-content" id="post-content" itemprop="postContent" >
         <% if (post.excerpt){ %>
           <%- post.excerpt %>
         <% } else { %>
@@ -44,7 +44,7 @@
 
         <div class="post-main">
 
-            <div class="post-content" itemprop="postContent"><%- post.content %></div>
+            <div class="post-content" id="post-content" itemprop="postContent"><%- post.content %></div>
 
             <%- partial('post/nav') %>
 

@@ -27,16 +27,17 @@
                 x: x,
                 y: y
             };
-        };
+        },
+        docEl = ua.indexOf('Firefox') !== -1 ? d.documentElement : body;
 
     var Blog = {
         goTop: function() {
-            var top = body.scrollTop;
+            var top = docEl.scrollTop;
             if (top > 400) {
-                body.scrollTop = top - 400;
+                docEl.scrollTop = top - 400;
                 animate(arguments.callee);
             } else {
-                body.scrollTop = 0;
+                docEl.scrollTop = 0;
             }
         },
         toggleGotop: function(top) {
@@ -181,7 +182,7 @@
     }, false);
 
     d.addEventListener('scroll', function() {
-        var top = body.scrollTop;
+        var top = docEl.scrollTop;
         Blog.toggleGotop(top);
         Blog.fixedHeader(top);
         Blog.fixedToc(top);

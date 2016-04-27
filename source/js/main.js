@@ -169,8 +169,9 @@
         animate(Blog.goTop);
     }, false);
 
-    menuToggle.addEventListener(even, function() {
+    menuToggle.addEventListener(even, function(e) {
         Blog.toggleMenu(true);
+        e.preventDefault();
     }, false);
 
     menuOff.addEventListener(even, function() {

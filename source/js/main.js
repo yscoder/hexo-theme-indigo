@@ -189,7 +189,7 @@
         Blog.fixedToc(top);
     }, false);
 
-    if (BLOG_SHARE) {
+    if (typeof BLOG_SHARE !== 'undefined') {
         Blog.share();
     }
 

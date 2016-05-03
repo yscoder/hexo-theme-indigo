@@ -42,7 +42,7 @@ mathjax: false
 archive_yearly: true
 
 #是否开启分享
-share: true
+share: false
 
 #是否大屏幕下文章页隐藏导航
 hideMenu: true

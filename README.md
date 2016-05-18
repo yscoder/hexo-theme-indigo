@@ -80,7 +80,7 @@ jsonContent:
 
 ```
 #是否开启搜索
-search: false
+search: true
 ```
 
 

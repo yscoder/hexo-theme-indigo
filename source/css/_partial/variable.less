@@ -25,9 +25,9 @@
 @mNavH: 36px;
 @boxShadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 
-.transition(@s) {
-    -webkit-transition: @s ease-in-out;
-    transition: @s ease-in-out;
+.transition(@s, @dur: ease-in-out) {
+    -webkit-transition: @s @dur;
+    transition: @s @dur;
 }
 
 .transform(@prop) {
@@ -59,14 +59,14 @@
         left: 0;
         background-color: @color;
         visibility: hidden;
-        transform: scaleX(0);
+        .transform(scaleX(0));
         .transition(.4s);
     }
 
     &:hover::after,
     &:active::after {
         visibility: visible;
-        transform: scaleX(1);
+        .transform(scaleX(1));
     }
 
 }

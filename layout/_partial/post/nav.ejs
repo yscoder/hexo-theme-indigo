@@ -1,6 +1,6 @@
 <% if (post.prev || post.next){ %>
 <nav class="post-nav flex-row">
-  <div class="flex-col waves-block prev">
+  <div class="flex-col waves-block waves-effect prev">
     <% if (post.prev){
       var prevTitle = post.prev.title || '(no title)';
       %>
@@ -10,7 +10,7 @@
       </a>
     <% } %>
   </div>
-  <div class="flex-col waves-block next">
+  <div class="flex-col waves-block waves-effect next">
     <% if (post.next){
         var nextTitle = post.next.title || '(no title)';
       %>

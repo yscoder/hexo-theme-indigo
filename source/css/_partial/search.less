@@ -1,0 +1,162 @@
+.search-wrap {
+    position: relative;
+    min-width: 56px;
+
+    &.in {
+
+        .search-input {
+            width: 320px;
+            opacity: 1;
+        }
+
+        #search  {
+            color: @lightPrimaryColor
+        }
+    }
+
+    .search-input {
+        position: relative;
+        z-index: 2;
+        width: 0;
+        height: 36px;
+        margin: 10px 10px 0 0;
+        border: none;
+        background: transparent;
+        color: #fff;
+        border-bottom: 2px solid #fff;
+        opacity: 0;
+        .transition(.2s);
+
+        &::-webkit-input-placeholder {
+            color: @lightPrimaryColor
+        }
+    }
+
+    .header-icon {
+        position: absolute;
+        top: 0;
+        z-index: 3;
+    }
+    #search {
+        right: 0;
+    }
+
+    #back {
+        display: none;
+        left: 0
+    }
+
+}
+
+.search-panel {
+    position: fixed;
+    top: 50px;
+    right: 65px;
+    z-index: 36;
+    width: 400px;
+    max-height: 70%;
+    overflow-y: auto;
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: @boxShadow;
+    opacity: 0;
+    visibility: hidden;
+    .transform(translateY(-50%) scale(.5));
+    .transition(.3s, ease-in);
+
+    &.in {
+        opacity: 1;
+        visibility: visible;
+        .transform(none);
+    }
+}
+
+.search-result {
+    margin: 0;
+    padding: 0;
+    .item {
+        line-height: 1.6em;
+        border-top: 1px solid @borderColor;
+        &:first-child {
+            border-top: none;
+        }
+        a {
+            padding: 10px 20px;
+        }
+    }
+    .title {
+        color: @primaryColor;
+        &:hover {
+            color: @lightPrimaryColor
+        }
+    }
+
+    .tags span, .time {
+        font-size: 13px;
+        color: @secondaryTextColor;
+    }
+
+    .tags {
+        margin-right: 1em;
+        span {
+            margin-right: .5em;
+        }
+    }
+
+    .time {
+        padding-left: 1em;
+    }
+
+    .tips {
+        padding: 30px 0;
+        text-align: center;
+        color: @secondaryTextColor;
+    }
+}
+
+.lock-size {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    overflow: hidden;
+}
+
+
+@media screen and (max-width:760px) {
+
+    .search-wrap {
+
+        &.in {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 10;
+            width: 100%;
+            padding: 0 16px 0 56px;
+            background: @primaryColor;
+
+            .search-input {
+                width: 100%;
+            }
+
+            #back {
+                display: block;
+            }
+
+        }
+    }
+
+    .search-panel {
+        z-index: 28;
+        top: 0;
+        right: 0;
+        padding-top: 56px;
+        width: 100%;
+        height: 100%;
+        max-height: 100%;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+}

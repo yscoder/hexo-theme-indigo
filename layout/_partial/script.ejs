@@ -2,12 +2,17 @@
 
 <%- js('js/main') %>
 
+<% if (theme.search){ %>
+<%- partial('search') %>
+<%- js('js/search') %>
+<% } %>
+
 <% if (theme.mathjax){ %>
 <%- partial('mathjax') %>
 <% } %>
 
 <% if (theme.cnzz){ %>
-<%- partial('cnzz') %>
+<script src="http://s95.cnzz.com/z_stat.php?id=<%=theme.cnzz %>&web_id=<%=theme.cnzz %>"></script>
 <% } %>
 
 <%- partial('google-analytics') %>

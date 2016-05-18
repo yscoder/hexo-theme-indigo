@@ -1,6 +1,6 @@
 {
     "name": "hexo-theme-material-indigo",
-    "version": "0.0.3",
+    "version": "0.1.0",
     "private": true,
     "dependencies": {
         "hexo-renderer-less": "*"

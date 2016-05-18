@@ -30,10 +30,6 @@ Material Design 风格的Hexo主题，基于 Hexo 3.0+ 制作。预览 [我的�
 ```
 # 主题
 theme: indigo
-
-# 插件依赖
-plugins:
-  - hexo-renderer-less
 ```
 
 ### 开启标签页
@@ -47,6 +43,44 @@ type: "tags"
 noDate: true
 comments: false
 ---
+```
+
+### 开启站内搜索
+
+**插件依赖**
+
+```
+npm install hexo-generator-json-content --save
+```
+
+**修改站点配置，`hexo/_config.yml`**
+
+```
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: true
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: false
+    tags: true
+```
+
+**修改主题配置，`hexo/thems/indigo/_config.yml`**
+
+```
+#是否开启搜索
+search: false
 ```
 
 
@@ -109,6 +143,9 @@ archive_yearly: true
 
 #是否开启分享
 share: true
+
+#是否开启搜索
+search: false
 
 #是否大屏幕下文章页隐藏导航
 hideMenu: true

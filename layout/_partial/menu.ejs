@@ -1,5 +1,5 @@
 <div class="inner">
-  <a href="javascript:;" class="header-icon waves-circle-light" id="menu-off">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
       <i class="icon icon-lg icon-close"></i>
   </a>
   <div class="brand-wrap">
@@ -14,12 +14,12 @@
   <ul class="nav">
     <%
       var menuItem, isActive = function(item) {
-          return (is_home() && item === 'home') || (is_archive() && item === 'archives') || ( (is_tag() || page.type === 'tags') && item === 'tags');
+          return (path === 'index.html' && item === 'home') || (is_archive() && item === 'archives') || ( (is_tag() || page.type === 'tags') && item === 'tags');
       };
       for (var i in theme.menu) {
         menuItem = theme.menu[i];
       %>
-        <li class="waves-block<% if(isActive(i)){ %> active<% } %>">
+        <li class="waves-block waves-effect<% if(isActive(i)){ %> active<% } %>">
           <a href="<%- url_for(menuItem.url) %>" <% if(menuItem.target){ %>target="_blank"<% } %> >
             <i class="icon icon-lg icon-<%= i %>"></i>
             <%=(menuItem.text || _.startCase(i)) %>

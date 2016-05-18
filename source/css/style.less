@@ -9,6 +9,23 @@
     box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+
+    &-track { background-color: transparent; }
+    &-thumb {
+        background-color: @dividerColor ;
+
+        &:hover {
+            background-color: @secondaryTextColor
+        }
+        &:active {
+            background-color: @secondaryTextColor
+        }
+    }
+}
+
 html {
     background-color: #fff;
     color: @primaryTextColor;
@@ -431,3 +448,4 @@ hr,
 @import '_partial/archives';
 @import '_partial/tags';
 @import '_partial/highlight';
+@import '_partial/search';

@@ -25,9 +25,11 @@
     var keyWords = config.keywords;
     if(page.tags){
       keyWords = [];
-      page.tags.each(function(k){
-        keyWords.push(k.name);
-      })
+
+      _.isArray(page.tags) ? ( keyWords = page.tags )
+        : page.tags.each(function(k){
+            keyWords.push(k.name);
+          });
    }
   %>
   <meta name="keywords" content="<%= keyWords %>">

@@ -1,4 +1,4 @@
-<div class="inner">
+<div class="inner flex-row-vertical">
   <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
       <i class="icon icon-lg icon-close"></i>
   </a>
@@ -11,7 +11,7 @@
       </hgroup>
     </div>
   </div>
-  <ul class="nav">
+  <ul class="nav flex-col">
     <%
       var menuItem, isActive = function(item) {
           return (path === 'index.html' && item === 'home') || (is_archive() && item === 'archives') || ( (is_tag() || page.type === 'tags') && item === 'tags');

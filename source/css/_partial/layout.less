@@ -100,9 +100,11 @@
     }
 
     .nav {
-        padding: 0;
+        margin: 0;
+        padding: 12px 0;
         list-style: none;
         line-height: @navH;
+        overflow-y: auto;
 
         li {
             padding: 0 @menuPadding;
@@ -134,9 +136,7 @@
     }
 
     .footer {
-        position: absolute;
-        left: 0;
-        bottom: 0;
+        position: relative;
         width: 100%;
         font-size: 12px;
         font-family: @font-code;
@@ -146,7 +146,7 @@
         .rss {
             position: absolute;
             right: @menuPadding;
-            bottom: 70px;
+            top: 17px;
             color: #E64A19;
         }
 
@@ -202,9 +202,11 @@ a[title="站长统计"] {
 
     #menu {
         z-index: 99;
+        box-shadow: none;
         .transform(translateX(-100%));
 
         &.show {
+            box-shadow: @boxShadow;
             .transform(none);
         }
 

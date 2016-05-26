@@ -45,7 +45,12 @@
         <div class="post-main">
 
             <div class="post-content" id="post-content" itemprop="postContent"><%- post.content %></div>
-
+            <div class="post-share">
+              <p>
+                <span>转载请注明本文地址：</span>
+                <a href="<%- url_for(post.path) %>" target="_blank" rel="external" id="shareLink"><%- url_for(post.path) %></a>
+              </p>
+            </div>
             <%- partial('post/nav') %>
 
             <%- partial('post/comment') %>
@@ -55,7 +60,10 @@
       </div>
 
     <% } %>
-
+  <script type="text/javascript">
+    var $shareLink = document.getElementById('shareLink')
+    shareLink.text = window.location.origin + shareLink.text
+  </script>
   </article>
 
 <% } %>

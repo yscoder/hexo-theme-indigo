@@ -100,7 +100,7 @@
     li {
         a {
             color: @accentColor;
-            border-bottom: 1px solid lighten(@accentColor, 27%);
+            border-bottom: 1px solid lighten(@accentColor, 32%);
             word-break: break-all;
 
             &:hover,
@@ -160,7 +160,8 @@
     pre,
     table,
     ul,
-    figure {
+    figure
+    .video-container {
         margin-bottom: 20px;
     }
 
@@ -210,7 +211,7 @@
 
     blockquote {
         position: relative;
-        padding: 8px 20px;
+        padding: 16px 20px;
         border-left: 4px solid @primaryColor;
         color: lighten(@primaryTextColor, 30%);
         background: @codeBg;
@@ -218,11 +219,11 @@
         border-radius: 0 2px 2px 0;
 
         p {
-            margin-bottom: 0;
+            margin: 0;
         }
 
         footer {
-            margin-top: 20px;
+            margin-top: 10px;
             text-align: right;
             font-size: 80%;
         }

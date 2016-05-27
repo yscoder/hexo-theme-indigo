@@ -44,12 +44,15 @@
 
         <div class="post-main">
 
-            <div class="post-content" id="post-content" itemprop="postContent"><%- post.content %></div>
-            <div class="post-share">
+            <div class="post-content" id="post-content" itemprop="postContent">
+            <%- post.content %>
+            <blockquote>
               <p>
-                <span>转载请注明本文地址：</span>
-                <a href="<%- page.permalink %>" target="_blank" rel="external"><%- page.permalink %></a>
+                本文地址：
+                <a href="<%- page.permalink%>" target="_blank" rel="external"><%- page.permalink %></a>
               </p>
+              <footer><cite><a href="<%- config.url %>">@<%- config.title %></a></cite></footer>
+            </blockquote>
             </div>
             <%- partial('post/nav') %>
 

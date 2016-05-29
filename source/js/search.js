@@ -79,12 +79,14 @@
 
         searchResult.innerHTML = html;
     }
-
+    function regtest(raw, regExp) {
+        regExp.lastIndex = 0;
+        return regExp.test(raw);
+    }
     function matcher(post, regExp) {
-
-        return regExp.test(post.title) || post.tags.some(function(tag) {
-            return regExp.test(tag.name);
-        }) || regExp.test(post.text);
+        return regtest(post.title, regExp) || post.tags.some(function(tag) {
+            return regtest(tag.name, regExp);
+        }) || regtest(post.text, regExp);
     }
 
     function search(e) {

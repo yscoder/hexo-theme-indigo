@@ -81,6 +81,8 @@
     }
 
     function matcher(post, regExp) {
+        
+        regExp.lastIndex = 0;
 
         return regExp.test(post.title) || post.tags.some(function(tag) {
             return regExp.test(tag.name);

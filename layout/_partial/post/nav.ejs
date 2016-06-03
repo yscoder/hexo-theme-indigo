@@ -1,23 +1,28 @@
 <% if (post.prev || post.next){ %>
 <nav class="post-nav flex-row">
-  <div class="flex-col waves-block waves-effect prev">
-    <% if (post.prev){
-      var prevTitle = post.prev.title || '(no title)';
-      %>
+
+  <div class="flex-col">
+  <% if (post.prev){
+    var prevTitle = post.prev.title || '(no title)';
+    %>
+    <div class="waves-block waves-effect prev">
       <a href="<%- url_for(post.prev.path) %>" title="<%=prevTitle %>" id="post-prev" class="post-nav-link">
         <i class="icon icon-chevron-left"></i>
         <span class="article-nav-title">上一篇</span>
       </a>
-    <% } %>
+    </div>
+  <% } %>
   </div>
-  <div class="flex-col waves-block waves-effect next">
+  <div class="flex-col">
     <% if (post.next){
-        var nextTitle = post.next.title || '(no title)';
+      var nextTitle = post.next.title || '(no title)';
       %>
-      <a href="<%- url_for(post.next.path) %>" title="<%=nextTitle %>" id="post-next" class="post-nav-link">
-        <span class="article-nav-title">下一篇</span>
-        <i class="icon icon-chevron-right"></i>
-      </a>
+      <div class="waves-block waves-effect next">
+        <a href="<%- url_for(post.next.path) %>" title="<%=nextTitle %>" id="post-next" class="post-nav-link">
+          <span class="article-nav-title">下一篇</span>
+          <i class="icon icon-chevron-right"></i>
+        </a>
+      </div>
     <% } %>
   </div>
 

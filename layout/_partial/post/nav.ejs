@@ -1,25 +1,25 @@
 <% if (post.prev || post.next){ %>
-<nav class="post-nav flex-row">
-  <div class="flex-col waves-block waves-effect prev">
-    <% if (post.prev){
-      var prevTitle = post.prev.title || '(no title)';
-      %>
-      <a href="<%- url_for(post.prev.path) %>" title="<%=prevTitle %>" id="post-prev" class="post-nav-link">
-        <i class="icon icon-chevron-left"></i>
-        <span class="article-nav-title">上一篇</span>
+<nav class="post-nav">
+  <% if (post.prev){
+    var prevTitle = post.prev.title || '[no title]';
+    %>
+    <div class="waves-block waves-effect prev fl">
+      <a href="<%- url_for(post.prev.path) %>" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title"><%=prevTitle %></h4>
       </a>
-    <% } %>
-  </div>
-  <div class="flex-col waves-block waves-effect next">
-    <% if (post.next){
-        var nextTitle = post.next.title || '(no title)';
-      %>
-      <a href="<%- url_for(post.next.path) %>" title="<%=nextTitle %>" id="post-next" class="post-nav-link">
-        <span class="article-nav-title">下一篇</span>
-        <i class="icon icon-chevron-right"></i>
-      </a>
-    <% } %>
-  </div>
+    </div>
+  <% } %>
 
+  <% if (post.next){
+      var nextTitle = post.next.title || '[no title]';
+    %>
+    <div class="waves-block waves-effect next fr">
+      <a href="<%- url_for(post.next.path) %>" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title"><%=nextTitle %></h4>
+      </a>
+    </div>
+  <% } %>
 </nav>
 <% } %>

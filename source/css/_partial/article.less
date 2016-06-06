@@ -42,59 +42,50 @@
 
 .post-main {
     overflow: hidden;
+    .post-content {
+        min-height: 100px;
+    }
 }
 
 .post-nav {
-    border-top: 1px solid @borderColor;
+    border-top: 3px solid @borderColor;
+    padding: 16px 0 0;
+    overflow: hidden;
 
-    .prev,
-    .next {
-        padding: 10px 0;
+    .prev, .next {
+        width: 47%;
+        padding-bottom: 300px;
+        margin-bottom: -300px;
+        background: @codeBg;
     }
 
     .next {
         text-align: right;
-
-        .post-nav-link:hover .article-nav-title {
-            .transform(translateX(-20px));
-        }
-
-    }
-
-    .prev {
-        .post-nav-link:hover .article-nav-title {
-            .transform(translateX(20px));
-        }
-
     }
 
 }
 
 .post-nav-link {
-    display: inline-block;
+    display: block;
     line-height: 2em;
-    font-size: 14px;
-    color: @secondaryTextColor;
-    white-space: nowrap;
+    font-size: 16px;
+    padding: 10px 16px;
+
+    .title {
+        .hoverLine(@primaryColor);
+    }
 
     .icon {
-        font-size: 14px;
-        padding: 0 12px;
+        vertical-align: -9%;
     }
 
-    .article-nav-title {
-        display: inline-block;
-        .transition(.4s)
-    }
-
-    &:hover {
-        color: @accentColor;
+    .tips {
+        color: @secondaryTextColor;
     }
 
 }
 
 .post-content {
-    min-height: 100px;
     line-height: 1.8;
 
     p,
@@ -114,7 +105,7 @@
     }
 
     strong {
-        font-weight: 500;
+        font-weight: 700;
         border-bottom: 1px solid @accentColor;
         a {
             border-color: @accentColor

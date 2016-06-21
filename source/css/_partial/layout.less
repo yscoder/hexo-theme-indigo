@@ -19,9 +19,8 @@
     width: @menuWidth;
     min-height: 100%;
     background: #fff;
-    will-change: left;
     box-shadow: @boxShadow;
-    .transition(.4s);
+    .transition(.4s, cubic-bezier(0.18, 0.81, 0.3, 0.89));
 
     &.hide {
         .transform(translateX(-100%));
@@ -206,8 +205,7 @@ a[title="站长统计"] {
         .transform(translateX(-100%));
 
         &.show {
-            box-shadow: @boxShadow;
-            .transform(none);
+            .transform(translateX(0));
         }
 
     }

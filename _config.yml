@@ -33,6 +33,9 @@ avatar: /img/logo.jpg
 # email
 email: 634206017@qq.com
 
+# 设置 Android L Chrome 浏览器状态栏颜色
+color: '#3F51B5'
+
 # Content
 tags:
   title: 标签

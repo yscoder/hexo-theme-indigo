@@ -1,9 +1,7 @@
-<% if(post.type == 'tags') { %>
-  <%- partial('post/tags') %>
-<% } else { %>
-  <article id="<%= post.layout %>-<%= post.slug %>" class="article article-type-<%= post.layout %>" itemprop="blogPost">
+<article id="<%= post.layout %>-<%= post.slug %>" 
+  class="article article-type-<%= post.layout %>" itemprop="blogPost">
     <% if(index) { %>
-      <%- partial('post/title') %>
+      <%- partial('post/title', { hasLink: true }) %>
       <div class="post-meat flex-row">
         <div class="flex-col"><%- partial('post/tag') %></div>
         <%- partial('post/date', {date_format: config.date_format}) %>
@@ -19,51 +17,9 @@
         <a href="<%- url_for(post.path) %>" class="post-more waves-effect waves-button waves-light">MORE</a>
       </div>
     <% } else { %>
-      <div class="post-meat flex-row">
-        <div class="flex-col"><%- partial('post/tag') %></div>
-      </div>
-      <div class="post-body">
-
-        <aside class="post-widget" id="post-widget">
-
-          <% if(theme.share){ %>
-          <%- partial('post/share', {
-                className: 'post-share'
-            }) %>
-          <% } %>
-
-          <% if(theme.toc){ %>
-          <nav class="post-toc-wrap" id="post-toc">
-            <%- toc(post.content, {
-                class: 'post-toc',
-                list_number: theme.toc.list_number
-                }) %>
-          </nav>
-          <% } %>
-        </aside>
-
-        <div class="post-main">
-
-            <div class="post-content" id="post-content" itemprop="postContent">
-            <%- post.content %>
-            <blockquote>
-              <p>
-                本文地址：
-                <a href="<%- page.permalink%>" target="_blank" rel="external"><%- page.permalink %></a>
-              </p>
-              <footer><cite><a href="<%- config.url %>">@<%- config.title %></a></cite></footer>
-            </blockquote>
-            </div>
-            <%- partial('post/nav') %>
-
-            <%- partial('post/comment') %>
-
-        </div>
-
-      </div>
+      
+        <%- partial('post') %>
 
     <% } %>
 
-  </article>
-
-<% } %>
+</article>

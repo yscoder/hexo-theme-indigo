@@ -1,0 +1,42 @@
+<article id="<%= post.layout %>-<%= post.slug %>" 
+  class="article article-type-<%= post.layout %>" itemprop="blogPost">
+    <div class="post-meat flex-row">
+        <%- partial('post/tag') %>
+    </div>
+    <div class="post-body">
+        <aside class="post-widget" id="post-widget">
+
+            <% if(theme.share){ %>
+            <%- partial('post/share', {
+                className: 'post-share'
+            }) %>
+            <% } %>
+
+            <% if(theme.toc){ %>
+            <nav class="post-toc-wrap" id="post-toc">
+            <%- toc(post.content, {
+                class: 'post-toc',
+                list_number: theme.toc.list_number
+                }) %>
+            </nav>
+            <% } %>
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent">
+            <%- post.content %>
+            <blockquote>
+                <p>
+                本文地址：
+                <a href="<%- page.permalink%>" target="_blank" rel="external"><%- page.permalink %></a>
+                </p>
+                <footer><cite><a href="<%- config.url %>">@<%- config.title %></a></cite></footer>
+            </blockquote>
+            </div>
+            <%- partial('post/nav') %>
+            
+            <%- partial('post/comment') %>
+        </div>
+    </div>
+</article>

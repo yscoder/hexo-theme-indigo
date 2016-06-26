@@ -16,7 +16,13 @@ Material Design 风格的Hexo主题，基于 Hexo 3.0+ 制作。预览 [我的�
 
 ## 使用
 
-[Document](https://github.com/yscoder/hexo-theme-indigo/wiki)
+[文档|Document](https://github.com/yscoder/hexo-theme-indigo/wiki)
+
+## 更新日志
+
+升级前请仔细查看更改内容，如非必要可不升级。
+
+[Log](https://github.com/yscoder/hexo-theme-indigo/wiki/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97)
 
 
 ## 截图
@@ -31,6 +37,13 @@ Material Design 风格的Hexo主题，基于 Hexo 3.0+ 制作。预览 [我的�
 
 ### Phone
 
-![indigo-phone-1](https://github.com/yscoder/hexo-theme-indigo/raw/master/screenshots/hexo-theme-phone-1.png)
-![indigo-phone-2](https://github.com/yscoder/hexo-theme-indigo/raw/master/screenshots/hexo-theme-phone-2.png)
+![indigo-phone](https://github.com/yscoder/hexo-theme-indigo/raw/master/screenshots/hexo-theme-phone.png)
+
+### Search
+
+![indigo-search](https://github.com/yscoder/hexo-theme-indigo/raw/master/screenshots/hexo-theme-search.png)
+
+### Archive
+
+![indigo-archive](https://github.com/yscoder/hexo-theme-indigo/raw/master/screenshots/hexo-theme-archive.png)
 

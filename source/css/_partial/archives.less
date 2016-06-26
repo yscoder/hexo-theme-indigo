@@ -1,56 +1,69 @@
-.archive-year-wrap {
-    width: 80px;
-    font-size: 18px;
-}
-
-.archive-year {
-    display: block;
-    width: 56px;
-    height: 56px;
-    line-height: 56px;
-    text-align: center;
-    border-radius: 50%;
-    color: #fff !important;
-    background: @primaryColor;
-    box-shadow: @boxShadow;
-}
-
-.archives {
-    padding-left: 30px;
-    border-left: 3px solid @borderColor;
+.archive-separator {
+    margin: 35px 0 13px;
+    color: @primaryColor;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 .archive-article {
     position: relative;
-    margin: 20px 0;
-    padding: 16px 20px;
+    padding: 25px 25px 25px 140px;
     background: #fff;
-    border-radius: 2px;
-    box-shadow: @boxShadow;
-
-    &:before {
-        position: absolute;
-        top: 0;
-        left: -2.5em;
-        content: '';
-        width: 12px;
-        height: 12px;
-        border: 2px solid @borderColor;
-        background: @lightPrimaryColor;
-        border-radius: 50%;
-    }
-
-    .archive-article-header {
-        margin: 0 0 16px;
-    }
-
-    .post-tiem {
-        color: @secondaryTextColor;
-    }
+    border-bottom: 1px solid @borderColor;
+    box-shadow: 0 1px 2px rgba(151, 151, 151, 0.58);
 
     .post-title,
     .article-tag-list {
         margin: 0;
+        display: inline;
+        vertical-align: middle;
+    }
+
+    .post-title {
+        margin: 0 5px 0 0;
+        font-size: 18px;
+        line-height: 1.3;
+    }
+
+    .post-time {
+        line-height: 24px;
+        font-weight: bold;
+    }
+
+    .article-tag-list-item {
+        margin: 5px 5px 0 0;
+        padding: 0 6px;
+        font-size: 12px;
+    }
+
+}
+
+.archive-article-inner {
+    display: inline;
+}
+
+.archive-article-date {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    
+}
+
+@media screen and (max-width:760px) {
+    .archive-article {
+        margin: 0 -16px;
+        padding: 20px 20px 20px 80px;
+    }
+
+}
+
+@media screen and (max-width:420px) {
+    .archive-article {
+        padding: 20px;
+    }
+    .archive-article-date {
+        position: static;
     }
 
 }

@@ -44,16 +44,19 @@
 }
 
 .content-header {
-    padding: 104px 16px 48px;
+    margin-left: -240px;
+    padding: 104px 16px 48px 256px;
     color: @textPrimaryColor;
     background: @primaryColor;
 
-    .author {
-    }
 
     .subtitle {
         padding-top: 6px;
         color: @lightPrimaryColor;
+    }
+
+    .article-category-list-link {
+        color: lighten(@accentColor, 10%);
     }
 
 }
@@ -68,6 +71,7 @@
 
 @media screen and (max-width:760px) {
     .content-header {
+        margin: 0;
         padding: 72px 16px 20px;
 
         .author {

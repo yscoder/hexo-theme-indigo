@@ -1,0 +1,17 @@
+<article id="<%= post.layout %>-<%= post.slug %>" 
+  class="article article-type-<%= post.layout %>" itemprop="blogPost">
+     <%- partial('post/title', { hasLink: true }) %>
+    <div class="post-meta">
+        <%- partial('post/date', {date_format: config.date_format}) %>
+        <%- partial('post/category') %> 
+    </div>
+    
+    <div class="post-content" id="post-content" itemprop="postContent" >
+    <% if (post.excerpt){ %>
+        <%- post.excerpt %>
+    <% } else { %>
+        <%- post.content %>
+    <% } %>
+    </div>
+    <%- partial('post/tag') %>
+</article>

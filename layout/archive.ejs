@@ -3,17 +3,18 @@
     page.posts.each(function(post){
         posts.push(post);
     });
-    var sortPosts = _.orderBy(posts, ['date'], ['desc']);
+
+    var sortPosts = _[_.orderBy ? 'orderBy' : 'sortByOrder'](posts, ['date'], ['desc']);
 %>
 
-<% 
+<%
   var y = 0, m = 0;
-  sortPosts.forEach(function(post, i){  
+  sortPosts.forEach(function(post, i){
       var dt = post.date;
       var ny = post.date.year();
       var nm = post.date.month();
 
-      if(ny !== y || nm !== m) { 
+      if(ny !== y || nm !== m) {
 
           y = ny;
           m = nm;
@@ -22,7 +23,7 @@
 
 <%    } %>
 
-     <%- partial('_partial/archive', {post: post}) %>  
+     <%- partial('_partial/archive', {post: post}) %>
 <%})%>
 
 <% if (page.total > 1){ %>

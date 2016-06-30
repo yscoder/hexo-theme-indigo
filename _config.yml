@@ -23,7 +23,7 @@ menu:
     target: _blank
   link:
     text: 测试
-    url: /
+    url: /404
 
 rss: /atom.xml
 

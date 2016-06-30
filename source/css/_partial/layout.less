@@ -69,31 +69,6 @@
         font-size: 13px;
     }
 
-    .social {
-        margin: 2em 0 0;
-
-        a {
-            opacity: .8;
-
-            &.weibo {
-                color: #DC5442;
-            }
-
-            &.github {
-                color: #363F45;
-            }
-
-            &.rss {
-                color: #FF9800;
-            }
-
-            &:hover {
-                opacity: 1;
-            }
-
-        }
-
-    }
 
     .nav {
         margin: 0;
@@ -106,7 +81,10 @@
             padding: 0 @menuPadding;
 
             .icon {
-                padding-right: @menuPadding*1.5;
+                position: absolute;
+                top: 0;
+                left: @menuPadding;
+                line-height: @navH;
             }
 
             &:hover,
@@ -124,6 +102,7 @@
 
         a {
             display: block;
+            padding-left: @menuPadding*2.4;
             height: @navH;
             font-weight: 500;
             color: @secondaryTextColor;

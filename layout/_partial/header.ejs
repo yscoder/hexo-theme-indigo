@@ -1,4 +1,4 @@
-<header class="header" id="header">
+<header class="top-header" id="header">
     <div class="flex-row">
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
@@ -26,9 +26,9 @@
   <div class="container">
     <h1 class="author"><%=page.title || config.title %></h1>
     <h5 class="subtitle">
-        <% if(page.date && !page.noDate){ %>  
-            <%- partial('post/head-meta') %> 
-        <% } else { %> 
+        <% if(page.date && !page.noDate){ %>
+            <%- partial('post/head-meta') %>
+        <% } else { %>
         <%=config.subtitle %>
         <% }%>
     </h5>

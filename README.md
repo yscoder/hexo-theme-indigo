@@ -16,7 +16,7 @@ Material Design 风格的Hexo主题，基于 Hexo 3.0+ 制作。预览 [我的�
 
 ## 使用
 
-[文档|Document](https://github.com/yscoder/hexo-theme-indigo/wiki)
+[文档 | Document](https://github.com/yscoder/hexo-theme-indigo/wiki)
 
 ## 更新日志
 

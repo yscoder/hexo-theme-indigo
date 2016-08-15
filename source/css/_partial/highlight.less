@@ -161,12 +161,14 @@ pre {
     .xml .pi,
     .xml .doctype,
     .html .doctype,
+    .selector-pseudo,
     .css .id,
     .css .class,
-    .css .pseudo {
+    .css .pseudo,
+    .tag .name {
         color: @h-red
     }
-
+    
     .class,
     .number,
     .preprocessor,
@@ -180,7 +182,8 @@ pre {
     .attribute,
     .label,
     .ruby .class .title,
-    .css .rules .attribute {
+    .css .rules .attribute,
+    .tag .attr {
         color: @h-green
     }
 
@@ -193,6 +196,7 @@ pre {
         color: @h-blue
     }
 
+    .selector-tag,
     .css .hexcolor,
     .css .tag {
         color: @h-aqua
@@ -209,6 +213,8 @@ pre {
         color: @h-blue
     }
 
+    .selector-id,
+    .selector-class,
     .keyword,
     .javascript .function {
         color: @h-purple

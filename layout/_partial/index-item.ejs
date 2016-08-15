@@ -12,7 +12,7 @@
     <% } else { %>
         <%- post.content.replace(/<(S*?)[^>]*>.*?|<.*? \/>/gm, ' ').substring(0, theme.excerpt_length) %>
     <% } %>
-        <a href="<%=post.path%>" class="post-more waves-effect waves-button">
+        <a href="<%- url_for(post.path) %>" class="post-more waves-effect waves-button">
             <%-theme.excerpt_link%>
         </a>
     </div>

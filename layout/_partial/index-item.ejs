@@ -7,11 +7,15 @@
     </div>
 
     <div class="post-content" id="post-content" itemprop="postContent" >
-    <% if (post.excerpt){ %>
-        <%- post.excerpt.replace(/<(S*?)[^>]*>.*?|<.*? \/>/gm, ' ') %>
-    <% } else { %>
-        <%- post.content.replace(/<(S*?)[^>]*>.*?|<.*? \/>/gm, ' ').substring(0, theme.excerpt_length) %>
+
+    <% if(theme.excerpt_render) { %> 
+        <%- post.excerpt || post.content %>
+    <% } else {
+        var tagReg = /<(S*?)[^>]*>.*?|<.*? \/>/gm;
+    %>
+        <%- post.excerpt ? post.excerpt.replace(tagReg, ' ') : post.content.replace(tagReg, ' ').substring(0, theme.excerpt_length) %>
     <% } %>
+    
         <a href="<%- url_for(post.path) %>" class="post-more waves-effect waves-button">
             <%-theme.excerpt_link%>
         </a>

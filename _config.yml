@@ -70,6 +70,7 @@ favicon: /favicon.ico
 
 # less
 less:
+  compress: true
   paths:
     - source/css/style.less
 

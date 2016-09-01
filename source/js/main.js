@@ -1,6 +1,7 @@
 (function(w, d) {
 
     var body = d.body,
+        root = d.querySelector('html'),
         gotop = d.getElementById('gotop'),
         menu = d.getElementById('menu'),
         header = d.getElementById('header'),
@@ -48,17 +49,20 @@
             }
         },
         toggleMenu: function(flag) {
+
             if (flag) {
                 menu.classList.remove('hide');
 
                 if (w.innerWidth < 1241) {
                     mask.classList.add('in');
                     menu.classList.add('show');
+                    root.style.overflow = 'hidden';
                 }
 
             } else {
                 menu.classList.remove('show');
                 mask.classList.remove('in');
+                root.style.overflow = '';
             }
         },
         fixedHeader: function(top) {
@@ -178,10 +182,6 @@
             d.getElementById('search').addEventListener(even, toggleSearch);
         }
     };
-
-    menu.addEventListener('touchmove', function(e) {
-        e.preventDefault();
-    });
 
     w.addEventListener('load', function() {
         loading.classList.remove('active');

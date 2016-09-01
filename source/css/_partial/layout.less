@@ -69,13 +69,18 @@
         font-size: 13px;
     }
 
+    .scroll-wrap {
+        position: relative;
+        overflow-y: auto;
+    }
+
 
     .nav {
         margin: 0;
         padding: 12px 0;
+        min-height: ~"calc(100% - 115px)";
         list-style: none;
         line-height: @navH;
-        overflow-y: auto;
 
         li {
             padding: 0 @menuPadding;
@@ -114,6 +119,7 @@
     .footer {
         position: relative;
         width: 100%;
+        height: 115px;
         font-size: 12px;
         font-family: @font-code;
         padding: 10px @menuPadding;

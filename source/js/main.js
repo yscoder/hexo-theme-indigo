@@ -75,7 +75,7 @@
         fixedToc: (function() {
             var toc = d.getElementById('post-toc');
 
-            if (!toc) {
+            if (!toc || !toc.children.length) {
                 return noop;
             }
 

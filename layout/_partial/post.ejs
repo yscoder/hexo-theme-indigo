@@ -26,6 +26,13 @@
 
             <div class="post-content" id="post-content" itemprop="postContent">
             <%- post.content %>
+
+            <% if(theme.reward){ %>
+            <div class="post-reward">
+                <a id="rewardBtn" href="javascript:;" class="post-reward-btn waves-effect waves-circle waves-light">赏</a>
+            </div>
+            <% } %>
+            
             <blockquote>
                 <p>
                 本文地址：

@@ -56,13 +56,13 @@
                 if (w.innerWidth < 1241) {
                     mask.classList.add('in');
                     menu.classList.add('show');
-                    root.style.overflow = 'hidden';
+                    root.classList.add('lock');
                 }
 
             } else {
                 menu.classList.remove('show');
                 mask.classList.remove('in');
-                root.style.overflow = '';
+                root.classList.remove('lock');
             }
         },
         fixedHeader: function(top) {
@@ -217,14 +217,25 @@
             });
             rewardOff.addEventListener(even, hide);
 
+        })(),
+        fixNavMinH: (function(){
+            var nav = d.querySelector('.nav');
+
+            function calcH() {
+                nav.style.minHeight =  (nav.parentNode.clientHeight - nav.nextElementSibling.offsetHeight) + 'px';
+            }
+
+            return calcH;
         })()
     };
 
     w.addEventListener('load', function() {
+        Blog.fixNavMinH();
         loading.classList.remove('active');
     });
 
     w.addEventListener('resize', function() {
+        Blog.fixNavMinH();
         Blog.toggleMenu();
     });
 

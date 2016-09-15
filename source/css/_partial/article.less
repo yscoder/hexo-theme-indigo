@@ -19,6 +19,7 @@
         margin: 0 !important;
         padding: 0 20px;
         width: 226px;
+        font-size: 13px;
         border-left: 5px solid @dividerColor;
 
         li {
@@ -26,7 +27,7 @@
             color: @secondaryTextColor;
             &.active {
                 color: @primaryColor;
-                font-weight: 500;
+                font-weight: 600;
             }
         }
 
@@ -36,7 +37,7 @@
             color: inherit;
 
             &:hover {
-                font-weight: 500;
+                opacity: .8;
                 text-decoration: underline;
             }
 
@@ -104,12 +105,13 @@
     li {
         a {
             color: @accentColor;
-            border-bottom: 1px solid lighten(@accentColor, 32%);
+            border-bottom: 1px dotted lighten(@accentColor, 20%);
             word-break: break-all;
 
             &:hover,
             &:active {
-                border-color: @accentColor
+                border-bottom-style: solid;
+                opacity: .7;
             }
 
         }
@@ -118,7 +120,7 @@
 
     strong {
         font-weight: 600;
-        border-bottom: 1px solid @accentColor;
+        color: @primaryColor;
         a {
             border-color: @accentColor
         }

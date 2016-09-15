@@ -1,0 +1,25 @@
+<% if(theme.reward && is_post()){ %>
+<div id="reward" class="reward-lay">
+    <a class="reward-off" id="rewardOff" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <%=theme.reward.title %>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        <% if(theme.reward.wechat){ %>
+        <li>
+            <img src="<%=theme.reward.wechat %>" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        <% } %>
+
+        <% if(theme.reward.alipay){ %>
+        <li>
+            <img src="<%=theme.reward.alipay %>" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        <% } %>
+    </ul>
+</div>
+<% } %>

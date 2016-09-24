@@ -9,29 +9,26 @@
 #    target: _blank    是否跳出，省略则在当前页面打开
 menu:
   home:
-    text: 主页
+    text: Home
     url: /
   archives:
+    text: Archives
     url: /archives
   tags:
+    text: Tags
     url: /tags
   github:
-    url: https://github.com/yscoder
+    text: Github
+    url: https://github.com/wudaijun
     target: _blank
-  weibo:
-    url: http://www.weibo.com/ysweb
-    target: _blank
-  link:
-    text: 测试
-    url: /404
 
 rss: /atom.xml
 
 #你的头像url
-avatar: /img/logo.jpg
+avatar: /favicon.png
 
 # email
-email: 634206017@qq.com
+email: wdjlost@gmail.com
 
 # 设置 Android L Chrome 浏览器状态栏颜色
 color: '#3F51B5'
@@ -41,20 +38,20 @@ tags:
   title: 标签
 
 # 文章截断
-excerpt_render: false
+excerpt_render: true
 excerpt_length: 200
 excerpt_link: 阅读全文...
 mathjax: false
 archive_yearly: true
 
 #是否开启分享
-share: true
+share: false
 
 #是否开启打赏，关闭 reward: false
-reward:
-  title: 谢谢大爷~
-  wechat: /img/wechat.jpg     #微信，关闭设为 false
-  alipay: /img/alipay.jpg     #支付宝，关闭设为 false
+reward: false
+#  title: 谢谢大爷~
+#  wechat: /img/wechat.jpg     #微信，关闭设为 false
+#  alipay: /img/alipay.jpg     #支付宝，关闭设为 false
 
 #是否开启搜索
 search: true
@@ -68,7 +65,8 @@ toc:
   list_number: false  # 是否显示数字排序
 
 #站长统计，如要开启，输入CNZZ站点id，如 cnzz: 1255152447
-cnzz: false
+#cnzz: false
+cnzz: 1254033667
 
 # Miscellaneous
 google_analytics: ''
@@ -82,4 +80,4 @@ less:
 
 #是否开启多说评论，填写你在多说申请的项目名称 duoshuo: duoshuo-key
 #若使用disqus，请在博客config文件中填写disqus_shortname，并关闭多说评论
-duoshuo: ysblog
+duoshuo: wudaijun

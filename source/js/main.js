@@ -191,6 +191,7 @@
             }
 
             function show(){
+                mask.classList.add('in');
                 reward.classList.add('ready');
                 setTimeout(function(){
                     reward.classList.add('in');
@@ -199,6 +200,7 @@
             }
 
             function hide(){
+                mask.classList.remove('in');
                 reward.classList.remove('in');
                 setTimeout(function(){
                     reward.classList.remove('ready');

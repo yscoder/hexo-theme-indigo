@@ -27,11 +27,11 @@ menu:
   # link:
   #   text: 测试
   #   url: /404
-  link:
+  book:
     text: 简书
     url: http://www.jianshu.com/users/83129d433d72/latest_articles
     target: _blank
-  works:
+  hand-o-right:
     text: 作品展示
     url: https://lxchuan12.github.io/works/
     target: _blank
@@ -45,7 +45,9 @@ avatar: /img/logo.jpg
 email: lxchuan12@163.com
 
 # 设置 Android L Chrome 浏览器状态栏颜色
-color: '#3F51B5'
+color: '#3D95D5'
+#color: '#3F51B5' #默认使用
+#color: '#02A1E6'
 
 # Content
 tags:
@@ -63,7 +65,7 @@ share: true
 
 #是否开启打赏，关闭 reward: false
 reward:
-  title: 谢谢大爷~
+  title: 你的打赏是我写作的动力~
   wechat: /img/wechat.jpg     #微信，关闭设为 false
   alipay: /img/alipay.jpg     #支付宝，关闭设为 false
 

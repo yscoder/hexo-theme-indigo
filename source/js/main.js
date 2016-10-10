@@ -90,7 +90,7 @@
                 
                 el.addEventListener('click', function(e){
                     e.preventDefault();
-                    docEl.scrollTop = offset(d.querySelector(this.hash)).y - headerH + 10;
+                    docEl.scrollTop = offset(d.querySelector('[id="'+ decodeURIComponent(this.hash).substr(1) +'"]')).y - headerH + 10;
                 })
             });
 

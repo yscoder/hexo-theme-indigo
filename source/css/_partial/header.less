@@ -31,7 +31,6 @@
     &:hover {
         color: @textPrimaryColor;
     }
-
 }
 
 .header-title {
@@ -44,21 +43,40 @@
 }
 
 .content-header {
+    min-height: 210px;
     margin-left: -240px;
     padding: 104px 16px 48px 256px;
     color: @textPrimaryColor;
     background: @primaryColor;
-
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
 
     .subtitle {
         padding-top: 6px;
+        font-weight: 300;
         color: @lightPrimaryColor;
+    }
+
+    .title {
+        font-weight: 500;
     }
 
     .article-category-list-link {
         color: lighten(@accentColor, 10%);
     }
 
+}
+
+.post-header {
+    
+    .title {
+        display: none;
+    }
+}
+.tags-header,
+.categories-header {
+    position: relative;
+    z-index: 6;
+    padding-bottom: 0!important
 }
 
 @media screen and (max-width:1240px) {
@@ -72,9 +90,10 @@
 @media screen and (max-width:760px) {
     .content-header {
         margin: 0;
+        min-height: auto;
         padding: 72px 16px 20px;
 
-        .author {
+        .title {
             font-size: 24px;
             line-height: 30px;
         }
@@ -84,6 +103,14 @@
             line-height: 20px
         }
 
+    }
+
+    .post-header {
+        .title {
+            display: block;
+            font-size: 24px;
+            line-height: 1.5;
+        }
     }
 
 }

@@ -3,13 +3,13 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis"><%=page.title || config.title %></div>
+        <div class="flex-col header-title ellipsis"><%=title %></div>
         <% if(theme.search){ %>
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -22,15 +22,26 @@
         <% } %>
     </div>
 </header>
-<header class="content-header">
-  <div class="container">
-    <h1 class="author"><%=page.title || config.title %></h1>
-    <h5 class="subtitle">
-        <% if(page.date && !page.noDate){ %>
-            <%- partial('post/head-meta') %>
-        <% } else { %>
-        <%=config.subtitle %>
-        <% }%>
-    </h5>
-  </div>
+<header class="content-header <%-hdClass %>">
+
+    <div class="container">
+        <h1 class="title"><%=title %></h1>
+        
+        <%  if(is_home()) { %> 
+        <h5 class="subtitle">
+            
+            <% if(subTitle){ %>
+                <%=config.subtitle %>
+            <% } else { %>
+                <%- partial('post/head-meta') %>
+            <% }%>
+        </h5>
+        <% } %>
+
+    </div>
+
+    <%- partial('tags-bar', {
+        type: hdClass.split('-')[0]
+    }) %>
+
 </header>

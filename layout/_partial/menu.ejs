@@ -1,35 +1,37 @@
-<div class="inner flex-row-vertical">
-  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-      <i class="icon icon-lg icon-close"></i>
-  </a>
-  <div class="brand-wrap">
-    <div class="brand">
-      <a href="/" class="avatar"><img src="<%=theme.avatar %>"></a>
-      <hgroup class="introduce">
-        <h5 class="nickname"><%- config.author %></h5>
-        <%- mail_to(theme.email, theme.email, {class: 'mail'}) %>
-      </hgroup>
+<aside id="menu" <% if(is_post() && theme.hideMenu){ %>class="hide"<% } %> >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar"><img src="<%=theme.avatar %>"></a>
+        <hgroup class="introduce">
+          <h5 class="nickname"><%- config.author %></h5>
+          <%- mail_to(theme.email, theme.email, {class: 'mail'}) %>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        <%
+          var menuItem, isActive = function(item) {
+              var pageUrl = url_for(page.path)
+              return item.url === '/' ? pageUrl === url_for(item.url + 'index.html') : _.startsWith(pageUrl, url_for(item.url))
+          };
+          for (var i in theme.menu) {
+            menuItem = theme.menu[i];
+          %>
+            <li class="waves-block waves-effect<% if(isActive(menuItem)){ %> active<% } %>">
+              <a href="<%- url_for(menuItem.url) %>" <% if(menuItem.target){ %>target="_blank"<% } %> >
+                <i class="icon icon-lg icon-<%= i %>"></i>
+                <%=(menuItem.text || _.startCase(i)) %>
+              </a>
+            </li>
+        <% } %>
+      </ul>
+
+      <%- partial('footer') %>
     </div>
   </div>
-  <div class="scroll-wrap flex-col">
-    <ul class="nav">
-      <%
-        var menuItem, isActive = function(item) {
-            var url = url_for(item.url);
-            return (url === '/' ? '' : url) + '/index.html' === '/' + page.path;
-        };
-        for (var i in theme.menu) {
-          menuItem = theme.menu[i];
-        %>
-          <li class="waves-block waves-effect<% if(isActive(menuItem)){ %> active<% } %>">
-            <a href="<%- url_for(menuItem.url) %>" <% if(menuItem.target){ %>target="_blank"<% } %> >
-              <i class="icon icon-lg icon-<%= i %>"></i>
-              <%=(menuItem.text || _.startCase(i)) %>
-            </a>
-          </li>
-      <% } %>
-    </ul>
-
-    <%- partial('footer') %>
-  </div>
-</div>
+</aside>

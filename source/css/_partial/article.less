@@ -1,7 +1,7 @@
 .post-widget {
     float: right;
-    margin-left: 40px;
-    width: 226px;
+    width: 20%;
+    padding-left: 30px;
     min-height: 1px;
 }
 
@@ -14,67 +14,92 @@
         overflow-y: auto;
     }
 
-    ol, li {
+    ol, ul {
         list-style: none;
+        margin: 0;
     }
 
-    .post-toc-child {
-        padding: 0 0 0 20px;
+    h4 {
+        padding: 0 0 10px 20px;
+        font-size: 15px;
+        font-weight: 600;
+        color: #727272;
     }
+}
+.post-toc-child {
+    padding-left: 10px;
+}
+.post-toc {
+    position: relative;
+    display: inline-block;
+    padding: 0;
+    font-size: 13px;
+}
+.post-toc-item {
+    font-weight: 400;
+    color: @secondaryTextColor;
 
-    .post-toc {
-        margin: 0 !important;
-        padding: 0 20px;
-        width: 226px;
-        font-size: 13px;
-        border-left: 5px solid @dividerColor;
+    &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        z-index: 1;
+        height: 25px;
+        width: 100%;
+    }
+    
+    &.active {
+        color: @primaryColor;
 
-        li {
-            font-weight: 400;
-            color: @secondaryTextColor;
-            &.active {
-                color: @primaryColor;
-                font-weight: 600;
-            }
+        &:before {
+            border-left: 3px solid @primaryColor;
+            background: rgba(0, 0, 0, .06);
         }
-
-        a {
-            display: block;
-            padding: 3px 0;
-            color: inherit;
-
-            &:hover {
-                opacity: .8;
-                text-decoration: underline;
-            }
-
-        }
-
+        
     }
+}
+.post-toc-link {
+    position: relative;
+    z-index: 2;
+    display: block;
+    padding: 3px 20px;
+    line-height: 1.5rem;
+    color: inherit;
 
+    &:hover {
+        opacity: .8;
+    }
 }
 
-.post-body {
-    padding: 20px 0;
 
-}
-
-.post-main {
-    overflow: hidden;
+.post-article {
+    float: left;
+    width: 80%;
+    padding-right: 30px;
     .post-content {
-        min-height: 100px;
+        padding-top: 20px;
     }
 }
-
+.post-card {
+    margin-top: -150px;
+    min-height: 100px;
+    padding: 35px;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, .3);
+    .post-meta {
+        margin-top: 8px;
+    }
+}
+.post-card-title {
+    font-size: 32px;
+}
 .post-nav {
-    border-top: 3px solid @borderColor;
+    margin-top: 30px;
     padding: 16px 0 0;
-    overflow: hidden;
 
     .prev, .next {
         width: 47%;
-        padding-bottom: 300px;
-        margin-bottom: -300px;
         background: @codeBg;
     }
 
@@ -104,9 +129,65 @@
 
 }
 
+.post-copyright {
+    margin-bottom: 100px;
+    font-size: 14px;
+
+    .content {
+        margin-bottom: 1em;
+        padding: 20px 30px;
+        word-break: break-all;
+        color: @secondaryTextColor;
+        background: lighten( @lightPrimaryColor, 12%);
+        border-radius: 30px 30px 0;
+    }
+
+    footer {
+        float: right;
+
+        a {
+            position: relative;
+            display: block;
+            overflow: hidden;
+            padding: 0 16px 0 42px;
+            height: 28px;
+            line-height: 28px;
+            color: @secondaryTextColor;
+            background: lighten( @lightPrimaryColor, 12%);
+            border-radius: 14px;
+        }
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+        }
+    }
+}
+
+.post-footer {
+    position: relative;
+    margin: 0 -35px;
+    padding: 20px 35px 0;
+    border-top: 1px solid #ddd;
+}
+
 .post-content {
-    margin: 0 0 16px;
+    padding-bottom: 20px;
     line-height: 1.8;
+
+    .headerlink {
+        visibility: hidden;
+        margin-left: -1em;
+        padding-right: 5px;
+        color: @lightPrimaryColor;
+
+        &:before {
+            content: '#'
+        }
+    }
 
     p,
     li {
@@ -117,6 +198,7 @@
 
             &:hover,
             &:active {
+                text-decoration: none;
                 border-bottom-style: solid;
                 opacity: .7;
             }
@@ -185,6 +267,11 @@
     h5,
     h6 {
         color: @primaryColor;
+        &:hover {
+            .headerlink {
+                visibility: visible
+            }
+        }
     }
 
     blockquote p:first-child,
@@ -213,13 +300,9 @@
 
     img {
         display: block;
-        max-width: 96%;
         margin: 40px auto;
         padding: 8px;
-        background: #fff;
-        border-radius: 2px;
-        overflow: hidden;
-        box-shadow: @boxShadow;
+        border: 1px solid #efefef
     }
 
     blockquote {
@@ -316,6 +399,7 @@
         margin: 0 4px;
         font-size: 80%;
         padding: 3px 5px;
+        border: 1px solid #eee;
         border-radius: 2px;
         word-wrap: break-word;
     }
@@ -334,17 +418,66 @@
 
 }
 
-@media screen and (max-width:760px) {
-    .post-all {
-        padding-right: 0;
-    }
+@media screen and (max-width:1040px) { 
 
     .post-widget {
         display: none
     }
 
+    .post-article {
+        float: none;
+        width: auto;
+        margin: 0 40px;
+        padding-right: 0;
+    }
+}
+
+@media screen and (max-width:760px) {
+    
+    .post-article {
+        margin: 0 -16px;
+    }
+    .post-card {
+        position: relative;
+        margin-top: -20px;
+        border-radius: 0;
+        padding: 16px;
+
+        .post-meta {
+            margin-top: -40px;
+            padding: 20px 12px;
+            background: #fff;
+            box-shadow: 0 1px 4px 0 rgba(0,0,0,0.16);
+            border-radius: 2px;
+        }
+        
+    }
+
+    .post-card-title {
+        display: none
+    }
+
+    .post-nav {
+        padding: 0;
+        .prev, 
+        .next {
+            width: 50%;
+            background: #fff;
+            border-bottom: 1px solid @borderColor;
+            box-shadow: @boxShadow;
+        }
+        h4 {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+    }
+
+    
+    .duoshuo {
+        margin: 0 16px;
+    }
 }
 
 .duoshuo {
-    padding-top: 40px;
+    padding: 40px 0;
 }

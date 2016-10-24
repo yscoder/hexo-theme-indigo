@@ -15,6 +15,9 @@ menu:
     url: /archives
   tags:
     url: /tags
+  th-list:
+    text: Categories
+    url: /categories
   github:
     url: https://github.com/yscoder
     target: _blank
@@ -66,6 +69,9 @@ hideMenu: true
 #toc: false
 toc:
   list_number: true  # 是否显示数字排序
+
+#文章页版权声明内容，hexo中所有变量及辅助函数等均可调用，具体请查阅 hexo.io
+copyright: 这里写留言或版权声明：<a href="<%- url_for(page.path) %>" target="_blank" rel="external"><%- url %></a>
 
 #站长统计，如要开启，输入CNZZ站点id，如 cnzz: 1255152447
 cnzz: false

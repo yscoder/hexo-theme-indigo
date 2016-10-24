@@ -1,1 +1,7 @@
-<%- partial('_partial/post', {post: page }) %>
+<%- partial('_partial/header', {
+    title: page.title,
+    hdClass: 'post-header'
+}) %>
+<div class="container body-wrap">
+    <%- partial('_partial/post', {post: page }) %>
+</div>

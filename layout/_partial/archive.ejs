@@ -1,11 +1,14 @@
-<article class="archive-article">
-  <div class="archive-article-date">
-    <%- partial('post/date', { post: post, date_format: 'MMM D'}) %>
-  </div>
-  <div class="archive-article-inner">
+<div class="waterfall-item">
+  <article class="article-card archive-article">
+    <div class="post-meta">
+      <%- partial('post/date', { post: post, date_format: date_format}) %>
+      <%- partial('post/category', { post: post }) %>
+    </div>
     <%- partial('post/title', {
-      hasLink: true
-    }) %>
-    <%- partial('post/tag') %>
-  </div>
-</article>
+        hasLink: true
+      }) %>
+    <div class="post-footer">
+      <%- partial('post/tag') %>
+    </div>
+  </article>
+</div>

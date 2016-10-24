@@ -1,12 +1,12 @@
 .post-list {
     padding: 0;
-    margin: 0;
+    margin: 0 -12px;
     list-style: none;
 }
 
 .post-list-item {
-    padding: 20px 0;
-    border-bottom: 1px solid @borderColor;
+    padding: 0 12px;
+    margin-bottom: 24px;
 }
 
 .post-time {
@@ -25,11 +25,11 @@
 }
 
 .post-meta {
-    margin: 16px 0;
+    margin: 0 0 10px;
     line-height: 14px;
     font-size: 13px;
+    font-weight: bold;
     overflow: hidden;
-    color: @borderColor;
 }
 
 .article-category-list {
@@ -47,46 +47,58 @@
         width: 1px;
         background: @borderColor;
     }
-
-    li {
-        display: inline;
-    }
-    a {
+}
+.article-category-list-item {
+    display: inline;
+    text-transform: capitalize
+}
+.article-category-list-link {
+    color: @accentColor;
+    &:hover {
         color: @accentColor;
-        &:hover {
-            color: @accentColor;
-        }
     }
 }
 
 .article-tag-list {
     overflow: hidden;
-    margin: 0 5px 0 0;
+    margin: 0;
     padding: 0;
-
-    li {
-        display: inline-block;
-        margin: 0 8px 5px 0;
+    font-size: 13px;
+}
+.article-tag-list-item {
+    display: inline-block;
+    margin: 0 8px 8px 0;
+    border-radius: 2px;
+    &:nth-child(n+1) {
+        background: #8BC34A
+    }
+    &:nth-child(n+2) {
+        background: #673AB7
+    }
+    &:nth-child(n+3) {
+        background: #FF9800
+    }
+    &:nth-child(n+4) {
+        background: #F44336
+    }
+    &:nth-child(n+5) {
+        background: #00abc0
+    }
+    &:nth-child(n+6) {
+        background: #2196F3
     }
 }
 
 
 .article-tag-list-link {
-    display: inline-block;
+    display: block;
     padding: 0px 16px;
-    line-height: 30px;
-    font-size: 13px;
-    color: @secondaryTextColor;
-    background: #e8e8e8;
-    border-radius: 20px;
-
-    &:hover,
-    &:active {
-        font-size: 13px;
-        color: #fff;
-        background: @accentColor;
+    line-height: 28px;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: capitalize;
+    &:hover {
+        color: #fff
     }
-
 }
 
 .post-more {
@@ -148,5 +160,8 @@
         line-height: 28px;
         font-size: 13px;
     }
-
+    .post-list-item {
+        padding: 0;
+        margin-bottom: 16px;
+    }
 }

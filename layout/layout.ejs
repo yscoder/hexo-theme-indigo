@@ -1,16 +1,11 @@
 <%- partial('_partial/head') %>
 <body>
   <%- partial('_partial/loading') %>
-  <nav id="menu" <% if(is_post() && theme.hideMenu){ %>class="hide"<% } %> >
-   <%- partial('_partial/menu') %>
-  </nav>
+  <%- partial('_partial/menu') %>
   <main id="main">
-    <%- partial('_partial/header') %>
-    <div class="container body-wrap">
-      <%- body %>
-    </div>
+    <%- body %>
   </main>
-<%- partial('_partial/after-footer') %>
-<%- partial('_partial/script') %>
+  <%- partial('_partial/after-footer') %>
+  <%- partial('_partial/script') %>
 </body>
 </html>

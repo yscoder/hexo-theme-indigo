@@ -1,1 +1,4 @@
-<%- partial('archive', {pagination: config.archive}) %>
+<%- partial('categories', {
+    pagination: config.archive,
+    title: 'Categories: '+page.category
+}) %>

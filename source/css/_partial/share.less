@@ -76,7 +76,6 @@
         text-align: center;
     }
 
-
     a {
         position: relative;
         width: 40px;
@@ -100,21 +99,59 @@
 
 }
 
+@share-fab-size: 42px;
+@share-icon-size: @share-fab-size - 8px;
+
+.post-share-fab {
+    display: block;
+    width: @share-fab-size;
+    height: @share-fab-size;
+    line-height: @share-fab-size;
+    color: @primaryColor;
+    background: lighten( @lightPrimaryColor, 10%);
+    .boxShadow();
+}
+
+.post-share-wrap {
+    position: absolute;
+    right: 35px;
+    top: -50%;
+    z-index: 2;
+}
+
 .post-share {
-    margin-bottom: 24px;
-    padding: 8px 12px;
-    background: #eee;
+    position: absolute;
+    bottom: @share-fab-size + 6px;
+    right: 4px;
+    text-align: center;
+    width: @share-icon-size;
 
     .tit {
-        margin-bottom: .5em;
+        display: none;
+        font-size: 18px;
+        margin-bottom: 2rem;
+    }
+
+    &.in {
+        .share-icons a {
+            opacity: 1;
+            .transform(scale(1));
+        }
     }
 
     .share-icons {
         a {
-            width: 24px;
-            height: 24px;
-            line-height: 24px;
-            .tip();
+            width: @share-icon-size;
+            height: @share-icon-size;
+            line-height: @share-icon-size;
+            font-size: 1.33333em;
+            border-radius: 50%;
+            .tip-left();
+            .boxShadow();
+            opacity: 0;
+            .transform(scale(0));
+            -webkit-transform-origin: center bottom;
+            transform-origin: center bottom;
 
             &:before {
                 content: '分享到'attr(data-title)
@@ -122,14 +159,9 @@
 
         }
 
-    }
-
-    li {
-        margin-left: .5em;
-        &:first-child {
-            margin-left: 0;
+        li {
+            margin-bottom: 10px;
         }
+
     }
-
-
 }

@@ -1,20 +1,21 @@
-<ul class="post-list">
-  <% page.posts.each(function(post){ %>
-    <li class="post-list-item">
-        <%- partial('_partial/index-item', {
-            post: post, 
-            index: true
-        }) %>
-    </li>
-  <% }) %>
-</ul>
-<% if (page.total > 1){ %>
-<nav id="page-nav">
-    <div class="inner">
-    <%- paginator({
-        prev_text: '上一页',
-        next_text: '下一页'
-    }) %>
-    </div>
-</nav>
-<% } %>
+<%- partial('_partial/header', {
+    title: config.title,
+    subTitle: config.subtitle,
+    hdClass: 'index-header'
+}) %>
+<div class="container body-wrap">
+
+    <ul class="post-list">
+    <% page.posts.each(function(post){ %>
+        <li class="post-list-item">
+            <%- partial('_partial/index-item', {
+                post: post, 
+                index: true
+            }) %>
+        </li>
+    <% }) %>
+    </ul>
+
+    <%- partial('_partial/paginator') %>
+
+</div>

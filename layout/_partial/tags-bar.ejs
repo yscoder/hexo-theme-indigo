@@ -1,0 +1,16 @@
+<% 
+if(type === 'categories' || type === 'tags'){ %> 
+<div class="tabs-bar container">
+    <nav class="tags-list">
+        <a href="/<%=type %>" class="tags-list-item waves-effect waves-button waves-light
+            <% if(path === type + '/index.html'){%> active<%}%>">全部</a>
+        <% 
+            var options = type === 'tags' ? site.tags : site.categories
+            options.each(function(tag){ %> 
+            <a href="<%- url_for(tag.path) %>" class="tags-list-item waves-effect waves-button waves-light<% if(is_current(tag.path)){%> active<%}%>"><%-tag.name%></a>
+        <% }) %>
+    </nav>
+    <!-- PC show more-->
+    <a href="javascript:;" onclick="Blog.tabBar(this)" class="tags-list-more tags-list-item waves-effect waves-circle waves-light"><i class="icon icon-ellipsis-v"></i></a>
+</div>
+<% } %>

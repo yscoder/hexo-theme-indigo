@@ -113,6 +113,7 @@
             line-height: @navH;
             font-weight: 500;
             color: @secondaryTextColor;
+            text-decoration: none;
         }
 
     }
@@ -151,6 +152,12 @@
 .container {
     width: 960px;
     margin: 0 auto;
+
+    &:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
 }
 
 .mask {
@@ -175,9 +182,6 @@ a[title="站长统计"] {
 }
 
 @media screen and (max-width:1240px) {
-    .container {
-        width: 720px;
-    }
 
     #menu-off {
         display: none;
@@ -200,10 +204,19 @@ a[title="站长统计"] {
 
 }
 
-@media screen and (max-width:760px) {
+
+@media screen and (max-width:1040px) { 
     .container {
         width: 100%;
         padding: 20px 16px;
+    }
+}
+
+@media screen and (max-width:760px) {
+
+    #main {
+        width: 100%;
+        overflow-x: hidden;
     }
 
     #menu {
@@ -225,3 +238,4 @@ a[title="站长统计"] {
     }
 
 }
+

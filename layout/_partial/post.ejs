@@ -1,3 +1,4 @@
+<%- partial('post/toc', { post: post}) %>
 <article id="<%= post.layout %>-<%= post.slug %>" 
   class="post-article article-type-<%= post.layout %>" itemprop="blogPost">
 
@@ -51,15 +52,3 @@
     <%- partial('post/comment') %>
 </article>
 
-<aside class="post-widget" id="post-widget">
-
-    <% if(theme.toc){ %>
-    <nav class="post-toc-wrap" id="post-toc">
-        <h4>TOC</h4>
-        <%- toc(post.content, {
-            class: 'post-toc',
-            list_number: theme.toc.list_number
-        }) %>
-    </nav>
-    <% } %>
-</aside>

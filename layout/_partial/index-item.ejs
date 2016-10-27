@@ -22,7 +22,9 @@
             <%-theme.excerpt_link%>
         </a>
     </div>
+    <% if(post.tags && post.tags.length){ %>
     <div class="post-footer">
         <%- partial('post/tag') %>
     </div>
+    <% } %>
 </article>

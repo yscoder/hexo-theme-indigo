@@ -10,16 +10,17 @@
 @h-aqua: #3e999f;
 @h-blue: #4271ae;
 @h-purple: #8959a8;
-@h-fs: 12px;
+@h-fs: 14px;
 
 .codeBlock() {
+    position: relative;
     margin-left: -35px;
     margin-right: -35px;
     overflow-x: auto;
-    position: relative;
-    background: @h-background;
     padding: 20px 35px;
+    font-size: @h-fs;
     line-height: @h-fs*1.6;
+    background: @h-background;
 }
 
 .line-numbers() {

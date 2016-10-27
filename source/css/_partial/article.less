@@ -78,6 +78,7 @@
 
 
 .post-article {
+    
     .post-content {
         padding-top: 20px;
     }
@@ -216,7 +217,10 @@
             border-color: @accentColor
         }
     }
-    em { color: @secondaryTextColor }
+
+    em {
+        color: @secondaryTextColor
+    }
 
     h1 {
         font-size: 24px;
@@ -408,41 +412,30 @@
     }
 
     pre {
-        font-size: 12px;
         margin: 24px 0;
+        code {
+            border-radius: 0;
+            font-size: inherit;
+            margin: 0;
+            padding: 0;
+        }
     }
-
-    pre code {
-        border-radius: 0;
-        font-size: inherit;
-        margin: 0;
-        padding: 0;
-    }
-
 }
 
-@media screen and (max-width:1040px) { 
-
+@media screen and (max-width:760px) {
     .post-widget {
         display: none
     }
 
     .post-article {
         float: none;
-        width: auto;
-        margin: 0 40px;
-        padding-right: 0;
+        width: 100%!important;
+        padding-right: 0!important;
     }
-}
 
-@media screen and (max-width:760px) {
-    
-    .post-article {
-        margin: 0 -16px;
-    }
     .post-card {
         position: relative;
-        margin-top: -20px;
+        margin: -20px -16px 0;
         border-radius: 0;
         padding: 16px;
 
@@ -462,6 +455,8 @@
 
     .post-nav {
         padding: 0;
+        margin-left: -16px;
+        margin-right: -16px;
         .prev, 
         .next {
             width: 50%;
@@ -473,11 +468,6 @@
             font-size: 16px;
             line-height: 1.5;
         }
-    }
-
-    
-    .duoshuo {
-        margin: 0 16px;
     }
 }
 

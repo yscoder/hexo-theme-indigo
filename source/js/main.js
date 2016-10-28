@@ -84,7 +84,7 @@
 
             toc.querySelector('a[href="#' + titles[0].id + '"]').parentNode.classList.add('active');
 
-            [].forEach.call(d.querySelectorAll('a[href*="#"]'), function(el) {
+            [].forEach.call(d.querySelectorAll('a[href^="#"]'), function(el) {
 
                 el.addEventListener('click', function(e) {
                     e.preventDefault();

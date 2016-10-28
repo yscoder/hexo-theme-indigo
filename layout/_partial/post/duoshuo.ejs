@@ -1,6 +1,6 @@
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="<%=key%>" data-title="<%=title%>" data-url="<%=url%>"></div>
+	<div class="ds-thread" data-thread-key="<%=key%>" data-title="<%=title%>" data-url="<%=url.replace(/index\.html$/, '')%>"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -16,3 +16,39 @@
 	</script>
 	<!-- 多说公共JS代码 end -->
 </div>
+<script src="//cdn.bootcss.com/marked/0.3.6/marked.min.js" async="async"></script>
+<script>
+window.addEventListener('load', function(){
+	this.addEventListener('click', function(e) {
+		if(e.target.className === 'ds-post-button') {
+			postComment(e.target.form)
+			e.preventDefault()
+		}
+	})
+	function postComment(form) {
+		var message = form.message.value.trim()
+		if(!message) {
+			alert('你还没有输入评论！')
+			return
+		}
+		if(!DUOSHUO.visitor.data.name) {
+			alert('你还没有登陆！')
+			return
+		}
+		DUOSHUO.API.post('posts/create', {
+			message: marked(message).replace(/>\n/g, '>'),
+			thread_id: form.thread_id.value,
+			parent_id: form.parent_id.value,
+			nonce: form.nonce.value,
+			v: DUOSHUO.version
+		}, function(res){
+			if(res.code === 0) {
+				form.message.value = ''
+				if(form.parentNode.classList.contains('ds-inline-replybox')) {
+					form.parentNode.previousElementSibling.querySelector('.ds-post-reply').click()
+				}
+			}
+		})
+	}
+})
+</script>

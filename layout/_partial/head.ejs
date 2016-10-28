@@ -1,7 +1,11 @@
-<!DOCTYPE html>
-<html>
 <head>
   <meta charset="utf-8">
+  <% if(theme.google_site_verification){ %>
+  <meta name="google-site-verification" content="<%- theme.google_site_verification%>">
+  <% }%>
+  <% if(theme.canonical){ %>
+  <link rel="canonical" href="<%- (theme.canonical + url_for(page.path)).replace(/index\.html$/, '') %>">
+  <% }%>
   <%
   var title = page.title;
 

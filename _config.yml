@@ -32,6 +32,8 @@ rss: /atom.xml
 
 #你的头像url
 avatar: /img/logo.jpg
+#favicon
+favicon: /favicon.ico
 
 # email
 email: 634206017@qq.com
@@ -39,9 +41,10 @@ email: 634206017@qq.com
 # 设置 Android L Chrome 浏览器状态栏颜色
 color: '#3F51B5'
 
-# Content
-tags:
-  title: 标签
+# 页面标题
+tags_title: Tags
+archives_title: Archives
+categories_title: Categories
 
 # 文章截断
 excerpt_render: false
@@ -71,14 +74,14 @@ toc:
   list_number: true  # 是否显示数字排序
 
 #文章页版权声明内容，hexo中所有变量及辅助函数等均可调用，具体请查阅 hexo.io
-copyright: 这里写留言或版权声明：<a href="<%- url_for(page.path) %>" target="_blank" rel="external"><%- url %></a>
+copyright: 这里写留言或版权声明：<a href="<%- url_for(page.path).replace(/index\.html$/, '') %>" target="_blank" rel="external"><%- url.replace(/index\.html$/, '') %></a>
 
 #站长统计，如要开启，输入CNZZ站点id，如 cnzz: 1255152447
 cnzz: false
 
 # Miscellaneous
-google_analytics: ''
-favicon: /favicon.ico
+google_analytics: false
+google_site_verification: false
 
 # less
 less:
@@ -89,3 +92,8 @@ less:
 #是否开启多说评论，填写你在多说申请的项目名称 duoshuo: duoshuo-key
 #若使用disqus，请在博客config文件中填写disqus_shortname，并关闭多说评论
 duoshuo: ysblog
+disqus_shortname: false
+
+# 规范网址
+# https://support.google.com/webmasters/answer/139066
+canonical: http://imys.net

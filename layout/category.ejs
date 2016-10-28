@@ -1,4 +1,4 @@
 <%- partial('categories', {
     pagination: config.archive,
-    title: 'Categories: '+page.category
+    title: theme.categories_title + ': '+ _.capitalize(page.category)
 }) %>

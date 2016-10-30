@@ -1,10 +1,9 @@
 <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-
-<%- js('js/main') %>
+<script src="/js/main<%= cache ? '.min': '' %>.js?v=<%=theme.version %>"></script>
 
 <% if (theme.search){ %>
 <%- partial('search') %>
-<%- js('js/search') %>
+<script src="/js/search<%= cache ? '.min': '' %>.js?v=<%=theme.version %>"></script>
 <% } %>
 
 <% if (theme.mathjax){ %>

@@ -252,7 +252,7 @@
             })
 
         },
-        tabBar(el) {
+        tabBar: function(el) {
             el.parentNode.classList.toggle('expand')
         }
     };
@@ -293,11 +293,14 @@
         Blog.fixedToc(top);
     }, false);
 
-    if (typeof BLOG_SHARE !== 'undefined') {
+    if ('BLOG_SHARE' in w) {
         Blog.share();
     }
 
-    window.Blog = Blog;
+    Blog.docEl = docEl;
+    Blog.noop = noop;
+    Blog.even = even;
+    w.BLOG = Blog;
 
     Waves.init();
     Waves.attach('.global-share li', ['waves-block']);

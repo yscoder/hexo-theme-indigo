@@ -46,5 +46,5 @@
   <% } %>
   <meta name="summary" content="<%=(page.excerpt || config.description)%>">
   <%- favicon_tag(theme.favicon) %>
-  <%- css('css/style') %>
+  <link rel="stylesheet" href="/css/style.css?v=<%=theme.version %>">
 </head>

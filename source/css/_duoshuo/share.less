@@ -1,0 +1,433 @@
+#ds-share #ds-reset {
+
+  &.ds-share-aside-left,
+  &.ds-share-aside-right,
+  &.ds-share-inline {
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      &:after {
+        .clearfix();
+      }
+
+      li {
+        list-style: none;
+        float: left;
+        font-size: 14px;
+        padding: 7px 0;
+      }
+    }
+  }
+
+  &.ds-share-inline {
+    position: relative;
+    ul li {
+      margin-left: 8px;
+      &:first-child {
+          margin-left: 0px;
+      }
+    }
+  }
+    
+  &.ds-share-aside-left,
+  &.ds-share-aside-right {
+    position: fixed;
+    top: 50%;
+    z-index: 1000;
+    .transition(all, 0.2s);
+  }
+
+  &.ds-share-aside-left {
+    left: 0;
+    .translate(-100%, -50%);
+  }
+    
+  &.ds-share-aside-right {
+    right: 0;  
+    .translate(100%, -50%);
+  }
+    
+  .ds-share-aside-toggle {
+    width: 28px;
+    padding: 23px 2px;
+    background: #e94c4c;
+    color: #fff;
+    position: absolute;
+    top: 0px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bolder;
+    cursor: pointer;
+  }
+
+  &.ds-share-aside-left {
+    .ds-share-aside-toggle {
+      right: -32px;
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
+    }
+    .ds-share-icons {
+      border-top-right-radius: 0;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      border-left: none;
+    }
+  }
+
+  &.ds-share-aside-right {
+    .ds-share-aside-toggle {
+      left: -32px;
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+    }
+    .ds-share-icons {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-right: none;
+    }
+  }
+
+  &.slide-to-left {
+    .translate(0, -50%);
+  }
+    
+  &.slide-to-right {
+    .translate(0, -50%);
+  }
+
+  .ds-share-icons-32 {
+    .ds-weibo,
+    .ds-sohu,
+    .ds-renren,
+    .ds-netease,
+    .ds-qqt,
+    .ds-kaixin,
+    .ds-douban,
+    .ds-msn,
+    .ds-qzone,
+    .ds-duoshuo,
+    .ds-360,
+    .ds-alipay,
+    .ds-qq,
+    .ds-baidu,
+    .ds-taobao,
+    .ds-google,
+    .ds-more,
+    .ds-wechat,
+    .ds-diandian,
+    .ds-huaban,
+    .ds-duitang,
+    .ds-youdao,
+    .ds-pengyou,
+    .ds-facebook,
+    .ds-twitter,
+    .ds-linkedin,
+    .ds-meilishuo,
+    .ds-mogujie {
+      height: 32px;
+      width: 32px;
+      text-decoration: none;
+      color: #999;
+      display: block;
+      overflow: hidden;
+      background-image: url("@{images-url}service-icons-color-32.png");
+      background-repeat: no-repeat;
+    }
+    .ds-weibo {
+      background-position: 0 0;
+    }
+    .ds-sohu {
+      background-position: 0 -32px;
+    }
+    .ds-renren {
+      background-position: 0 -64px;
+    }
+    .ds-netease {
+      background-position: 0 -96px;
+    }
+    .ds-qqt {
+      background-position: 0 -128px;
+    }
+    .ds-kaixin {
+      background-position: 0 -160px;
+    }
+    .ds-douban {
+      background-position: 0 -192px;
+    }
+    .ds-msn {
+      background-position: 0 -224px;
+    }
+    .ds-qzone {
+      background-position: 0 -256px;
+    }
+    .ds-duoshuo {
+      background-position: 0 -288px;
+    }
+    
+    .ds-360 {
+      background-position: 0 -320px;
+    }
+    .ds-alipay {
+      background-position: 0 -352px;
+    }
+    
+    .ds-qq {
+      background-position: 0 -384px;
+    }
+    .ds-baidu {
+      background-position: 0 -416px;
+    }
+    .ds-taobao {
+      background-position: 0 -448px;
+    }
+    .ds-google {
+      background-position: 0 -480px;
+    }
+
+    .ds-more {
+      background-position: 0 -512px;
+    }
+
+    .ds-wechat {
+      background-position: 0 -544px;
+    }
+
+    .ds-diandian {
+      background-position: 0 -576px;
+    }
+    
+    .ds-huaban {
+      background-position: 0 -608px;
+    }
+
+    .ds-duitang {
+      background-position: 0 -640px;
+    }
+
+    .ds-youdao {
+      background-position: 0 -672px;
+    }
+
+    .ds-pengyou {
+      background-position: 0 -704px;
+    }
+
+    .ds-facebook {
+      background-position: 0 -736px;
+    }
+
+    .ds-twitter {
+      background-position: 0 -768px;
+    }
+
+    .ds-linkedin {
+      background-position: 0 -800px;
+    }
+
+    .ds-meilishuo {
+      background-position: 0 -832px;
+    }
+
+    .ds-mogujie {
+      background-position: 0 -864px;
+    }
+
+    .flat {
+      background-image: url("@{images-url}service-icons-color-flat-32.png");
+    }
+  }
+
+  .ds-share-icons-16 {
+    .ds-weibo,
+    .ds-sohu,
+    .ds-renren,
+    .ds-netease,
+    .ds-qqt,
+    .ds-kaixin,
+    .ds-douban,
+    .ds-msn,
+    .ds-qzone,
+    .ds-duoshuo,
+    .ds-360,
+    .ds-alipay,
+    .ds-qq,
+    .ds-baidu,
+    .ds-taobao,
+    .ds-google,
+    .ds-more,
+    .ds-wechat,
+    .ds-diandian,
+    .ds-huaban,
+    .ds-duitang,
+    .ds-youdao,
+    .ds-pengyou,
+    .ds-facebook,
+    .ds-twitter,
+    .ds-linkedin,
+    .ds-meilishuo,
+    .ds-mogujie {
+      line-height: 16px;
+      padding-left: 20px;
+      text-decoration: none;
+      color: #999;
+      display: block;
+      overflow: hidden;
+      background-image: url("@{images-url}service-icons-color.png?v=2");
+      background-repeat: no-repeat;
+    }
+    .ds-weibo {
+      background-position: 0 0;
+    }
+    .ds-sohu {
+      background-position: 0 -16px;
+    }
+    .ds-renren {
+      background-position: 0 -32px;
+    }
+    .ds-netease {
+      background-position: 0 -48px;
+    }
+    .ds-qqt {
+      background-position: 0 -64px;
+    }
+    .ds-kaixin {
+      background-position: 0 -80px;
+    }
+    .ds-douban {
+      background-position: 0 -96px;
+    }
+    .ds-msn {
+      background-position: 0 -112px;
+    }
+    .ds-qzone {
+      background-position: 0 -128px;
+    }
+    .ds-duoshuo {
+      background-position: 0 -144px;
+    }
+    .ds-360 {
+      background-position: 0 -160px;
+    }
+    .ds-alipay {
+      background-position: 0 -176px;
+    }
+    .ds-qq {
+      background-position: 0 -192px;
+    }
+    .ds-baidu {
+      background-position: 0 -208px;
+    }
+    .ds-taobao {
+      background-position: 0 -224px;
+    }
+    .ds-google {
+      background-position: 0 -240px;
+    }
+    .ds-more {
+      background-position: 0 -256px;
+    }
+    .ds-wechat {
+      background-position: 0 -272px;
+    }
+    .ds-diandian {
+      background-position: 0 -288px;
+    }
+    .ds-huaban {
+      background-position: 0 -304px;
+    }
+    .ds-duitang {
+      background-position: 0 -320px;
+    }
+    .ds-youdao {
+      background-position: 0 -336px;
+    }
+    .ds-pengyou {
+      background-position: 0 -352px;
+    }
+    .ds-facebook {
+      background-position: 0 -368px;
+    }
+    .ds-twitter {
+      background-position: 0 -384px;
+    }
+    .ds-linkedin {
+      background-position: 0 -400px;
+    }
+    .ds-meilishuo {
+      background-position: 0 -416px;
+    }
+    .ds-mogujie {
+      background-position: 0 -432px;
+    }
+    .flat {
+      background-image: url("@{images-url}service-icons-color-flat.png");
+    }
+  }
+
+  .ds-share-icons {
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 3px;
+    .ds-share-icons-inner {
+      width: 208px;
+      padding: 10px;
+      ul {
+        margin: 0;
+        padding: 0;
+        li {
+          padding-left: 8px;
+          margin-left: 0;
+          width: 92px;
+          font-size: 12px;
+          &:hover {
+            border-radius: 3px;
+            background: #eee;
+          }
+          &:nth-child(even) {
+            margin-left: 8px;
+          }
+        }
+      }
+    }
+    .ds-share-icons-footer {
+      text-align: right;
+      line-height: 30px;
+      font-size: 12px;
+      color: #ccc;
+      background-color: #eee;
+      padding-right: 10px;
+    }
+  }
+
+  .ds-share-icons-more {
+    top: 30px;
+    left: 0;
+    position: absolute;
+    z-index: 1000;
+  }
+}
+
+#ds-share {
+  &.ds-no-transition {
+    #ds-reset {
+      &.ds-share-aside-left {
+        left: -229px;
+        transform: none;
+      }
+      &.ds-share-aside-right {
+        right: -229px;
+        transform: none;
+      }
+    }
+  }
+  
+  // IE 6 hack for `position:fixed`
+  .ds-share-aside-left,
+  .ds-share-aside-right {
+    width: 230px;
+
+  }
+}

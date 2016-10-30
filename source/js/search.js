@@ -1,6 +1,7 @@
 (function() {
 
-    var searchIco = document.getElementById('search'),
+    var even = window.BLOG.even,
+        searchIco = document.getElementById('search'),
         searchWrap = document.getElementById('search-wrap'),
         keyInput = document.getElementById('key'),
         back = document.getElementById('back'),
@@ -43,8 +44,8 @@
         });
     }
 
-    var docEl = document[navigator.userAgent.indexOf('Firefox') !== -1 ? 'documentElement' : 'body'],
-        noop = function() {};
+    var docEl = window.BLOG.docEl,
+        noop = window.BLOG.noop;
 
     var Control = {
         show: function() {
@@ -112,24 +113,24 @@
     }
 
 
-    searchIco.addEventListener('click', function() {
+    searchIco.addEventListener(even, function() {
         searchWrap.classList.toggle('in');
         keyInput.value = '';
         keyInput.focus();
     });
 
-    back.addEventListener('click', function() {
+    back.addEventListener(even, function() {
         searchWrap.classList.remove('in');
         Control.hide();
     });
 
-    document.addEventListener('click', function(e) {
+    document.addEventListener(even, function(e) {
         if (e.target.id !== 'key') {
             Control.hide();
         }
     });
 
     keyInput.addEventListener('input', search);
-    keyInput.addEventListener('click', search);
+    keyInput.addEventListener(even, search);
 
 })();

@@ -2,7 +2,7 @@
 if(type === 'categories' || type === 'tags'){ %> 
 <div class="tabs-bar container">
     <nav class="tags-list">
-        <a href="/<%=type %>" class="tags-list-item waves-effect waves-button waves-light
+        <a href="<%= url_for('/' + type) %>" class="tags-list-item waves-effect waves-button waves-light
             <% if(path === type + '/index.html'){%> active<%}%>">全部</a>
         <% 
             var options = type === 'tags' ? site.tags : site.categories

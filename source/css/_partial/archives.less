@@ -13,8 +13,7 @@
 .article-card {
     padding: 16px 16px 0;
     background: #fff;
-    border-radius: 2px;
-    box-shadow: @boxShadow;
+    border-radius: 3px;
     box-shadow: 0 1px 2px rgba(151, 151, 151, 0.58);
 
     .post-content {
@@ -45,6 +44,13 @@
 .waterfall {
     position: relative;
     margin: 0 -10px -20px;
+    opacity: 0;
+    .transform(translateY(10%));
+    .transition(.4s);
+    &.done {
+        opacity: 1;
+        .transform(translateY(0));
+    }
 }
 .waterfall-item {
     position: absolute;

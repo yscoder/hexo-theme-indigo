@@ -1,20 +1,23 @@
 (function() {
 
-    var even = window.BLOG.even,
-        searchIco = document.getElementById('search'),
-        searchWrap = document.getElementById('search-wrap'),
-        keyInput = document.getElementById('key'),
-        back = document.getElementById('back'),
-        searchPanel = document.getElementById('search-panel'),
-        searchResult = document.getElementById('search-result'),
-        searchTpl = document.getElementById('search-tpl').innerHTML,
+    var G = window || this,
+        even = G.BLOG.even,
+        $ = G.BLOG.$,
+        searchIco = $('#search'),
+        searchWrap = $('#search-wrap'),
+        keyInput = $('#key'),
+        back = $('#back'),
+        searchPanel = $('#search-panel'),
+        searchResult = $('#search-result'),
+        searchTpl = $('#search-tpl').innerHTML,
+        JSON_DATA = ('/' + G.BLOG.ROOT + '/content.json').replace(/\/{2}/g,'/'),
         searchData;
 
     function loadData(success) {
 
         if (!searchData) {
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', '/content.json', true);
+            xhr.open('GET', JSON_DATA, true);
 
             xhr.onload = function() {
                 if (this.status >= 200 && this.status < 300) {
@@ -44,8 +47,8 @@
         });
     }
 
-    var docEl = window.BLOG.docEl,
-        noop = window.BLOG.noop;
+    var docEl = G.BLOG.docEl,
+        noop = G.BLOG.noop;
 
     var Control = {
         show: function() {
@@ -133,4 +136,4 @@
     keyInput.addEventListener('input', search);
     keyInput.addEventListener(even, search);
 
-})();
+}).call(this);

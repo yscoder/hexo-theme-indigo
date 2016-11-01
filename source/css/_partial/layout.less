@@ -161,6 +161,7 @@
 }
 
 .mask {
+    visibility: hidden;
     position: fixed;
     top: 0;
     left: 0;
@@ -169,11 +170,16 @@
     width: 100%;
     height: 100%;
     background: #000;
-    opacity: .5;
-    filter: alpha(opacity=50);
-    display: none;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    pointer-events: none;
+    .transition(.3s);
+    
     &.in {
-        display: block;
+        visibility: visible;
+        pointer-events: auto;
+        opacity: .5;
+        filter: alpha(opacity=50);
     }
 }
 

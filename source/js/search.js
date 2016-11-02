@@ -10,7 +10,7 @@
         searchPanel = $('#search-panel'),
         searchResult = $('#search-result'),
         searchTpl = $('#search-tpl').innerHTML,
-        JSON_DATA = ('/' + G.BLOG.ROOT + '/content.json').replace(/\/{2}/g,'/'),
+        JSON_DATA = (G.BLOG.ROOT + '/content.json').replace(/\/{2}/g, '/'),
         searchData;
 
     function loadData(success) {
@@ -69,7 +69,7 @@
 
                 return tpl(searchTpl, {
                     title: post.title,
-                    path: post.path,
+                    path: (G.BLOG.ROOT + '/' + post.path).replace(/\/{2}/g, '/'),
                     date: new Date(post.date).toLocaleDateString(),
                     tags: post.tags.map(function(tag) {
                         return '<span>#' + tag.name + '</span>';
@@ -84,10 +84,12 @@
 
         searchResult.innerHTML = html;
     }
+
     function regtest(raw, regExp) {
         regExp.lastIndex = 0;
         return regExp.test(raw);
     }
+
     function matcher(post, regExp) {
         return regtest(post.title, regExp) || post.tags.some(function(tag) {
             return regtest(tag.name, regExp);

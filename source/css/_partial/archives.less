@@ -46,7 +46,8 @@
     margin: 0 -10px -20px;
     opacity: 0;
     .transform(translateY(10%));
-    .transition(.4s);
+    -webkit-transition: -webkit-transform .4s ease-in-out, opacity .4s ease-in-out;
+    transition: transform .4s ease-in-out, opacity .4s ease-in-out;
     &.done {
         opacity: 1;
         .transform(translateY(0));
@@ -81,7 +82,9 @@
 
     .waterfall {
         margin: 0;
-        height: auto!important
+        height: auto!important;
+        opacity: 1;
+        .transform(translateY(0));
     }
 
     .waterfall-item {

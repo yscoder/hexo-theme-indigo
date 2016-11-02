@@ -247,7 +247,7 @@
 
         },
         tabBar: function(el) {
-            el.parentNode.classList.toggle('expand')
+            el.parentNode.parentNode.classList.toggle('expand')
         }
     };
 

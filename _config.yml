@@ -100,3 +100,6 @@ disqus_shortname: false
 # https://support.google.com/webmasters/answer/139066
 # 假设配置为 canonical: http://imys.net，那么从搜索引擎中 www.imys.net 进入会重定向到 imys.net
 canonical: false
+
+# 版权起始年份
+since_year: 2006

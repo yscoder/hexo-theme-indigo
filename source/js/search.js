@@ -121,7 +121,7 @@
     searchIco.addEventListener(even, function() {
         searchWrap.classList.toggle('in');
         keyInput.value = '';
-        keyInput.focus();
+        searchWrap.classList.contains('in') ? keyInput.focus() : keyInput.blur();
     });
 
     back.addEventListener(even, function() {

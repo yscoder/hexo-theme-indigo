@@ -17,6 +17,7 @@
             background: #fff;
             border-radius: 4px;
             box-shadow: @boxShadow;
+            .flex-row-wrap;
         }
         
         .tags-list .tags-list-item {
@@ -50,11 +51,16 @@
     white-space: nowrap;
     text-transform: capitalize;
     .transition(.2s);
+
+    .flex-row;
 }
 
 .tags-list-item {
     position: relative;
-    display: inline-block;
+    -webkit-box-flex: none;
+    -webkit-flex: none;
+    -ms-flex: none;
+    flex: none;
     padding: 12px 1em;
     line-height: 20px;
     color: rgba(255, 255, 255, 0.8);
@@ -85,12 +91,17 @@
     right: 0;
     bottom: 0;
     z-index: 2;
-    width: 44px;
     height: 44px;
-    line-height: 20px;
+    padding-left: 1em;
     background: @primaryColor!important;
-    border-radius: 50%;
-    .transition(.2s);
+    
+    .action {
+        width: 44px;
+        height: 44px;
+        line-height: 20px;
+        border-radius: 50%;
+        .transition(.2s);
+    }
 }
 
 @media screen and (max-width:760px) {

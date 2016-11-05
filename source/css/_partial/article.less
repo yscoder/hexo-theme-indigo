@@ -11,8 +11,8 @@
 }
 
 .post-toc-wrap {
+    position: fixed;
     &.fixed {
-        position: fixed;
         top: @headerH + 20px;
         bottom: 20px;
         overflow-x: hidden;
@@ -67,9 +67,11 @@
     position: relative;
     z-index: 2;
     display: block;
+    max-width: 20vw;
     padding: 3px 20px;
     line-height: 1.5rem;
     color: inherit;
+    .ellipsis;
 
     &:hover {
         opacity: .8;

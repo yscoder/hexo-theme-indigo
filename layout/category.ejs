@@ -1,3 +1,3 @@
 <%- partial('categories', {
-    title: theme.categories_title + ': '+ _.capitalize(page.category)
+    title: theme.categories_title + ': ' + page.category.charAt(0).toUpperCase() + page.category.slice(1)
 }) %>

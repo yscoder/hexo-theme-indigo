@@ -10,7 +10,7 @@
   var title = page.title;
 
   if (is_archive()){
-    title = 'Archives';
+    title = theme.archives_title || 'Archives';
 
     if (is_month()){
       title += ': ' + page.year + '/' + page.month;
@@ -18,9 +18,9 @@
       title += ': ' + page.year;
     }
   } else if (is_category()){
-    title = 'Category: ' + page.category;
+    title = (theme.categories_title || 'Categories') + ': ' + page.category.charAt(0).toUpperCase() + page.category.slice(1);
   } else if (is_tag()){
-    title = 'Tag: ' + page.tag;
+    title = (theme.tags_title || 'Tags') + ': ' + page.tag.charAt(0).toUpperCase() + page.tag.slice(1);
   }
   %>
   <title><% if (title){ %><%= title %> | <% } %><%= config.title %> | <%= config.subtitle %></title>

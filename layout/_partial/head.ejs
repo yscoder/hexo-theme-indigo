@@ -18,9 +18,9 @@
       title += ': ' + page.year;
     }
   } else if (is_category()){
-    title = (theme.categories_title || 'Categories') + ': ' + page.category.charAt(0).toUpperCase() + page.category.slice(1);
+    title = (theme.categories_title || 'Categories') + ': ' + page.category;
   } else if (is_tag()){
-    title = (theme.tags_title || 'Tags') + ': ' + page.tag.charAt(0).toUpperCase() + page.tag.slice(1);
+    title = (theme.tags_title || 'Tags') + ': ' + page.tag;
   }
   %>
   <title><% if (title){ %><%= title %> | <% } %><%= config.title %> | <%= config.subtitle %></title>

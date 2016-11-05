@@ -117,6 +117,9 @@
     right: 35px;
     top: @share-fab-size / -2;
     z-index: 2;
+    .post-share {
+        visibility: hidden
+    }
 }
 
 .post-share {
@@ -133,6 +136,7 @@
     }
 
     &.in {
+        visibility: visible;
         .share-icons a {
             opacity: 1;
             .transform(scale(1));

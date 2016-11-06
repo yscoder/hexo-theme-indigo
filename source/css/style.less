@@ -255,13 +255,20 @@ hr,
 
 /* flex布局  */
 .flex-row,
+.flex-column,
 .flex-row-vertical {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
 }
-
+.flex-column {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
 .flex-row-vertical {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -271,7 +278,8 @@ hr,
 }
 
 /* 多行布局 */
-.flex-row-wrap {
+.flex-row-wrap,
+.flex-column {
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
@@ -377,6 +385,7 @@ hr,
 @import '_partial/share';
 @import '_partial/article';
 @import '_partial/archives';
+@import '_partial/page';
 @import '_partial/tags';
 @import '_partial/highlight';
 @import '_partial/search';

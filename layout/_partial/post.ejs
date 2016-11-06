@@ -12,37 +12,13 @@
             <%- post.content %>
         </div>
         
-        <blockquote class="post-copyright">
-            <div class="content">
-               <%- _.template(theme.copyright)(locals) %>
-            </div>
-            <footer>
-                <a href="<%- config.url %>">
-                    <img src="<%- theme.avatar %>" alt="<%- config.author %>">
-                    <%- config.author %>
-                </a>
-            </footer>
-        </blockquote>
-
-        <% if(page.reward){ %>
-        <div class="post-reward">
-            <a id="rewardBtn" href="javascript:;" class="post-reward-btn waves-effect waves-circle waves-light">赏</a>
-        </div>
-        <% } %>
+        <%- partial('post/copyright') %>
+        <%- partial('post/reward-btn') %>
 
         <div class="post-footer">
             <%- partial('post/tag') %>
 
-            <% if(theme.share){ %>
-            <div class="post-share-wrap">
-                <%- partial('post/share', {
-                        className: 'post-share'
-                }) %>
-                <a href="javascript:;" id="share-fab" class="post-share-fab waves-effect waves-circle">
-                    <i class="icon icon-share-alt icon-lg"></i>
-                </a>
-            </div>
-            <% } %>
+            <%- partial('post/share-fab') %>
 
         </div>
     </div>   

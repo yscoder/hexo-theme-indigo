@@ -1,6 +1,6 @@
 # hexo-theme-indigo
 # https://github.com/yscoder/hexo-theme-indigo
-version: 1.1.8
+version: 1.1.9
 
 #添加新菜单项遵循以下规则
 # menu:
@@ -27,12 +27,12 @@ menu:
     target: _blank
   link:
     text: 测试
-    url: /404
+    url: /custom
 
 rss: /atom.xml
 
 #你的头像url
-avatar: /img/logo.jpg
+avatar: //placekitten.com/200/200
 #favicon
 favicon: /favicon.ico
 
@@ -103,3 +103,6 @@ canonical: false
 
 # 版权起始年份
 since_year: 2006
+
+# 用户页面中作者相关的描述性文字，如不需要设为 false
+about: 用户页面中作者相关的描述性文字，如不需要设为 false

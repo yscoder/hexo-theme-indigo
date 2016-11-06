@@ -27,17 +27,19 @@
     <div class="container">
         <h1 class="title"><%=title %></h1>
         
-        <%  if(is_home()) { %> 
+        <%  if(is_home() || page.layout === 'page') { %> 
         <h5 class="subtitle">
             
-            <% if(subTitle){ %>
-                <%=config.subtitle %>
+            <% if('subTitle' in locals){ %>
+                <%- config.subtitle %>
+            <% } else if (page.description) {%>
+                <%- page.description %>
             <% } else { %>
                 <%- partial('post/head-meta') %>
             <% }%>
+
         </h5>
         <% } %>
-
     </div>
 
     <%- partial('tags-bar', {

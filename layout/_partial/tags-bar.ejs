@@ -8,7 +8,9 @@ if(type === 'categories' || type === 'tags'){ %>
             var options = [];
             
             (type === 'tags' ? site.tags : site.categories).each(function(o) {
-                options.push(o)
+                if(o.posts.length) {
+                    options.push(o)
+                }
             })
             
             var index = _.findIndex(options, function(o) {

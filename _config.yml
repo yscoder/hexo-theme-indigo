@@ -1,6 +1,6 @@
 # hexo-theme-indigo
 # https://github.com/yscoder/hexo-theme-indigo
-version: 1.1.9
+version: 1.1.10
 
 #添加新菜单项遵循以下规则
 # menu:
@@ -51,7 +51,7 @@ categories_title: Categories
 excerpt_render: false
 excerpt_length: 200
 excerpt_link: 阅读全文...
-mathjax: true
+mathjax: false
 archive_yearly: true
 
 #是否开启分享

@@ -13,7 +13,7 @@
         loading = $('#loading'),
         animate = w.requestAnimationFrame,
         forEach = Array.prototype.forEach,
-        even = 'ontouchstart' in w ? 'touchstart' : 'click',
+        even = ('ontouchstart' in w && /Mobile|Android|iOS|iPhone|iPad|iPod|Windows Phone|KFAPWI/i.test(navigator.userAgent)) ? 'touchstart' : 'click',
         noop = function() {},
         offset = function(el) {
             var x = el.offsetLeft,

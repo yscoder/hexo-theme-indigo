@@ -3,7 +3,7 @@
     hdClass: 'tags-header'
 }) %>
 <div class="container body-wrap">
-    <% 
+    <%  
         if(is_tag()) { %>
             <div class="waterfall">
           <% page.posts.each(function(post){ %>
@@ -13,7 +13,7 @@
         <% }) %>
             </div>
         <% } else {
-            site.tags.each(function(tag){  %>
+            page.tags.each(function(tag){  %>
 
             <h3 class="archive-separator" id="tag-<%=tag.name %>"><%=tag.name %></h3>
             

@@ -44,15 +44,16 @@
     .ds-unread-list{
       max-height: 300px;
       overflow-y: auto;
+       padding-left: 0;
     }
   }
   .ds-control-group {
     margin: 18px 0;
     position: relative;
     padding-right : 80px;
-    
+
     input {
-      padding: 6px;  
+      padding: 6px;
       width: 100%;
       font-size: @font-size-base;
       border: @border-gray;
@@ -73,7 +74,7 @@
   }
   tr {
     height: 45px;
-  }  
+  }
   button {
     cursor: pointer;
     color: #fff;
@@ -125,7 +126,7 @@
     .icon-check-circle {
       color: #8BC34A
     }
-  }  
+  }
   .ds-quote {
     margin: 10px 0px;
     padding: 6px 10px;
@@ -140,7 +141,7 @@
     padding: 0 20px 0 0;
     position:relative;
     margin: 12px 0;
-    
+
     textarea{
       width: 100%;
       height: 54px;
@@ -165,7 +166,7 @@
   .ds-actions {
     position:relative;
     height:30px;
-    
+
     button {
       display:block;
       position:absolute;
@@ -225,7 +226,7 @@
       a[rel~="author"] {
         color: @link-color;
       }
-      
+
       .ds-delete{
         display:none;
         position:absolute;
@@ -237,7 +238,7 @@
         overflow: hidden;
         background: transparent url("@{images-url}delete.gif") no-repeat scroll 0 -14px;
       }
-      
+
       &:hover{
         .ds-delete{
           display:block;

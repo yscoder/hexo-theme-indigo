@@ -10,24 +10,26 @@
 }
 
 ::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
+    -webkit-appearance: none;
+    width: 8px;
+    height: 8px;
 
-    &-track { background-color: transparent; }
+    &-track { background-color: inherit; }
     &-thumb {
-        background-color: @dividerColor ;
-
+        background-color: @dividerColor;
+        border: 1px solid #fff;
+        border-radius: 10px;
         &:hover {
-            background-color: @secondaryTextColor
+            background-color: darken(@dividerColor, 10%)
         }
         &:active {
-            background-color: @secondaryTextColor
+            background-color: darken(@dividerColor, 20%)
         }
     }
 }
 
 html {
-    background-color: #fff;
+    background-color: @backColor;
     color: @primaryTextColor;
     font-size: @font-size;
     line-height: 1.5;

@@ -136,7 +136,7 @@
                 postShare = $('#post-share'),
                 fab = $('#share-fab'),
                 sns = $$('.share-sns'),
-                summary = meta.summary, 
+                summary = meta.summary,
                 api = 'http://www.jiathis.com/send/?webid={service}&url=' + meta.url + '&title=' + meta.title + '&summary=' + summary + '&pic=' + location.protocol + '//' + location.host + meta.pic;
 
             function goShare(service) {

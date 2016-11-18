@@ -5,14 +5,14 @@
 <div class="container body-wrap">
     <%
         var posts = [];
-        
+
         page.posts.each(function(post){
             posts.push(post);
         });
 
         var sortPosts = _[_.orderBy ? 'orderBy' : 'sortByOrder'](posts, ['date'], ['desc']);
     %>
-    
+
     <%
     var y = 0, m = 0;
     sortPosts.forEach(function(post, i){
@@ -31,7 +31,7 @@
     <%    } %>
 
         <%- partial('_partial/archive', {post: post, date_format: 'MMM D'}) %>
-            
+
     <%})%>
     </div>
 

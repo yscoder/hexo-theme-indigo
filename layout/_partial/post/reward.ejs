@@ -9,14 +9,14 @@
     <ul class="reward-items">
         <% if(theme.reward.wechat){ %>
         <li>
-            <img src="<%=theme.reward.wechat %>" title="微信打赏二维码" alt="微信打赏二维码">
+            <img src="<%- url_for(theme.reward.wechat) %>" title="微信打赏二维码" alt="微信打赏二维码">
             <p>微信</p>
         </li>
         <% } %>
 
         <% if(theme.reward.alipay){ %>
         <li>
-            <img src="<%=theme.reward.alipay %>" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <img src="<%- url_for(theme.reward.alipay) %>" title="支付宝打赏二维码" alt="支付宝打赏二维码">
             <p>支付宝</p>
         </li>
         <% } %>

@@ -23,7 +23,7 @@
 .page-content {
     margin-bottom: 30px;
     border-bottom: 2px solid @borderColor;
-    
+
     > blockquote,
     > pre,
     img,
@@ -131,7 +131,7 @@
                 text-align: center;
                 .card(3px)
             }
-            
+
             > h6 {
                 position: absolute;
                 top: 50%;
@@ -175,13 +175,13 @@
 .page-about-me {
     position: relative;
     padding: 30px 35px!important;
-    
+
     .avatar {
         margin-right: 35px;
         width: 100px;
         height: 100px;
         box-shadow: @boxShadow;
-        
+
         img {
             border-radius: 50%;
         }
@@ -204,10 +204,51 @@
     }
     .page-about-me {
         padding: 15px 20px!important;
-        .avatar { 
+        .avatar {
             margin-right: 20px;
             width: 60px;
             height: 60px;
+        }
+    }
+}
+
+.page-modal {
+    display: none;
+    position: fixed;
+    top: 24%;
+    left: 50%;
+    z-index: 120;
+    padding: 30px;
+    text-align: center;
+    color: @secondaryTextColor;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: @boxShadow;
+    opacity: 0;
+    .transform(translate(-50%, -200%));
+
+    &.ready {
+        visibility: hidden;
+        display: block;
+        .transform(translate(-50%, -100%));
+        .transition(.3s);
+    }
+
+    &.in {
+        visibility: visible;
+        opacity: 1;
+        .transform(translate(-50%, 0));
+    }
+
+    .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, .2);
+        font-size: 16px;
+        line-height: 20px;
+        &:hover, &:active {
+            color: rgba(0, 0, 0, .4);
         }
     }
 }

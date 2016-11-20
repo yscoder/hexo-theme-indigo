@@ -1,9 +1,7 @@
 <% if(theme.share){ %>
-<div class="post-share-wrap">
-    <%- partial('share', {
-            className: 'post-share'
-    }) %>
-    <a href="javascript:;" id="share-fab" class="post-share-fab waves-effect waves-circle">
+<div class="page-share-wrap">
+    <%- partial('share', { scope: 'page' }) %>
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
         <i class="icon icon-share-alt icon-lg"></i>
     </a>
 </div>

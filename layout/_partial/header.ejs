@@ -16,7 +16,7 @@
         </div>
         <% }%>
         <% if(theme.share){ %>
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-share">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
             <i class="icon icon-lg icon-share-alt"></i>
         </a>
         <% } %>
@@ -29,7 +29,7 @@
         <h5 class="subtitle">
             <% if(is_post()){ %>
                 <%- partial('post/head-meta') %>
-            <% } else if(is_home()){ %> 
+            <% } else if(is_home()){ %>
                 <%- config.subtitle %>
             <% } else if (page.layout === 'page' && page.description) {%>
                 <%- page.description %>

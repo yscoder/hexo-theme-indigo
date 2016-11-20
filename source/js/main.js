@@ -129,43 +129,67 @@
                 setActive(top);
             };
         })(),
-        share: function(meta) {
+        modal: function(target) {
+            this.$modal = $(target);
+            this.$off = this.$modal.querySelector('.close');
 
-            var share = $('#global-share'),
-                menuShare = $('#menu-share'),
-                postShare = $('#post-share'),
-                fab = $('#share-fab'),
-                sns = $$('.share-sns'),
-                summary = meta.summary,
-                api = 'http://www.jiathis.com/send/?webid={service}&url=' + meta.url + '&title=' + meta.title + '&summary=' + summary + '&pic=' + location.protocol + '//' + location.host + meta.pic;
+            var _this = this;
 
-            function goShare(service) {
-                w.open(encodeURI(api.replace('{service}', service)));
+            function hideByBody(e) {
+                if (!_this.$modal.contains(e.target)) {
+                    _this.hide();
+                }
             }
 
-            function show() {
+            this.show = function() {
                 mask.classList.add('in');
-                share.classList.add('in');
+                _this.$modal.classList.add('ready');
+                setTimeout(function() {
+                    _this.$modal.classList.add('in');
+                    d.addEventListener(even, hideByBody);
+                }, 0)
             }
 
-            function hide() {
-                share.classList.remove('in');
+            this.hide = function() {
                 mask.classList.remove('in');
+                _this.$modal.classList.remove('in');
+                setTimeout(function() {
+                    _this.$modal.classList.remove('ready');
+                    d.removeEventListener(even, hideByBody);
+                }, 300)
             }
 
-            forEach.call(sns, function(el) {
-                el.addEventListener('click', function() {
-                    goShare(this.dataset.service);
-                }, false);
-            });
+            this.toggle = function() {
+                return _this.$modal.classList.contains('in') ? _this.hide() : _this.show();
+            }
 
-            menuShare.addEventListener(even, show, false);
+            this.$off && this.$off.addEventListener(even, this.hide);
+        },
+        share: function() {
 
-            mask.addEventListener(even, hide, false);
+            var pageShare = $('#pageShare'),
+                fab = $('#shareFab');
 
-            fab && fab.addEventListener(even, function() {
-                postShare.classList.toggle('in');
-            }, false);
+            var shareModal = new this.modal('#globalShare');
+
+            $('#menuShare').addEventListener(even, shareModal.toggle);
+
+            if(fab) {
+                fab.addEventListener(even, function() {
+                    pageShare.classList.toggle('in')
+                }, false)
+
+                d.addEventListener(even, function(e){
+                    !fab.contains(e.target) && pageShare.classList.remove('in')
+                }, false)
+            }
+
+            var wxModal = new this.modal('#wxShare');
+
+            forEach.call($$('.wxFab'), function(el){
+                el.addEventListener(even, wxModal.toggle)
+            })
+
         },
         search: function() {
             var searchWrap = $('#search-wrap');
@@ -176,46 +200,11 @@
 
             $('#search').addEventListener(even, toggleSearch);
         },
-        reward: (function() {
+        reward: function() {
+            var modal = new this.modal('#reward')
 
-            var reward = $('#reward');
-            var rewardBtn = $('#rewardBtn');
-            var rewardOff = $('#rewardOff');
-
-            if (!reward) {
-                return;
-            }
-
-            function show() {
-                mask.classList.add('in');
-                reward.classList.add('ready');
-                setTimeout(function() {
-                    reward.classList.add('in');
-                    d.addEventListener(even, hideByBody);
-                }, 0)
-            }
-
-            function hide() {
-                mask.classList.remove('in');
-                reward.classList.remove('in');
-                setTimeout(function() {
-                    reward.classList.remove('ready');
-                    d.removeEventListener(even, hideByBody);
-                }, 300)
-            }
-
-            function hideByBody(e) {
-                if (!reward.contains(e.target)) {
-                    hide();
-                }
-            }
-
-            rewardBtn.addEventListener(even, function() {
-                return reward.classList.contains('in') ? hide() : show();
-            });
-            rewardOff.addEventListener(even, hide);
-
-        })(),
+            $('#rewardBtn').addEventListener(even, modal.toggle)
+        },
         fixNavMinH: (function() {
             var nav = $('.nav');
 
@@ -289,7 +278,11 @@
     }, false);
 
     if (w.BLOG.SHARE) {
-        Blog.share(w.BLOG.SHARE)
+        Blog.share()
+    }
+
+    if (w.BLOG.REWARD) {
+        Blog.reward()
     }
 
     Blog.docEl = docEl;

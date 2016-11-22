@@ -12,7 +12,7 @@ Material Design 风格的Hexo主题，基于 Hexo 3.0+ 制作。 [Preview](http:
 3. 使用 Less 作为 css 预处理器，需要安装 `hexo-renderer-less`。
 4. 添加了英文字体支持 Roboto。
 5. 添加了一些波纹效果。By [Waves](https://github.com/fians/Waves)
-6. 分享直接使用了 JiaThis API 接口，免去了一次加载请求。
+6. 无前端依赖的分享实现。
 7. 基于静态数据的站内搜索，无第三方侵入。
 8. 内置 Github 风格的多说样式，且集成 Marked.js，支持Markdown评论。
 9. 支持文章打赏。

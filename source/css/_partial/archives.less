@@ -12,7 +12,7 @@
 .article-card {
     padding: 16px 20px 0;
     .card();
-    
+
     .post-content {
         font-size: 13px;
         word-break: break-all;
@@ -48,14 +48,7 @@
 .waterfall {
     position: relative;
     margin: 0 -10px -20px;
-    opacity: 0;
-    .transform(translateY(10%));
-    -webkit-transition: -webkit-transform .4s ease-in-out, opacity .4s ease-in-out;
-    transition: transform .4s ease-in-out, opacity .4s ease-in-out;
-    &.done {
-        opacity: 1;
-        .transform(translateY(0));
-    }
+    .fade;
 }
 .waterfall-item {
     position: absolute;

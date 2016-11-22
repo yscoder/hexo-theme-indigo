@@ -12,10 +12,10 @@
 
 .post-toc-wrap {
     position: fixed;
+    overflow-x: hidden;
     &.fixed {
         top: @headerH + 20px;
         bottom: 20px;
-        overflow-x: hidden;
         overflow-y: auto;
     }
 
@@ -35,52 +35,60 @@
     padding-left: 10px;
 }
 .post-toc {
-    position: relative;
     display: inline-block;
     padding: 0;
     font-size: 13px;
+    > .post-toc-item {
+        position: relative
+    }
 }
 .post-toc-item {
     font-weight: 400;
     color: @secondaryTextColor;
 
-    &:before {
-        content: '';
-        position: absolute;
-        left: 0;
-        z-index: 1;
-        height: 25px;
-        width: 100%;
-    }
-    
     &.active {
-        color: @primaryColor;
 
-        &:before {
-            border-left: 3px solid @primaryColor;
-            background: rgba(0, 0, 0, .06);
+        > .post-toc-link {
+            font-weight: 600;
+            color: @primaryColor;
+            &:before {
+                background: rgba(0, 0, 0, .06);
+            }
+
+            &:after {
+                border-left: 3px solid @primaryColor;
+            }
         }
-        
     }
 }
 .post-toc-link {
     position: relative;
     z-index: 2;
     display: block;
-    max-width: 20vw;
     padding: 3px 20px;
     line-height: 1.5rem;
     color: inherit;
-    .ellipsis;
 
     &:hover {
         opacity: .8;
     }
+
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+    }
+
 }
 
 
 .post-article {
-    
+
     .post-content {
         padding-top: 20px;
     }
@@ -459,7 +467,7 @@
             box-shadow: 0 1px 4px 0 rgba(0,0,0,0.16);
             border-radius: 2px;
         }
-        
+
     }
 
     .post-card-title {
@@ -470,7 +478,7 @@
         padding: 0;
         margin-left: -16px;
         margin-right: -16px;
-        .prev, 
+        .prev,
         .next {
             width: 50%;
             background: #fff;

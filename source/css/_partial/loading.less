@@ -25,3 +25,28 @@
     }
 }
 
+.fade,
+.fade-scale {
+    opacity: 0;
+
+    &.in {
+        opacity: 1;
+        .transform(none);
+    }
+}
+.fade {
+    .transition(.4s);
+    .transform(translateY(50px));
+}
+.fade-scale {
+    .transition(.6s);
+    .transform(translate(10%, 20%) scale(.6));
+}
+
+@media screen and (max-width:480px) {
+    .fade,
+    .fade-scale {
+        opacity: 1;
+        .transform(none);
+    }
+}

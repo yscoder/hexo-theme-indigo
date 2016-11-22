@@ -7,7 +7,7 @@ page.reward = 'reward' in page ? (theme.reward && page.reward) : theme.reward;
 page.slug = 'hexo-page-' + page.path.replace(/\/index\.html$/,'').split('/').join('-');
 %>
 <div class="container body-wrap">
-    <article class="page-article" itemprop="blogPage">
+    <article class="page-article fade" itemprop="blogPage">
         <div class="post-content page-content" id="page-content" itemprop="pageContent">
             <%- page.content.replace(/<p>}<\/p>/g, '</div>')
                 .replace(/<p>@([\w-]+){<\/p>/g, function(match, $1){

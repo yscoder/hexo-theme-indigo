@@ -12,14 +12,14 @@
       color: @link-hover-color!important
     }
   }
-  
-  ul, 
+
+  ul,
   ul li {     //  for compatible
     background:none;
     margin: 0;
     padding: 0;
   }
-  
+
   .ds-arrow {
     position: absolute;
     width: 0;
@@ -31,14 +31,14 @@
     border-right: 5px solid transparent;
     border-top: 5px solid #fff;
   }
-  
+
   button {
     cursor: pointer;
     margin: 0;      //  for compatible
     padding: 0;     //  for compatible
     border-radius : 0;  //  for compatible
   }
-  
+
   /* Meta */
   .ds-meta {
     position : relative;
@@ -46,7 +46,7 @@
     line-height: 24px;
     border-bottom: @border-shadow;
   }
-  
+
   .ds-like-tooltip {
     position: absolute;
     z-index: 9999;
@@ -54,7 +54,7 @@
     border: @border-gray;
     background: #fff;
     font-size: @font-size-small;
-    
+
     ul {
       width:84px;
       float:left;
@@ -71,7 +71,7 @@
       text-align:right;
     }
   }
-  
+
   a.ds-like-thread-button {
     color: @gray;
     padding: 4px 8px;
@@ -83,7 +83,7 @@
       opacity: .6;
     }
   }
-  
+
   .ds-thread-cancel-like {
     display:none;
   }
@@ -93,24 +93,24 @@
     .icon-heart {
       opacity: 1
     }
-    
+
     &:hover{
-      .ds-thread-cancel-like { 
+      .ds-thread-cancel-like {
         display:inline;
       }
-      .ds-thread-like-text { 
+      .ds-thread-like-text {
         display:none;
       }
     }
   }
-  
+
   /*  Hot Posts */
   #ds-hot-posts {
     overflow: hidden;
     margin: 8px 0;
     padding: 0;
   }
-  
+
   .ds-header {
     font-weight:bold;
     font-size:@font-size-large;
@@ -119,7 +119,7 @@
     padding : 0 12px;
     border-bottom: 2px solid @gray-lightest;
   }
-  
+
   /* Toolbar */
   .ds-toolbar {
     position: relative;
@@ -128,7 +128,7 @@
     padding: 8px 0;
     width: 100%;
     clear: both;
-  
+
     &:after {
       .clearfix();
     }
@@ -184,7 +184,7 @@
       }
     }
   }
-  
+
   .ds-alert {
     margin: 0.5em 0;
     border: 1px solid #FBEED5;
@@ -194,7 +194,7 @@
     background-color: #FCF8E3;
     line-height: 1.5em;
   }
-  
+
   .ds-login-buttons {
     width: 100%;
     position: relative;
@@ -226,12 +226,12 @@
       float:left;
       width:306px;  // ie6 有3px margin的bug
     }
-    
+
     &:after {
       .clearfix();
     }
   }
-  
+
   a.ds-unread-comments-count {
     display:none;
     background-color: #F44336;
@@ -246,7 +246,7 @@
       background: #f00;
     }
   }
-  
+
   /* Reply Box */
   .ds-replybox {
     width: auto; // compatible  100%;
@@ -260,8 +260,8 @@
       .clearfix();
     }
   }
-  
-  .ds-inline-replybox {  
+
+  .ds-inline-replybox {
     margin: 8px 0 2px 0;
     padding-left: 45px;
     .ds-avatar img{
@@ -340,7 +340,7 @@
       opacity: 1;
     }
   }
-  
+
   .ds-sync {
     font-size:@font-size-small;
     color: @gray-lighter;
@@ -363,7 +363,7 @@
     position: absolute;
     right: 0;
     top: 0;
-    height: 100%; 
+    height: 100%;
     width: 100px;
     text-align: center;
     color: #fff;
@@ -380,7 +380,7 @@
       box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
     }
   }
-  
+
   .ds-comments-info {
     width: 100%;
     font-size: @font-size-base;
@@ -389,12 +389,12 @@
     line-height: 25px;
     position:relative;
   }
-  
+
   .ds-sort {
     position:absolute;
     right:0;
     top: 8px;
-    
+
     a {
       color: @text-muted;
       padding: 0 4px; //  padding更大可以扩大可点击区域
@@ -403,13 +403,13 @@
       &:hover {
         color: @link-hover-color;
       }
-      
+
       &.ds-current {
         color: @link-color;
       }
     }
   }
-  
+
   ul.ds-comments-tabs {
     .ds-highlight {
       margin: 0 2px 0 0;
@@ -419,7 +419,7 @@
       margin: 0 2px 1px 0;
     }
   }
-  
+
   li.ds-tab {
     display: inline;
     font-size: @font-size-large;
@@ -438,17 +438,17 @@
       }
     }
   }
-  
+
   /* Comments */
   .ds-comments {
-    width: 100%;    
+    width: 100%;
     &:after {
       .clearfix();
     }
     border-top: 2px solid @gray-lightest;
     border-bottom: 2px solid @gray-lightest
   }
-  
+
   li.ds-post {
     width:100%;     // clearfix
     clear: both;
@@ -456,13 +456,13 @@
     padding: 10px 0;    //  for-compatible
     list-style:none;//  for-compatible
   }
-  
+
   li.ds-post-placeholder {
     text-align: center;
     color: @text-muted;
     padding: 2em 0;
   }
-  
+
   .ds-post-self {
     position: relative;
     padding-left: 60px;
@@ -475,7 +475,7 @@
       }
     }
   }
-  
+
   &.ds-touch .ds-post-self{
     .ds-post-delete, .ds-post-report {
       display: inline-block;
@@ -509,7 +509,7 @@
       color: #666;
     }
   }
-  
+
   a.ds-comment-context {
     position: relative;
     margin: .5em 0;
@@ -545,10 +545,10 @@
       padding: 0 0 10px;
     }
   }
-  
+
   #ds-ctx-bubble {
     width: 300px;
-    
+
     .ds-bubble-footer{
       padding: 6px 0 0 0;
       line-height:18px;
@@ -566,7 +566,7 @@
         height: @avatar-size;
       }
     }
-    .ds-user-name { 
+    .ds-user-name {
       vertical-align:top;
       display:inline-block;
       max-width:8em;
@@ -575,8 +575,8 @@
       text-overflow:ellipsis;
       font-size:@font-size-large;
     }
-    .ds-user-card-meta { 
-      margin:14px 0 0 0; 
+    .ds-user-card-meta {
+      margin:14px 0 0 0;
     }
     .ds-user-description {
       border-top:1px dotted #ddd;
@@ -590,7 +590,7 @@
       color: @gray-light
     }
   }
-  
+
   .ds-comment-header {
     margin: 0 -15px;
     padding: 10px 15px;
@@ -598,7 +598,7 @@
     border-bottom: @border-gray;
     border-radius: 3px 3px 0 0;
   }
-  
+
   .ds-comment-footer {
     line-height : 1.5em;
 
@@ -613,7 +613,7 @@
       color: @text-muted;
     }
   }
-  
+
   .ds-user-name {
     color: @gray-light;
     font-size: @font-size-base;
@@ -625,7 +625,7 @@
       color: @highlight;
     }
   }
-  
+
 
   .ds-reply-active {
     display: block;
@@ -633,19 +633,19 @@
       color: @gray-dark;
     }
   }
-  
-  .ds-post-delete, 
+
+  .ds-post-delete,
   .ds-post-report {
     display: none;
   }
-  
+
   .ds-time {
     font-size: @font-size-small;
     margin-right: 8px;
     color: @text-muted;
   }
 
- 
+
   ul.ds-children {
     margin-left: 38px;
     .ds-avatar {
@@ -660,8 +660,8 @@
       padding-left: 45px;
     }
   }
-  
- 
+
+
   .ds-paginator {
     border-bottom: @border-shadow;
     text-align: right;
@@ -678,7 +678,7 @@
       padding: 2px 5px;
       border: 1px solid transparent;
 
-      &:hover, 
+      &:hover,
       &.ds-current {
         .rounded(@border-radius);
         background-color: rgba(0, 0, 0, .03);
@@ -689,7 +689,7 @@
       }
     }
   }
-  
+
   .ds-powered-by {
     font-size: @font-size-small;
     text-align: right;
@@ -703,8 +703,8 @@
       }
     }
   }
-  
-  
+
+
 }
 
 
@@ -716,9 +716,13 @@
   }
   .ds-post-button {
     width: 70px;
-  }  
+  }
   .ds-post-options {
     margin-right:70px;
+  }
+  .ds-post-self,
+  .ds-replybox {
+      padding-left: 45px
   }
 }
 

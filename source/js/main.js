@@ -12,6 +12,7 @@
         menuOff = $('#menu-off'),
         loading = $('#loading'),
         animate = w.requestAnimationFrame,
+        scrollSpeed = 200 / ( 1000 / 60),
         forEach = Array.prototype.forEach,
         even = ('ontouchstart' in w && /Mobile|Android|iOS|iPhone|iPad|iPod|Windows Phone|KFAPWI/i.test(navigator.userAgent)) ? 'touchstart' : 'click',
         noop = function() {},
@@ -33,13 +34,18 @@
         docEl = navigator.userAgent.indexOf('Firefox') !== -1 ? d.documentElement : body;
 
     var Blog = {
-        goTop: function() {
+        goTop: function(end) {
             var top = docEl.scrollTop;
-            if (top > 400) {
-                docEl.scrollTop = top - 400;
-                animate(arguments.callee);
+            var interval = arguments.length > 2 ? arguments[1] : Math.abs(top - end) / scrollSpeed;
+
+            if (top && top > end) {
+                docEl.scrollTop = Math.max(top - interval, 0);
+                animate(arguments.callee.bind(this, end, interval));
+            } else if(end && top < end) {
+                docEl.scrollTop = Math.min(top + interval, end);
+                animate(arguments.callee.bind(this, end, interval));
             } else {
-                docEl.scrollTop = 0;
+                this.toc.actived(end);
             }
         },
         toggleGotop: function(top) {
@@ -73,11 +79,14 @@
                 header.classList.remove('fixed');
             }
         },
-        fixedToc: (function() {
+        toc: (function() {
             var toc = $('#post-toc');
 
             if (!toc || !toc.children.length) {
-                return noop;
+                return {
+                    fixed: noop,
+                    actived: noop
+                }
             }
 
             var tocOfs = offset(toc),
@@ -91,43 +100,35 @@
 
                 el.addEventListener('click', function(e) {
                     e.preventDefault();
-                    docEl.scrollTop = offset($('[id="' + decodeURIComponent(this.hash).substr(1) + '"]')).y - headerH + 10;
+                    var top = offset($('[id="' + decodeURIComponent(this.hash).substr(1) + '"]')).y - headerH;
+                    animate(Blog.goTop.bind(Blog, top));
                 })
             });
 
-            function setActive(top) {
+            return {
+                fixed: function(top) {
+                    if (top > tocTop - headerH) {
+                        toc.classList.add('fixed');
+                    } else {
+                        toc.classList.remove('fixed');
+                    }
+                },
+                actived: function(top) {
+                    for (i = 0, len = titles.length; i < len; i++) {
+                        if (top > offset(titles[i]).y - headerH - 5) {
+                            toc.querySelector('li.active').classList.remove('active');
 
-                for (i = 0, len = titles.length; i < len; i++) {
-                    if (top > offset(titles[i]).y - headerH) {
-                        toc.querySelector('li.active').classList.remove('active');
-
-                        var active = toc.querySelector('a[href="#' + titles[i].id + '"]').parentNode;
-                        active.classList.add('active');
-
-                        if (active.offsetTop >= toc.clientHeight - headerH) {
-                            toc.scrollTop = active.offsetTop - toc.clientHeight + parseInt(w.innerHeight / 3);
-                        } else {
-                            toc.scrollTop = 0;
+                            var active = toc.querySelector('a[href="#' + titles[i].id + '"]').parentNode;
+                            active.classList.add('active');
                         }
                     }
-                }
 
-                if (top < offset(titles[0]).y) {
-                    toc.querySelector('li.active').classList.remove('active');
-                    toc.querySelector('a[href="#' + titles[0].id + '"]').parentNode.classList.add('active');
+                    if (top < offset(titles[0]).y) {
+                        toc.querySelector('li.active').classList.remove('active');
+                        toc.querySelector('a[href="#' + titles[0].id + '"]').parentNode.classList.add('active');
+                    }
                 }
             }
-
-            return function(top) {
-                if (top > tocTop - headerH) {
-                    toc.classList.add('fixed');
-                } else {
-                    toc.classList.remove('fixed');
-
-                }
-
-                setActive(top);
-            };
         })(),
         modal: function(target) {
             this.$modal = $(target);
@@ -218,9 +219,7 @@
 
             if (w.innerWidth < 760) return;
 
-            var els = $$('.waterfall');
-
-            forEach.call(els, function(el) {
+            forEach.call($$('.waterfall'), function(el) {
                 var childs = el.querySelectorAll('.waterfall-item');
                 var columns = [0, 0];
 
@@ -231,19 +230,44 @@
                 })
 
                 el.style.height = Math.max(columns[0], columns[1]) + 'px';
-                el.classList.add('done')
+                el.classList.add('in')
             })
 
         },
         tabBar: function(el) {
             el.parentNode.parentNode.classList.toggle('expand')
-        }
+        },
+        page: (function(){
+            var $elements = $$('.fade, .fade-scale');
+
+            return {
+                loaded: function() {
+                    forEach.call($elements, function(el) {
+                        el.classList.add('in')
+                    })
+                },
+                unload: function() {
+                    forEach.call($elements, function(el) {
+                        el.classList.remove('in')
+                    })
+                }
+            }
+
+        })()
     };
 
     w.addEventListener('load', function() {
         Blog.fixNavMinH();
         Blog.waterfall();
+        var top = docEl.scrollTop;
+        Blog.toc.fixed(top);
+        Blog.toc.actived(top);
         loading.classList.remove('active');
+        Blog.page.loaded();
+    });
+
+    w.addEventListener('beforeunload', function() {
+        Blog.page.unload();
     });
 
     w.addEventListener('resize', function() {
@@ -254,7 +278,7 @@
     });
 
     gotop.addEventListener(even, function() {
-        animate(Blog.goTop);
+        animate(Blog.goTop.bind(Blog, 0));
     }, false);
 
     menuToggle.addEventListener(even, function(e) {
@@ -274,7 +298,7 @@
         var top = docEl.scrollTop;
         Blog.toggleGotop(top);
         Blog.fixedHeader(top);
-        Blog.fixedToc(top);
+        Blog.toc.fixed(top);
     }, false);
 
     if (w.BLOG.SHARE) {

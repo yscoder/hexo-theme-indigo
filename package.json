@@ -1,19 +1,19 @@
 {
-    "name": "hexo-theme-material-indigo",
-    "version": "1.2.2",
-    "description": "Material Design theme for Hexo.",
-    "keywords": [
-      "hexo",
-      "theme",
-      "material design"
-    ],
-    "author": {
-      "name": "yusen",
-      "email": "634206017@qq.com"
-    },
-    "license": "MIT",
-    "repository": {
-      "url": "git+https://github.com/yscoder/hexo-theme-indigo.git",
-      "type": "git"
-    }
+  "name": "hexo-theme-material-indigo",
+  "version": "1.2.3",
+  "description": "Material Design theme for Hexo.",
+  "keywords": [
+    "hexo",
+    "theme",
+    "material design"
+  ],
+  "author": {
+    "name": "yusen",
+    "email": "634206017@qq.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "url": "git+https://github.com/yscoder/hexo-theme-indigo.git",
+    "type": "git"
+  }
 }

@@ -15,6 +15,7 @@
         scrollSpeed = 200 / ( 1000 / 60),
         forEach = Array.prototype.forEach,
         even = ('ontouchstart' in w && /Mobile|Android|iOS|iPhone|iPad|iPod|Windows Phone|KFAPWI/i.test(navigator.userAgent)) ? 'touchstart' : 'click',
+        isWX = /micromessenger/i.test(navigator.userAgent),
         noop = function() {},
         offset = function(el) {
             var x = el.offsetLeft,
@@ -56,20 +57,34 @@
             }
         },
         toggleMenu: function(flag) {
-
+            var main = $('#main');
             if (flag) {
                 menu.classList.remove('hide');
 
                 if (w.innerWidth < 1241) {
                     mask.classList.add('in');
                     menu.classList.add('show');
-                    root.classList.add('lock');
+
+                    if(isWX) {
+                        var top = docEl.scrollTop;
+                        main.classList.add('lock');
+                        main.scrollTop = top;
+                    } else {
+                        root.classList.add('lock');
+                    }
                 }
 
             } else {
                 menu.classList.remove('show');
                 mask.classList.remove('in');
-                root.classList.remove('lock');
+                if(isWX) {
+                    var top = main.scrollTop;
+                    main.classList.remove('lock');
+                    docEl.scrollTop = top;
+                } else {
+                    root.classList.remove('lock');
+                }
+
             }
         },
         fixedHeader: function(top) {

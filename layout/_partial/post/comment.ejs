@@ -1,9 +1,11 @@
 <% if (theme.duoshuo && post.comments){ %>
-<%- partial('duoshuo', {
-    key: post.slug,
-    title: post.title,
-    url: url
-  }) %>
+<section id="comments">	
+    <%- partial('duoshuo', {
+        key: post.slug,
+        title: post.title,
+        url: url
+      }) %>
+</section>
 <% } %>
 
 <% if (post.comments && theme.disqus_shortname){ %>

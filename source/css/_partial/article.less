@@ -101,7 +101,7 @@
     padding: 35px;
     background: #fff;
     border-radius: 4px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, .3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .2);
     .post-meta {
         margin-top: 8px;
     }
@@ -206,13 +206,13 @@
     }
 
     .image-bubble {
-        img {
-            margin: 20px auto 10px;
-        }
+        margin-top: 20px;
+        margin-bottom: 20px;
         text-align: center;
     }
     .image-caption {
         display: inline-block;
+        margin-top: 10px;
         color: @secondaryTextColor;
     }
 
@@ -329,7 +329,8 @@
     p:first-child,
     pre:first-child,
     table:first-child,
-    ul:first-child {
+    ul:first-child,
+    figure:first-child {
         margin-top: 0
     }
 
@@ -344,10 +345,6 @@
         max-width: 100%;
     }
 
-    img {
-        display: block;
-        margin: 40px auto;
-    }
 
     blockquote {
         position: relative;

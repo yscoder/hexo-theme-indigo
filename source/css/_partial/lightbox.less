@@ -1,0 +1,59 @@
+.img-lightbox {
+    text-align: center;
+    .aspect-ratio {
+        position: relative;
+    }
+
+    img {
+        display: inline;
+        margin: 0;
+        cursor: pointer;
+        cursor: -webkit-zoom-in;
+        &.zoom-img {
+            cursor: -webkit-zoom-out;
+        }
+    }
+
+    .zoom-img,
+    .zoom-img-wrap {
+        position: relative;
+        z-index: 889;
+        .transition(.3s)
+    }
+    .zoom-img-wrap.abs {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .zoom-overlay {
+        position: fixed;
+        z-index: 888;
+        background: rgba(0, 0, 0, .6);
+        opacity: 0;
+        cursor: pointer;
+        cursor: -webkit-zoom-out;
+        .transition(.3s);
+        &.show {
+            opacity: 1;
+            + .zoom-img-title {
+                opacity: 1;
+            }
+        }
+    }
+
+    .zoom-img-title {
+        position: fixed;
+        z-index: 900;
+        height: 30px;
+        line-height: 30px;
+        color: #fff;
+        background: rgba(0, 0, 0, .3);
+        opacity: 0;
+        .transition(.3s);
+    }
+
+}
+

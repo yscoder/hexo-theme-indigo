@@ -1,6 +1,4 @@
-hexo.extend.tag.register('image', function (args) {
-    const src = args[0]
-    const title = args[1]
+hexo.extend.tag.register('image', ([src, title]) => {
     return `<figure class="image-bubble">
                 <img src="${src}" alt="${title}">
                 <div class="image-caption">${title}</div>

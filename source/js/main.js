@@ -16,8 +16,8 @@
         forEach = Array.prototype.forEach,
         even = ('ontouchstart' in w && /Mobile|Android|iOS|iPhone|iPad|iPod|Windows Phone|KFAPWI/i.test(navigator.userAgent)) ? 'touchstart' : 'click',
         isWX = /micromessenger/i.test(navigator.userAgent),
-        noop = function() {},
-        offset = function(el) {
+        noop = function () { },
+        offset = function (el) {
             var x = el.offsetLeft,
                 y = el.offsetTop;
 
@@ -56,7 +56,7 @@
                 gotop.classList.remove('in');
             }
         },
-        toggleMenu: function(flag) {
+        toggleMenu: function (flag) {
             var main = $('#main');
             if (flag) {
                 menu.classList.remove('hide');
@@ -65,7 +65,7 @@
                     mask.classList.add('in');
                     menu.classList.add('show');
 
-                    if(isWX) {
+                    if (isWX) {
                         var top = docEl.scrollTop;
                         main.classList.add('lock');
                         main.scrollTop = top;
@@ -77,7 +77,7 @@
             } else {
                 menu.classList.remove('show');
                 mask.classList.remove('in');
-                if(isWX) {
+                if (isWX) {
                     var top = main.scrollTop;
                     main.classList.remove('lock');
                     docEl.scrollTop = top;
@@ -145,33 +145,29 @@
                 }
             }
         })(),
+        hideOnMask: [],
         modal: function (target) {
             this.$modal = $(target);
             this.$off = this.$modal.querySelector('.close');
 
             var _this = this;
 
-            function hideByBody(e) {
-                if (!_this.$modal.contains(e.target)) {
-                    _this.hide();
-                }
-            }
-
             this.show = function () {
                 mask.classList.add('in');
                 _this.$modal.classList.add('ready');
                 setTimeout(function () {
                     _this.$modal.classList.add('in');
-                    d.addEventListener(even, hideByBody);
                 }, 0)
             }
 
+            this.onHide = noop;
+
             this.hide = function () {
+                _this.onHide();
                 mask.classList.remove('in');
                 _this.$modal.classList.remove('in');
                 setTimeout(function () {
                     _this.$modal.classList.remove('ready');
-                    d.removeEventListener(even, hideByBody);
                 }, 300)
             }
 
@@ -179,6 +175,7 @@
                 return _this.$modal.classList.contains('in') ? _this.hide() : _this.show();
             }
 
+            Blog.hideOnMask.push(this.hide);
             this.$off && this.$off.addEventListener(even, this.hide);
         },
         share: function () {
@@ -201,6 +198,7 @@
             }
 
             var wxModal = new this.modal('#wxShare');
+            wxModal.onHide = shareModal.hide;
 
             forEach.call($$('.wxFab'), function (el) {
                 el.addEventListener(even, wxModal.toggle)
@@ -305,8 +303,12 @@
         menu.classList.add('hide');
     }, false);
 
-    mask.addEventListener(even, function () {
+    mask.addEventListener(even, function (e) {
         Blog.toggleMenu();
+        Blog.hideOnMask.forEach(function (hide) {
+            hide()
+        });
+        e.preventDefault();
     }, false);
 
     d.addEventListener('scroll', function () {

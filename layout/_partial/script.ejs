@@ -1,9 +1,9 @@
 <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script src="<%= url_for('/js/main' + (cache ? '.min': '') + '.js?v=' + theme.version) %>"></script>
+<script src="<%= url_for('/js/main' + (cache ? '.min': '') + '.js?v=') + theme.version %>"></script>
 
 <% if (theme.search){ %>
 <%- partial('search') %>
-<script src="<%= url_for('/js/search' + (cache ? '.min': '') + '.js?v=' + theme.version) %>"></script>
+<script src="<%= url_for('/js/search' + (cache ? '.min': '') + '.js?v=') + theme.version %>"></script>
 <% } %>
 
 <% if (theme.mathjax){ %>

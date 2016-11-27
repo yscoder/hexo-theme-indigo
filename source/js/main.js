@@ -276,8 +276,8 @@
                 this.title = this.$img.title || this.$img.alt || '';
                 this.isZoom = false;
 
-                var naturalW = this.$img.naturalWidth;
-                var naturalH = this.$img.naturalHeight;
+                var naturalW = this.$img.naturalWidth || this.$img.width;
+                var naturalH = this.$img.naturalHeight || this.$img.height;
                 var imgRect, docW, docH;
 
                 this.calcRect = function () {
@@ -390,8 +390,8 @@
                     }, 300);
                 }
 
-                element.addEventListener('click', function () {
-                    _this.isZoom ? _this.zoomOut() : _this.zoomIn();
+                element.addEventListener('click', function (e) {
+                    _this.isZoom ? _this.zoomOut() : e.target.tagName === 'IMG' && _this.zoomIn()
                 })
 
                 d.addEventListener('scroll', function () {

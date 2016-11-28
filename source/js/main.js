@@ -104,8 +104,7 @@
                 }
             }
 
-            var tocOfs = offset(toc),
-                tocTop = tocOfs.y,
+            var bannerH = $('.post-header').clientHeight,
                 headerH = header.clientHeight,
                 titles = $('#post-content').querySelectorAll('h1, h2, h3, h4, h5, h6');
 
@@ -122,11 +121,7 @@
 
             return {
                 fixed: function (top) {
-                    if (top > tocTop - headerH) {
-                        toc.classList.add('fixed');
-                    } else {
-                        toc.classList.remove('fixed');
-                    }
+                    top >= bannerH - headerH ? toc.classList.add('fixed') : toc.classList.remove('fixed')
                 },
                 actived: function (top) {
                     for (i = 0, len = titles.length; i < len; i++) {

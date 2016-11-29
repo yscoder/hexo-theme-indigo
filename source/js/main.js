@@ -421,8 +421,16 @@
         Blog.page.loaded();
     });
 
-    w.addEventListener('beforeunload', function () {
-        Blog.page.unload();
+    var ignoreUnload = false;
+    $('a[href^="mailto"]').addEventListener(even, function () {
+        ignoreUnload = true;
+    });
+    w.addEventListener('beforeunload', function (e) {
+        if (!ignoreUnload) {
+            Blog.page.unload();
+        } else {
+            ignoreUnload = false;
+        }
     });
 
     w.addEventListener('resize', function () {

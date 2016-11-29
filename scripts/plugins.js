@@ -1,3 +1,6 @@
+const version = require('../package.json').version
+hexo.extend.helper.register('theme_version', () => version)
+
 function renderImage(src, alt = '', title = '') {
     return `<figure class="image-bubble">
                 <div class="img-lightbox">

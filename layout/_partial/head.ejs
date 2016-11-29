@@ -45,5 +45,5 @@
     <link rel="alternative" href="<%- theme.rss %>" title="<%= config.title %>" type="application/atom+xml">
   <% } %>
   <%- favicon_tag(theme.favicon) %>
-  <link rel="stylesheet" href="<%= url_for('/css/style.css?v='+ theme.version) %>">
+  <link rel="stylesheet" href="<%= url_for('/css/style.css?v='+ theme_version()) %>">
 </head>

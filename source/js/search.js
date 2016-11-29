@@ -47,16 +47,16 @@
         });
     }
 
-    var docEl = G.BLOG.docEl,
-        noop = G.BLOG.noop;
+    var noop = G.BLOG.noop;
+    var root = $('html');
 
     var Control = {
         show: function() {
-            window.innerWidth < 760 ? docEl.classList.add('lock-size') : noop;
+            G.innerWidth < 760 ? root.classList.add('lock-size') : noop;
             searchPanel.classList.add('in');
         },
         hide: function() {
-            window.innerWidth < 760 ? docEl.classList.remove('lock-size') : noop;
+            G.innerWidth < 760 ? root.classList.remove('lock-size') : noop;
             searchPanel.classList.remove('in');
         }
     };

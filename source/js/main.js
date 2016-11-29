@@ -32,7 +32,7 @@
                 y: y
             };
         },
-        docEl = navigator.userAgent.indexOf('Firefox') !== -1 ? d.documentElement : body;
+        docEl = !!navigator.userAgent.match(/firefox/i) || navigator.msPointerEnabled ? d.documentElement : body;
 
     var Blog = {
         goTop: function (end) {
@@ -115,7 +115,8 @@
                 el.addEventListener('click', function (e) {
                     e.preventDefault();
                     var top = offset($('[id="' + decodeURIComponent(this.hash).substr(1) + '"]')).y - headerH;
-                    animate(Blog.goTop.bind(Blog, top));
+                    // animate(Blog.goTop.bind(Blog, top));
+                    docEl.scrollTop = top;
                 })
             });
 
@@ -271,13 +272,11 @@
                 this.title = this.$img.title || this.$img.alt || '';
                 this.isZoom = false;
 
-                var naturalW = this.$img.naturalWidth || this.$img.width;
-                var naturalH = this.$img.naturalHeight || this.$img.height;
-                var imgRect, docW, docH;
+                var naturalW, naturalH, imgRect, docW, docH;
 
                 this.calcRect = function () {
-                    docW = docEl.clientWidth;
-                    docH = docEl.clientHeight;
+                    docW = body.clientWidth;
+                    docH = body.clientHeight;
                     var inH = docH - this.margin * 2;
                     var w = naturalW;
                     var h = naturalH;
@@ -317,16 +316,16 @@
 
                 // this.updateSize = function () {
                 //     var sw = sh = 1;
-                //     if (docW !== docEl.clientWidth) {
-                //         sw = docEl.clientWidth / docW;
+                //     if (docW !== body.clientWidth) {
+                //         sw = body.clientWidth / docW;
                 //     }
 
-                //     if (docH !== docEl.clientHeight) {
-                //         sh = docEl.clientHeight / docH;
+                //     if (docH !== body.clientHeight) {
+                //         sh = body.clientHeight / docH;
                 //     }
 
-                //     docW = docEl.clientWidth;
-                //     docH = docEl.clientHeight;
+                //     docW = body.clientWidth;
+                //     docH = body.clientHeight;
                 //     var rect = this.$img.getBoundingClientRect();
                 //     var w = rect.width * sw;
                 //     var h = rect.height * sh;
@@ -385,22 +384,29 @@
                     }, 300);
                 }
 
-                element.addEventListener('click', function (e) {
-                    _this.isZoom ? _this.zoomOut() : e.target.tagName === 'IMG' && _this.zoomIn()
-                })
+                this.init = function () {
+                    naturalW = this.naturalWidth || this.width;
+                    naturalH = this.naturalHeight || this.height;
 
-                d.addEventListener('scroll', function () {
-                    _this.isZoom && _this.zoomOut()
-                })
+                    element.addEventListener('click', function (e) {
+                        _this.isZoom ? _this.zoomOut() : e.target.tagName === 'IMG' && _this.zoomIn()
+                    })
 
-                w.addEventListener('resize', function () {
-                    // _this.isZoom && _this.updateSize()
-                    _this.isZoom && _this.zoomOut()
-                })
+                    d.addEventListener('scroll', function () {
+                        _this.isZoom && _this.zoomOut()
+                    })
+
+                    w.addEventListener('resize', function () {
+                        // _this.isZoom && _this.updateSize()
+                        _this.isZoom && _this.zoomOut()
+                    })
+                }
+
+                this.$img.addEventListener('load', this.init)
             }
 
             forEach.call($$('.img-lightbox'), function (el) {
-                var lightbox = new LightBox(el);
+                new LightBox(el)
             })
         })()
     };
@@ -463,7 +469,6 @@
         Blog.reward()
     }
 
-    Blog.docEl = docEl;
     Blog.noop = noop;
     Blog.even = even;
     Blog.$ = $;

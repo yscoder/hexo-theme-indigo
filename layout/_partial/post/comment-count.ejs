@@ -1,0 +1,10 @@
+<% if (theme.duoshuo && post.comments){ %>
+	<a href="<%- url_for(post.path) %>#comments"
+		<% 	if (isPost) { %>
+			style="margin:0 0 0 10px;"
+		<% 	} else { %>
+			class="post-more waves-effect waves-button"
+		<%	} %> >
+		<span class="ds-thread-count" data-thread-key="<%=post.abbrlink%>" data-count-type="comments"></span>
+	</a>
+<% } %>

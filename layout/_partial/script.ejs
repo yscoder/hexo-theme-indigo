@@ -14,4 +14,12 @@
 <script src="//s95.cnzz.com/z_stat.php?id=<%=theme.cnzz %>&web_id=<%=theme.cnzz %>"></script>
 <% } %>
 
+<% if (theme.duoshuo){ %>		
+  <script src="<%= url_for('/js/embed' + (cache ? '.min': '') + '.js?v=' + theme.version) %>"></script>		
+  <script src="//cdn.bootcss.com/marked/0.3.6/marked.min.js" async="async"></script>		
+  <script>		
+  var duoshuoQuery = {short_name:'<%=theme.duoshuo %>', theme: 'none'}		
+  </script>		
+<%}%>
+
 <%- partial('google-analytics') %>

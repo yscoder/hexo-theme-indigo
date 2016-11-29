@@ -32,7 +32,7 @@
                 y: y
             };
         },
-        docEl = navigator.userAgent.indexOf('Firefox') !== -1 ? d.documentElement : body;
+        docEl = !!navigator.userAgent.match(/firefox/i) || navigator.msPointerEnabled ? d.documentElement : body;
 
     var Blog = {
         goTop: function (end) {
@@ -104,8 +104,7 @@
                 }
             }
 
-            var tocOfs = offset(toc),
-                tocTop = tocOfs.y,
+            var bannerH = $('.post-header').clientHeight,
                 headerH = header.clientHeight,
                 titles = $('#post-content').querySelectorAll('h1, h2, h3, h4, h5, h6');
 
@@ -116,17 +115,14 @@
                 el.addEventListener('click', function (e) {
                     e.preventDefault();
                     var top = offset($('[id="' + decodeURIComponent(this.hash).substr(1) + '"]')).y - headerH;
-                    animate(Blog.goTop.bind(Blog, top));
+                    // animate(Blog.goTop.bind(Blog, top));
+                    docEl.scrollTop = top;
                 })
             });
 
             return {
                 fixed: function (top) {
-                    if (top > tocTop - headerH) {
-                        toc.classList.add('fixed');
-                    } else {
-                        toc.classList.remove('fixed');
-                    }
+                    top >= bannerH - headerH ? toc.classList.add('fixed') : toc.classList.remove('fixed')
                 },
                 actived: function (top) {
                     for (i = 0, len = titles.length; i < len; i++) {
@@ -267,131 +263,148 @@
             }
 
         })(),
-        lightbox: function () {
-            var zoomedImg;
-            var screenSize = {};
-            var margin = 0;
-            var scrollbarWidth = w.innerWidth - docEl.offsetWidth;
+        lightbox: (function () {
 
-            function updateScreenSize() {
-                screenSize.x = w.innerWidth || docEl.clientWidth || body.clientWidth;
-                screenSize.y = w.innerHeight || docEl.clientHeight || body.clientHeight;
-            }
-            updateScreenSize();
+            function LightBox(element) {
+                this.$img = element.querySelector('img');
+                this.$overlay = element.querySelector('overlay');
+                this.margin = 40;
+                this.title = this.$img.title || this.$img.alt || '';
+                this.isZoom = false;
 
-            function zoom() {
-                if (!this.isZoomed) {
-                    this.isZoomed = !this.isZoomed;
-                    zoomedImg = this;
+                var naturalW, naturalH, imgRect, docW, docH;
 
-                    if (!this.img)
-                        this.img = this.querySelector('img');
+                this.calcRect = function () {
+                    docW = body.clientWidth;
+                    docH = body.clientHeight;
+                    var inH = docH - this.margin * 2;
+                    var w = naturalW;
+                    var h = naturalH;
+                    var t = this.margin;
+                    var l = 0;
+                    var sw = w > docW ? docW / w : 1;
+                    var sh = h > inH ? inH / h : 1;
+                    var s = Math.min(sw, sh);
 
-                    var imgH = this.img.getBoundingClientRect().height;
-                    var imgW = this.img.getBoundingClientRect().width;
-                    var imgL = this.img.getBoundingClientRect().left;
-                    var imgT = this.img.getBoundingClientRect().top;
+                    w = w * s;
+                    h = h * s;
 
-                    var realW = this.img.naturalWidth || imgW,
-                        realH = this.img.naturalHeight || imgH;
-
-                    this.placeholder = this.querySelector('.placeholder');
-                    this.placeholder.style.cssText = 'height: ' + imgH + 'px';
-
-                    var top = (screenSize.y - imgH) / 2;
-                    var left = (screenSize.x - this.offsetWidth) / 2;
-
-                    this.img.classList.add('zoom-img');
-                    this.overlay = d.createElement('div');
-                    this.overlay.id = 'the-overlay';
-                    this.overlay.className = 'zoom-overlay';
-                    this.overlay.style.cssText = 'height:' + screenSize.y + 'px; width: ' + screenSize.x + 'px; top: -' + top + 'px; left: -' + left + 'px';
-
-                    this.wrapper = d.createElement('div');
-                    this.wrapper.id = 'the-wrapper';
-                    this.wrapper.className = 'zoom-img-wrap abs';
-                    this.wrapper.appendChild(this.img);
-                    this.wrapper.appendChild(this.overlay);
-                    this.children[0].appendChild(this.wrapper);
-
-                    var title = this.img.title || this.img.alt;
-                    if (title) {
-                        this.caption = d.createElement('div');
-                        this.caption.className = 'zoom-img-title';
-                        this.caption.innerHTML = title;
-                        this.caption.style.cssText = 'width: ' + screenSize.x + 'px; top: ' + (screenSize.y - top - 30) + 'px; left: -' + left + 'px';
-                        this.wrapper.appendChild(this.caption);
+                    return {
+                        w: w,
+                        h: h,
+                        t: (docH - h) / 2 - imgRect.top,
+                        l: (docW - w) / 2 - imgRect.left + this.$img.offsetLeft
                     }
+                }
 
-                    var wrapX = ((screenSize.x - scrollbarWidth) / 2) - imgL - (imgW / 2);
-                    var wrapY = imgT * (-1) + (screenSize.y - imgH) / 2;
-                    var scale = 1;
+                this.setImgRect = function (rect) {
+                    this.$img.style.cssText = 'width: ' + rect.w + 'px; max-width: ' + rect.w + 'px; height:' + rect.h + 'px; top: ' + rect.t + 'px; left: ' + rect.l + 'px';
+                }
 
-                    if (realH > imgH) {
-                        if (imgH === imgW && screenSize.y > screenSize.x) {
-                            scale = screenSize.x / imgW;
-                        } else if (imgH === imgW && screenSize.y < screenSize.x) {
-                            scale = (screenSize.y - margin) / imgH;
-                        } else if (imgH > imgW) {
-                            scale = (screenSize.y - margin) / imgH;
-                            if (scale * imgW > screenSize.x) {
-                                scale = screenSize.x / imgW;
-                            }
-                        } else if (imgH < imgW) {
-                            scale = screenSize.x / imgW;
-                            if (scale * imgH > screenSize.y) {
-                                scale = (screenSize.y - margin) / imgH;
-                            }
-                        }
+                this.setFrom = function () {
+                    this.setImgRect({
+                        w: imgRect.width,
+                        h: imgRect.height,
+                        t: 0,
+                        l: (element.offsetWidth - imgRect.width) / 2
+                    })
+                }
+
+                this.setTo = function () {
+                    this.setImgRect(this.calcRect());
+                }
+
+                // this.updateSize = function () {
+                //     var sw = sh = 1;
+                //     if (docW !== body.clientWidth) {
+                //         sw = body.clientWidth / docW;
+                //     }
+
+                //     if (docH !== body.clientHeight) {
+                //         sh = body.clientHeight / docH;
+                //     }
+
+                //     docW = body.clientWidth;
+                //     docH = body.clientHeight;
+                //     var rect = this.$img.getBoundingClientRect();
+                //     var w = rect.width * sw;
+                //     var h = rect.height * sh;
+
+                //     this.$img.classList.remove('zoom-in');
+                //     this.setImgRect({
+                //         w: w,
+                //         h: h,
+                //         t: this.$img.offsetTop - (h - rect.height) / 2,
+                //         l: this.$img.offsetLeft - (w - rect.width) / 2
+                //     })
+                // }
+
+                this.addTitle = function () {
+                    if (!this.title) {
+                        return;
                     }
+                    this.$caption = d.createElement('div');
+                    this.$caption.innerHTML = this.title;
+                    this.$caption.className = 'overlay-title';
+                    element.appendChild(this.$caption);
+                }
 
-                    if (scale * imgW > realW) {
-                        scale = realW / imgW;
-                    }
+                this.removeTitle = function () {
+                    this.$caption && element.removeChild(this.$caption)
+                }
 
-                    var that = this;
+                var _this = this;
+
+                this.zoomIn = function () {
+                    naturalW = this.$img.naturalWidth || this.$img.width;
+                    naturalH = this.$img.naturalHeight || this.$img.height;
+                    imgRect = this.$img.getBoundingClientRect();
+                    element.style.height = imgRect.height + 'px';
+                    element.classList.add('ready');
+                    this.setFrom();
+                    this.addTitle();
+                    this.$img.classList.add('zoom-in');
+
                     setTimeout(function () {
-                        var wrapTrf = 'translate3d(' + wrapX + 'px, ' + wrapY + 'px, 0)';
-                        var imgTrf = 'scale(' + scale + ')';
-
-                        that.wrapper.style.cssText = 'transform: ' + wrapTrf + ';-webkit-transform: ' + wrapTrf;
-                        that.img.style.cssText = 'transform: ' + imgTrf + ';-webkit-transform: ' + imgTrf;
-                        that.overlay.className = 'zoom-overlay show';
+                        element.classList.add('active');
+                        _this.setTo();
+                        _this.isZoom = true;
                     }, 0);
+                }
 
-                } else {
-                    this.isZoomed = !this.isZoomed;
-                    zoomedImg = null
-                    this.img.style.cssText = '';
-                    this.wrapper.style.cssText = '';
-                    this.overlay.className = 'zoom-overlay';
-
-                    var that = this;
+                this.zoomOut = function () {
+                    this.isZoom = false;
+                    element.classList.remove('active');
+                    this.$img.classList.add('zoom-in');
+                    this.setFrom();
                     setTimeout(function () {
-                        that.placeholder.style.cssText = '';
-                        that.children[0].appendChild(that.img);
-                        that.children[0].removeChild(that.wrapper);
-                        that.img.classList.remove('zoom-img');
-                    }, 300)
+                        _this.$img.classList.remove('zoom-in');
+                        _this.$img.style.cssText = '';
+                        _this.removeTitle();
+                        element.classList.remove('ready');
+                        element.removeAttribute('style');
+                    }, 300);
                 }
+
+                element.addEventListener('click', function (e) {
+                    _this.isZoom ? _this.zoomOut() : e.target.tagName === 'IMG' && _this.zoomIn()
+                })
+
+                d.addEventListener('scroll', function () {
+                    _this.isZoom && _this.zoomOut()
+                })
+
+                w.addEventListener('resize', function () {
+                    // _this.isZoom && _this.updateSize()
+                    _this.isZoom && _this.zoomOut()
+                })
             }
 
-            forEach.call($$('.post-content .img-lightbox'), function (el) {
-                el.addEventListener(even, zoom);
-            });
-
-            return {
-                updateScreenSize: updateScreenSize,
-                zoomOut: function () {
-                    if (zoomedImg) {
-                        zoomedImg[even]();
-                    }
-                }
-            }
-        }
+            forEach.call($$('.img-lightbox'), function (el) {
+                new LightBox(el)
+            })
+        })()
     };
-
-    var lightbox = Blog.lightbox();
 
     w.addEventListener('load', function () {
         Blog.fixNavMinH();
@@ -403,8 +416,16 @@
         Blog.page.loaded();
     });
 
-    w.addEventListener('beforeunload', function () {
-        Blog.page.unload();
+    var ignoreUnload = false;
+    $('a[href^="mailto"]').addEventListener(even, function () {
+        ignoreUnload = true;
+    });
+    w.addEventListener('beforeunload', function (e) {
+        if (!ignoreUnload) {
+            Blog.page.unload();
+        } else {
+            ignoreUnload = false;
+        }
     });
 
     w.addEventListener('resize', function () {
@@ -412,7 +433,6 @@
         Blog.fixNavMinH();
         Blog.toggleMenu();
         Blog.waterfall();
-        lightbox.updateScreenSize();
     });
 
     gotop.addEventListener(even, function () {
@@ -442,7 +462,6 @@
         Blog.fixedHeader(top);
         Blog.toc.fixed(top);
         Blog.toc.actived(top);
-        lightbox.zoomOut();
     }, false);
 
     if (w.BLOG.SHARE) {
@@ -453,7 +472,6 @@
         Blog.reward()
     }
 
-    Blog.docEl = docEl;
     Blog.noop = noop;
     Blog.even = even;
     Blog.$ = $;

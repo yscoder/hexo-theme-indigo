@@ -1,7 +1,7 @@
 <div class="duoshuo" id="comments">
 	<div class="ds-thread" data-thread-key="<%=page.abbrlink%>" data-title="<%=title%>" data-url="<%=url.replace(/index\.html$/, '')%>"></div>
 </div>
-<script src="<%= url_for('/js/embed' + (cache ? '.min': '') + '.js?v=' + theme.version) %>"></script>
+<script src="<%= url_for('/js/embed' + (cache ? '.min': '') + '.js?v=' + theme_version()) %>"></script>
 <script src="//cdn.bootcss.com/marked/0.3.6/marked.min.js" async="async"></script>
 <script>
 var duoshuoQuery = {short_name:'<%=theme.duoshuo %>', theme: 'none'}

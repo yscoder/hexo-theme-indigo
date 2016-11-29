@@ -356,6 +356,8 @@
                 var _this = this;
 
                 this.zoomIn = function () {
+                    naturalW = this.$img.naturalWidth || this.$img.width;
+                    naturalH = this.$img.naturalHeight || this.$img.height;
                     imgRect = this.$img.getBoundingClientRect();
                     element.style.height = imgRect.height + 'px';
                     element.classList.add('ready');
@@ -384,25 +386,18 @@
                     }, 300);
                 }
 
-                this.init = function () {
-                    naturalW = this.naturalWidth || this.width;
-                    naturalH = this.naturalHeight || this.height;
+                element.addEventListener('click', function (e) {
+                    _this.isZoom ? _this.zoomOut() : e.target.tagName === 'IMG' && _this.zoomIn()
+                })
 
-                    element.addEventListener('click', function (e) {
-                        _this.isZoom ? _this.zoomOut() : e.target.tagName === 'IMG' && _this.zoomIn()
-                    })
+                d.addEventListener('scroll', function () {
+                    _this.isZoom && _this.zoomOut()
+                })
 
-                    d.addEventListener('scroll', function () {
-                        _this.isZoom && _this.zoomOut()
-                    })
-
-                    w.addEventListener('resize', function () {
-                        // _this.isZoom && _this.updateSize()
-                        _this.isZoom && _this.zoomOut()
-                    })
-                }
-
-                this.$img.addEventListener('load', this.init)
+                w.addEventListener('resize', function () {
+                    // _this.isZoom && _this.updateSize()
+                    _this.isZoom && _this.zoomOut()
+                })
             }
 
             forEach.call($$('.img-lightbox'), function (el) {

@@ -403,7 +403,12 @@
             forEach.call($$('.img-lightbox'), function (el) {
                 new LightBox(el)
             })
-        })()
+        })(),
+        loadScript: function (scripts) {
+            body.insertAdjacentHTML('beforeend', scripts.map(function (src) {
+                return '<script async src="' + src + '"></script>'
+            }).join(''))
+        }
     };
 
     w.addEventListener('load', function () {
@@ -414,6 +419,8 @@
         Blog.toc.actived(top);
         loading.classList.remove('active');
         Blog.page.loaded();
+
+        w.lazyScripts && w.lazyScripts.length && Blog.loadScript(w.lazyScripts)
     });
 
     var ignoreUnload = false;
@@ -482,8 +489,11 @@
         return g
     }, w.BLOG);
 
-    Waves.init();
-    Waves.attach('.global-share li', ['waves-block']);
-    Waves.attach('.article-tag-list-link, #page-nav a, #page-nav span', ['waves-button']);
-
+    if (w.Waves) {
+        Waves.init();
+        Waves.attach('.global-share li', ['waves-block']);
+        Waves.attach('.article-tag-list-link, #page-nav a, #page-nav span', ['waves-button']);
+    } else {
+        console.error('Waves loading failed.')
+    }
 })(window, document);

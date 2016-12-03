@@ -1,6 +1,6 @@
 <%
     // 使用 sns 直接分享接口
-    // 微信使用 http://s.jiathis.com/qrcode.php?url=xxx
+    // 微信使用 qrcode helper 或 http://goqr.me/api/ 生成二维码
     var sUrl = url.replace(/index\.html$/, '')
     var sTitle = page.title ? '《'+ page.title +'》 — ' + config.title : config.title
     var sDesc = truncate(strip_html(page.excerpt || config.description), { length: 80})
@@ -49,6 +49,6 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="<%- 'qrcode' in locals ? qrcode(sUrl) : 'http://s.jiathis.com/qrcode.php?url=' + sUrl  %>" alt="微信分享二维码">
+    <img src="<%- 'qrcode' in locals ? qrcode(sUrl) : '//api.qrserver.com/v1/create-qr-code/?data=' + sUrl  %>" alt="微信分享二维码">
 </div>
 <% } %>

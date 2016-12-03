@@ -1,4 +1,9 @@
 <head>
+  <!-- Tencent Speed -->
+  <script type="text/javascript">
+  var _speedMark = new Date();
+  </script>
+  <!-- End Tencent Speed -->
   <meta charset="utf-8">
   <% if(theme.google_site_verification){ %>
   <meta name="google-site-verification" content="<%- theme.google_site_verification%>">
@@ -48,4 +53,6 @@
   <link rel="stylesheet" href="<%= url_for('/css/style.css?v='+ theme_version()) %>">
   <script>window.lazyScripts=[]</script>
   <%- partial('google-analytics') %>
+  <%- partial('tajs') %>
+  <%- partial('baidu') %> 
 </head>

@@ -79,6 +79,12 @@ copyright: 这里写留言或版权声明：<a href="<%- url_for(page.path).repl
 #站长统计，如要开启，输入CNZZ站点id，如 cnzz: 1255152447
 cnzz: false
 
+# 百度统计，如要开启请修改 layout/_partial/baidu.ejs文件
+baidu_tongji: false
+
+# 腾讯分析，如要开启，输入站点id
+tajs: false
+
 # Miscellaneous
 google_analytics: false
 google_site_verification: false

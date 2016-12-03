@@ -105,3 +105,11 @@ since_year: 2006
 
 # 用户页面中作者相关的描述性文字，如不需要设为 false
 about: 用户页面中作者相关的描述性文字，如不需要设为 false
+
+# 站点创建时间，如不需要设为 false
+site_create_time: 5/10/2016 23:46:39
+
+# “不蒜子”访问量统计，详见 http://ibruce.info/2015/04/04/busuanzi/
+visit_counter:
+  site_visit: 总访客数：
+  page_visit: 本文总阅读量：

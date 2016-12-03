@@ -1,5 +1,13 @@
 <blockquote class="post-copyright">
     <div class="content">
+        <% if (theme.visit_counter) { %>
+          <span id="busuanzi_container_page_pv" style='display:none'>
+              <span id="page-visit"><%= theme.visit_counter.page_visit %>
+                  <span id="busuanzi_value_page_pv"></span>
+              </span>
+          </span>
+          <br>
+        <% } %>
         <%- _.template(theme.copyright)(locals) %>
     </div>
     <footer>

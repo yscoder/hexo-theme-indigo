@@ -1,0 +1,5 @@
+<% if (theme.duoshuo && post.comments){ %>
+<span>
+    <a href="<%- url_for(post.path) %>#comments" class="ds-thread-count" data-thread-key="<%- post.slug %>" data-count-type="comments"></a>
+</span>
+<% }%>

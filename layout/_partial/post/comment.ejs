@@ -1,18 +1,9 @@
-<% if (theme.duoshuo && post.comments){ %>
-<%- partial('duoshuo', {
+<% if(post.comments){ %>
+<%- partial('../plugins/duoshuo', {
     key: post.slug,
     title: post.title,
     url: url
   }) %>
-<% } %>
 
-<% if (post.comments && theme.disqus_shortname){ %>
-<section id="comments">
-    <div id="disqus_thread"></div>
-    <script>
-    var disqus_shortname = '<%- theme.disqus_shortname %>';
-    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</section>
-<% } %>
+<%- partial('../plugins/disqus') %>
+<%} %>

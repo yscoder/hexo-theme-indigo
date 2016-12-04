@@ -53,6 +53,9 @@ excerpt_link: 阅读全文...
 mathjax: false
 archive_yearly: true
 
+# 是否显示文章最后更新时间
+show_last_updated: true
+
 #是否开启分享
 share: true
 
@@ -79,6 +82,12 @@ copyright: 这里写留言或版权声明：<a href="<%- url_for(page.path).repl
 #站长统计，如要开启，输入CNZZ站点id，如 cnzz: 1255152447
 cnzz: false
 
+# 百度统计，如要开启，改为你的 key
+baidu_tongji: 7463f50742128877845ac0184756a337
+
+# 腾讯分析，如要开启，输入站点id
+tajs: false
+
 # Miscellaneous
 google_analytics: false
 google_site_verification: false
@@ -101,7 +110,12 @@ disqus_shortname: false
 canonical: false
 
 # 版权起始年份
-since_year: 2006
+since_year: 2015
 
 # 用户页面中作者相关的描述性文字，如不需要设为 false
 about: 用户页面中作者相关的描述性文字，如不需要设为 false
+
+# “不蒜子”访问量统计，详见 http://ibruce.info/2015/04/04/busuanzi/
+visit_counter:
+  site_uv: 站点总访客数：
+  site_pv: 站点总访问量：

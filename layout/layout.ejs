@@ -2,12 +2,13 @@
 <html>
 <%- partial('_partial/head') %>
 <body>
-  <%- partial('_partial/loading') %>
-  <%- partial('_partial/menu') %>
-  <main id="main">
-    <%- body %>
-  </main>
-  <%- partial('_partial/after-footer') %>
-  <%- partial('_partial/script') %>
+    <%- partial('_partial/loading') %>
+    <%- partial('_partial/menu') %>
+    <main id="main">
+        <%- body %>
+        <%- partial('_partial/footer') %>
+    </main>
+    <%- partial('_partial/after-footer') %>
+    <%- partial('_partial/script') %>
 </body>
 </html>

@@ -1,7 +1,5 @@
 <div class="mask" id="mask"></div>
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
-<script>
-var BLOG = { ROOT: '<%= config.root %>', SHARE: <%- theme.share %>, REWARD: <%- Boolean(page.reward) %> }</script>
 <% if(theme.share){ %>
 <%- partial('post/share', {scope: 'global'}) %>
 <% } %>

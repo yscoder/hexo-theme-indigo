@@ -1,3 +1,1 @@
-<time datetime="<%= date_xml(post.date) %>" itemprop="datePublished" class="post-time">
-  <%= post.date.format(date_format) %>
-</time>
+<time class="post-time" title="<%- post.date.format('YYYY-M-D H:mm') %>" datetime="<%- date_xml(post.date) %>"  itemprop="datePublished"><%- post.date.format(date_format) %></time>

@@ -1,3 +1,10 @@
+@color-weibo: #E6162D;
+@color-qq: #3D95D5;
+@color-weixin: #2BAD13;
+@color-facebook: #4862A3;
+@color-twitter: #55ACEE;
+@color-google-plus: #db4437;
+
 .share-icons {
     li {
         display: inline-block;
@@ -16,27 +23,27 @@
         color: #fff;
         text-align: center;
         &.weibo {
-            background: #E6162D
+            background: @color-weibo
         }
 
         &.qq {
-            background: #3D95D5
+            background: @color-qq
         }
 
         &.weixin {
-            background: #2BAD13
+            background: @color-weixin
         }
 
         &.facebook {
-            background: #4862A3
+            background: @color-facebook
         }
 
         &.twitter {
-            background: #55ACEE
+            background: @color-twitter
         }
 
         &.google {
-            background: #db4437
+            background: @color-google-plus
         }
 
     }
@@ -65,10 +72,6 @@
 
     .share-icons {
         margin: 0 auto;
-    }
-
-    .tit {
-        display: none
     }
 
     li {
@@ -128,12 +131,6 @@
     right: 4px;
     text-align: center;
     width: @share-icon-size;
-
-    .tit {
-        display: none;
-        font-size: 18px;
-        margin-bottom: 2rem;
-    }
 
     &.in {
         visibility: visible;

@@ -215,15 +215,6 @@
 
             $('#rewardBtn').addEventListener(even, modal.toggle)
         },
-        fixNavMinH: (function () {
-            var nav = $('.nav');
-
-            function calcH() {
-                nav.style.minHeight = (nav.parentNode.clientHeight - nav.nextElementSibling.offsetHeight) + 'px';
-            }
-
-            return calcH;
-        })(),
         waterfall: function () {
 
             if (w.innerWidth < 760) return;
@@ -405,14 +396,16 @@
             })
         })(),
         loadScript: function (scripts) {
-            body.insertAdjacentHTML('beforeend', scripts.map(function (src) {
-                return '<script async src="' + src + '"></script>'
-            }).join(''))
+            scripts.forEach(function (src) {
+                var s = d.createElement('script');
+                s.src = src;
+                s.async = true;
+                body.appendChild(s);
+            })
         }
     };
 
     w.addEventListener('load', function () {
-        Blog.fixNavMinH();
         Blog.waterfall();
         var top = docEl.scrollTop;
         Blog.toc.fixed(top);
@@ -437,7 +430,6 @@
 
     w.addEventListener('resize', function () {
         w.BLOG.even = even = 'ontouchstart' in w ? 'touchstart' : 'click';
-        Blog.fixNavMinH();
         Blog.toggleMenu();
         Blog.waterfall();
     });

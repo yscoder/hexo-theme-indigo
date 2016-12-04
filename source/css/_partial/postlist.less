@@ -9,11 +9,6 @@
     margin-bottom: 30px;
 }
 
-.post-time {
-    font-size: 13px;
-    color: @secondaryTextColor
-}
-
 .post-title {
     margin: 0 0 16px;
 }
@@ -29,24 +24,21 @@
     line-height: 14px;
     font-size: 13px;
     font-weight: bold;
+    color: @secondaryTextColor;
     overflow: hidden;
+    > *:not(:first-child) {
+        &:before {
+            content: '·';
+            padding: 0 .5em;
+        }
+    }
 }
 
 .article-category-list {
     position: relative;
     display: inline;
     list-style: none;
-    padding: 0 0 0 10px;
-
-    &:before {
-        content: '';
-        display: inline-block;
-        vertical-align: middle;
-        margin-right: 10px;
-        height: 10px;
-        width: 1px;
-        background: @borderColor;
-    }
+    padding: 0;
 }
 .article-category-list-item {
     display: inline;

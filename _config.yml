@@ -1,7 +1,7 @@
 # hexo-theme-indigo
 # https://github.com/yscoder/hexo-theme-indigo
 
-#添加新菜单项遵循以下规则
+# 添加新菜单项遵循以下规则
 # menu:
 #  link:               fontawesome图标，省略前缀，本主题前缀为 icon-，必须
 #    text: About       菜单显示的文字，如果省略即默认与图标一致，首字母会转大写
@@ -30,9 +30,9 @@ menu:
 
 rss: /atom.xml
 
-#你的头像url
+# 你的头像url
 avatar: /img/avatar.jpg
-#favicon
+# favicon
 favicon: /favicon.ico
 
 # email
@@ -56,39 +56,39 @@ archive_yearly: true
 # 是否显示文章最后更新时间
 show_last_updated: true
 
-#是否开启分享
+# 是否开启分享
 share: true
 
-#是否开启打赏，关闭 reward: false
+# 是否开启打赏，关闭 reward: false
 reward:
   title: 谢谢大爷~
   wechat: /img/wechat.jpg     #微信，关闭设为 false
   alipay: /img/alipay.jpg     #支付宝，关闭设为 false
 
-#是否开启搜索
+# 是否开启搜索
 search: true
 
-#是否大屏幕下文章页隐藏导航
+# 是否大屏幕下文章页隐藏导航
 hideMenu: true
 
-#是否开启toc
-#toc: false
+# 是否开启toc
+# toc: false
 toc:
   list_number: true  # 是否显示数字排序
 
-#文章页版权声明内容，hexo中所有变量及辅助函数等均可调用，具体请查阅 hexo.io
+# 文章页版权声明内容，hexo中所有变量及辅助函数等均可调用，具体请查阅 hexo.io
 copyright: 这里写留言或版权声明：<a href="<%- url_for(page.path).replace(/index\.html$/, '') %>" target="_blank" rel="external"><%- url.replace(/index\.html$/, '') %></a>
 
-#站长统计，如要开启，输入CNZZ站点id，如 cnzz: 1255152447
+# 站长统计，如要开启，输入CNZZ站点id，如 cnzz: 1255152447
 cnzz: false
 
 # 百度统计，如要开启，改为你的 key
-baidu_tongji: 7463f50742128877845ac0184756a337
+baidu_tongji: false
 
 # 腾讯分析，如要开启，输入站点id
 tajs: false
 
-# Miscellaneous
+# google
 google_analytics: false
 google_site_verification: false
 

@@ -39,10 +39,21 @@
     display: inline;
     list-style: none;
     padding: 0;
+    * {
+        display: inline;
+    }
+    ul {
+        padding-left: 0
+    }
 }
-.article-category-list-item {
-    display: inline;
+.article-category-list-child {
+    &:before {
+        content: '›';
+        padding: 0 .3em;
+        font-size: 120%;
+    }
 }
+
 .article-category-list-link {
     color: @accentColor;
     &:hover {

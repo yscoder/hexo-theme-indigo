@@ -1,0 +1,50 @@
+/**
+*
+* Mixins
+*
+**/
+.box-sizing(@sizing) {
+    box-sizing: @sizing;
+}
+.rounded(@radius) {
+    border-radius: @radius;
+}
+.translate(@x; @y) {
+  -webkit-transform: translate(@x, @y);
+          transform: translate(@x, @y);
+}
+.clearfix() {
+  content: ".";  
+  display: block; 
+  height: 0; 
+  clear: both; 
+  visibility: hidden;
+}
+
+.arrow-left(@color: @gray-background) {
+    position: relative;
+    &:before,
+    &:after {
+        position: absolute;
+        top: 11px;
+        right: 100%;
+        left: -16px;
+        display: block;
+        width: 0;
+        height: 0;
+        pointer-events: none;
+        content: " ";
+        border-color: transparent;
+        border-style: solid solid outset;
+    }
+    &:before {
+        border-width: 8px;
+        border-right-color: @borderColor;
+    }
+    &:after {
+        margin-top: 1px;
+        margin-left: 2px;
+        border-width: 7px;
+        border-right-color: @color;
+    }
+}

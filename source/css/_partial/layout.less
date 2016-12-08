@@ -53,12 +53,14 @@
         height: 80px;
         border: 2px solid #fff;
         border-radius: 50%;
+        margin:0 auto;
         overflow: hidden;
         box-shadow: @boxShadow;
     }
 
     .introduce {
         margin: 1em 0 0;
+        text-align:center;
         color: @textPrimaryColor;
     }
 
@@ -89,7 +91,8 @@
             .icon {
                 position: absolute;
                 top: 0;
-                left: @menuPadding;
+                // left: @menuPadding;
+                left:50px;
                 line-height: inherit;
             }
 
@@ -108,7 +111,8 @@
 
         a {
             display: block;
-            padding-left: @menuPadding*2.4;
+            // padding-left: @menuPadding*2.4;
+            padding-left: @menuPadding*4;
             height: @navH;
             line-height: @navH;
             font-weight: 500;

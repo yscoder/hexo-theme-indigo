@@ -1,0 +1,38 @@
+#ds-notify {
+  position: fixed;
+  z-index: 9999;
+  max-width: 144px;
+  padding: 8px 12px;
+  background-color: #fff;
+  .rounded(@border-radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,.2);
+
+  #ds-reset {
+    line-height: 14px;
+    
+    a.ds-logo {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      width: 18px;
+      height: 14px;
+      background: url("@{images-url}logo.png") no-repeat;
+      background-size: cover;
+    }
+    span.ds-unread-count {
+      font-weight: bold;
+      color: #e32;
+    }
+    ul.ds-notify-unread {
+      line-height: 150%;
+      display: inline-block;
+      margin: 0 0 0 22px;
+      padding: 0;
+      li {
+        a {
+          color: @brand-primary;
+        }
+      }
+    }
+  }
+}

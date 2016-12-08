@@ -1,0 +1,30 @@
+<%- partial('_partial/header', {
+    title: locals.title || theme.categories_title,
+    hdClass: 'categories-header'
+}) %>
+<div class="container body-wrap fade">
+    <%
+        if(is_category()) { %>
+            <div class="waterfall">
+          <% page.posts.each(function(post){ %>
+
+            <%- partial('_partial/archive', {post: post, date_format: 'MMM D, YYYY'}) %>
+
+        <% }) %>
+            </div>
+        <% } else {
+            site.categories.each(function(cate){  %>
+
+            <h3 class="archive-separator" id="tag-<%=cate.name %>"><%=cate.name %></h3>
+
+            <div class="waterfall">
+            <% cate.posts.each(function(post){  %>
+
+                <%- partial('_partial/archive', {post: post, date_format: 'MMM D, YYYY'}) %>
+            <% }) %>
+            </div>
+        <% })
+        }
+    %>
+    <%- partial('_partial/paginator') %>
+</div>

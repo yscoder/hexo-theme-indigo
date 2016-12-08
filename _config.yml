@@ -12,18 +12,33 @@ menu:
     text: 主页
     url: /
   archives:
+    text: 文章
     url: /archives
-  tags:
-    url: /tags
-  github:
-    url: https://github.com/yscoder
+  # tags:
+  #   text: 标签
+  #   url: /tags
+  book:
+    text: 简书
+    url: http://www.jianshu.com/users/83129d433d72/latest_articles
     target: _blank
   weibo:
-    url: http://www.weibo.com/ysweb
+    text: 微博
+    url: http://weibo.com/lxchuan12
     target: _blank
-  link:
-    text: 测试
-    url: /404
+  github:
+    url: https://github.com/lxchuan12
+    target: _blank
+  # link:
+  #   text: 测试
+  #   url: /404
+  hand-o-right:
+    text: 作品展示
+    url: https://lxchuan12.github.io/works/
+    target: _blank
+  user:
+    text: 关于我
+    url: https://lxchuan12.github.io/2016/09/07/20160907-How-do-I-set-foot-on-the-front-end-of-the-road/
+    target: _blank
 
 rss: /atom.xml
 
@@ -31,10 +46,12 @@ rss: /atom.xml
 avatar: /img/logo.jpg
 
 # email
-email: 634206017@qq.com
+email: lxchuan12@163.com
 
 # 设置 Android L Chrome 浏览器状态栏颜色
-color: '#3F51B5'
+color: '#3D95D5'
+#color: '#3F51B5' #默认使用
+#color: '#02A1E6'
 
 # Content
 tags:
@@ -43,7 +60,7 @@ tags:
 # 文章截断
 excerpt_render: false
 excerpt_length: 200
-excerpt_link: 阅读全文...
+excerpt_link: 阅读全文>>
 mathjax: false
 archive_yearly: true
 
@@ -52,7 +69,7 @@ share: true
 
 #是否开启打赏，关闭 reward: false
 reward:
-  title: 谢谢大爷~
+  title: 你的打赏是我写作的动力~
   wechat: /img/wechat.jpg     #微信，关闭设为 false
   alipay: /img/alipay.jpg     #支付宝，关闭设为 false
 
@@ -76,10 +93,9 @@ favicon: /favicon.ico
 
 # less
 less:
-  compress: true
   paths:
     - source/css/style.less
 
 #是否开启多说评论，填写你在多说申请的项目名称 duoshuo: duoshuo-key
 #若使用disqus，请在博客config文件中填写disqus_shortname，并关闭多说评论
-duoshuo: ysblog
+duoshuo: lxchuan12

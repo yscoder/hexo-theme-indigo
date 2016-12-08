@@ -1,0 +1,135 @@
+.ds-comment-content {
+    margin: 10px 0;
+    line-height: 1.5;
+    color: #555;
+    word-wrap: break-word;
+
+    > *:first-child {
+        margin-top: 0;
+    }
+    > *:last-child {
+        margin-bottom: 0;
+    }
+
+    h1, h2, h3, h4, h5 {
+        font-weight: bold;
+        padding: 0;
+        margin: 15px 0;
+        line-height: 1.5;
+    }
+    h1 {
+        font-size: 22px;
+    }
+    h2{
+        font-size: 20px;
+    }
+    h3 {
+        font-size: 18px;
+    }
+    h4 {
+        font-size: 16px;
+    }
+    h5 {
+        font-size: 14px;
+    }
+    h6 {
+        font-size: 12px;
+    }
+    p,
+    pre,
+    blockquote {
+        margin-bottom: 15px;
+    }
+    pre code {
+        display: block;
+        padding: 8px 15px;
+    }
+    code {
+        padding: 3px 5px;
+        background: @gray-background;
+        border: none;
+    }
+    
+    ul, ul li {
+        list-style-type: disc!important
+    }
+    ol, ol li {
+        list-style-type: decimal!important
+    }
+    ol, ul {
+        margin: 12px 0!important;
+        padding-left: 20px!important;
+    }
+
+    blockquote {
+        padding: 10px 15px;
+        border-left: 5px solid @gray-lightest;
+        p:first-child {
+            margin-top: 0
+        }
+        p:last-child {
+            margin-bottom: 0
+        }
+    }
+    .ds-smiley {
+        vertical-align: -5px!important
+    }
+    .ds-comment-context + p {
+        display: inline-block;
+    }
+}
+#ds-smilies-tooltip {
+    width: 386px;
+    .ds-smilies-container {
+        height: auto;
+        padding: 10px;
+        margin-left: 0
+    }
+    .ds-smilies-tabs {
+        display: none;
+    }
+}
+.ds-post-options {
+    &:after {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        content: 'Markdown is supported';
+        color: #666;
+        line-height: 30px;
+    }
+    .ds-sync {
+        display: none
+    }
+}
+.ds-env-tag {
+    display: inline-block;
+    margin-right: 6px;
+    padding: 2px 8px;
+    color: #fff;
+    border-radius: 3px;
+    .tip-top();
+    text-transform: capitalize;
+    
+    &:first-letter {
+        text-transform: uppercase
+    }
+
+    &:nth-child(2) {
+        background: #2196F3;
+    }
+    &:nth-child(3) {
+        background: #4CAF50;
+    }
+    &:nth-child(4) {
+        background: #FF5722;
+    }
+    &.na {
+        display: none;
+    }
+    &.pc,
+    &.ie,
+    &.qq {
+        text-transform: uppercase
+    }
+}

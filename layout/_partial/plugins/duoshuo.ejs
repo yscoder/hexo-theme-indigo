@@ -1,0 +1,8 @@
+<% if (theme.duoshuo){ %>
+<div class="comments" id="comments">
+	<div class="ds-thread" data-thread-key="<%-key%>" data-title="<%=title%>" data-url="<%=url.replace(/index\.html$/, '')%>"></div>
+</div>
+<script>
+lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js')
+</script>
+<% } %>

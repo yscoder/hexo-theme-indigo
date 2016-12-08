@@ -1,0 +1,252 @@
+/**
+*
+* Dialog
+*
+**/
+
+#ds-wrapper {
+  left: 0;
+  right: 0;
+  top: 20%;
+  bottom: 0;
+  width:100%;
+  margin: auto;
+  z-index: 9999;
+  position: fixed;
+  text-align: center;
+  color: @gray-light;
+
+  .ds-dialog, #ds-reset.ds-dialog { // 因为IE6不识别 ID + class的选择符，因此这里再写一遍。
+    margin: 0 auto;
+    text-align: left;
+    width : 480px;  // 默认宽度
+    max-width:100%; // 适应手机屏幕
+  }
+}
+
+#ds-wrapper #ds-reset{
+  &.ds-dialog-bind-more {
+    .ds-service-list {
+      width: 50%;
+    }
+  }
+  a {
+    cursor: pointer;
+    text-decoration: none;
+    color: @gray-light;
+  }
+
+  .ds-dialog-inner {
+    width: 100%;
+    position: relative;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,.2);
+    .ds-unread-list{
+      max-height: 300px;
+      overflow-y: auto;
+       padding-left: 0;
+    }
+  }
+  .ds-control-group {
+    margin: 18px 0;
+    position: relative;
+    padding-right : 80px;
+
+    input {
+      padding: 6px;
+      width: 100%;
+      font-size: @font-size-base;
+      border: @border-gray;
+      color: @gray-light;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+      &:focus {
+        border-color: #08b5fb;
+      }
+    }
+    label {
+      font-size: @font-size-base;
+      color: @text-muted;
+      letter-spacing: 1px;
+      position: absolute;
+      right: 0;
+      top: 8px;
+    }
+  }
+  tr {
+    height: 45px;
+  }
+  button {
+    cursor: pointer;
+    color: #fff;
+    border: none;
+    background: #ff6666;
+    display: inline-block;
+    padding: .5em 2em;
+    &:hover {
+      opacity: .8
+    }
+    &:active {
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+  }
+  h2 {
+    display: block;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0 0 15px 0;
+    color: @gray;
+  }
+  .ds-dialog-body {
+    padding: 25px 30px;
+    position: relative;
+    overflow: hidden;
+  }
+  // 发评论的之前用社交帐号登陆
+  .ds-icons-32 {
+    height: 32px;
+    margin-bottom: 20px;
+    overflow:hidden;
+    a {
+      float: left;
+      margin: 0 5px 0 0;
+    }
+  }
+  ul li {
+    margin: 10px 0;
+  }
+  .ds-service-list {
+    width: 45%;
+    float: left;
+    margin: 0;
+    padding: 0;
+    .ds-more-services {
+      display: none;
+    }
+    .icon-check-circle {
+      color: #8BC34A
+    }
+  }
+  .ds-quote {
+    margin: 10px 0px;
+    padding: 6px 10px;
+    background: @gray-background;
+    line-height : 1.5em;
+    font-size: 12px;
+    overflow-y: auto;
+    max-height: 180px;
+  }
+  .ds-textarea-wrapper {
+    border:@border-gray;
+    padding: 0 20px 0 0;
+    position:relative;
+    margin: 12px 0;
+
+    textarea{
+      width: 100%;
+      height: 54px;
+      margin: 0;
+      resize: none;
+      padding: 6px 10px;
+      overflow: auto;
+    }
+    .ds-hidden-text{
+      top:0;
+      left:10px;
+      right:10px;
+      position:absolute;
+      visibility:hidden;
+      word-wrap: break-word;
+    }
+    textarea, .ds-hidden-text{
+      font-size:13px;
+      line-height: 1.5em;
+    }
+  }
+  .ds-actions {
+    position:relative;
+    height:30px;
+
+    button {
+      display:block;
+      position:absolute;
+      top:0;
+      right:0;
+    }
+  }
+  .ds-dialog-close {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    opacity: .6;
+
+    &:hover {
+      opacity: .8;
+    }
+  }
+  .ds-logo {
+    display: inline-block;
+    width: 64px;
+    height: 21px;
+    margin-right: 10px;
+    background: url("@{images-url}logo.png") 0 0 no-repeat;
+  }
+  .ds-dialog-footer {
+    clear: both;
+    border-top: @border-gray;
+    padding: 10px 15px 6px;
+
+    span {
+      color: @gray-lighter;
+      position: relative;
+      top: -6px;
+    }
+  }
+  .ds-connect {
+    display: none; //hide for now
+  }
+  .ds-unread-list {
+    li {
+      position:relative;
+      margin: 0;
+      padding: 8px 0;
+      border-top: 1px solid #eee;
+      line-height: 1.5em;
+      color: @gray-light;
+      a {
+        color: @highlight;
+        &:hover {
+          color: lighten(@highlight, 10%);
+        }
+      }
+      a[rel~="author"] {
+        color: @link-color;
+      }
+
+      .ds-delete{
+        display:none;
+        position:absolute;
+        right:0;
+        bottom:10px;
+        text-indent: -9999px;
+        width: 14px;
+        height: 14px;
+        overflow: hidden;
+        background: transparent url("@{images-url}delete.gif") no-repeat scroll 0 -14px;
+      }
+
+      &:hover{
+        .ds-delete{
+          display:block;
+        }
+      }
+    }
+  }
+  &.ds-touch .ds-unread-list li .ds-delete {
+    display:block;
+  }
+}

@@ -1,0 +1,249 @@
+#ds-reset {
+  // 被复用多次，并可以被网站主简单修改的样式
+  .ds-highlight {
+    color: @highlight;
+  }
+  .ds-rounded {
+    .rounded(@border-radius);
+  }
+  .ds-rounded-top {
+      border-top-right-radius: @border-radius;
+      border-top-left-radius: @border-radius;
+  }
+  .ds-rounded-bottom {
+    border-bottom-left-radius: @border-radius;
+    border-bottom-right-radius: @border-radius;
+  }
+
+  .ds-avatar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 1px 1px rgba(255, 255, 255, .75);
+    .rounded(@border-radius);
+
+    img {
+      display: block;
+      visibility: visible;
+      width: @avatar-size;
+      height: @avatar-size;
+      box-shadow: 0 1px 3px rgba(0,0,0,.22);
+      .rounded(@border-radius);
+    }
+    .ds-service-icon {
+      display:block;
+      position: absolute;
+      bottom: -4px;
+      right: -4px;
+    }
+  }
+  img.ds-smiley {
+    margin:0;
+    padding:0;
+    display:inline;
+    border:none;  // for compatible http://blog.dnspod.cn/2013/01/yangtze-river-delta/dnspod1-2/
+  }
+  .icon {
+    margin: 0 3px;
+  }
+  a .icon {
+    opacity: 0.6;
+    .transition(opacity);
+  }
+  a:hover .icon {
+    opacity: 1;
+  }
+  /* SNS icons */
+  .ds-service-list {
+    a {
+      vertical-align: middle;
+      padding-right: 3px;
+    }
+    li:hover a { color: @link-hover-color; }
+  }
+
+  .ds-service-icon,
+  .ds-service-icon-grey {
+    width: 16px !important;
+    height: 16px !important;
+    line-height: 100px;
+    display: inline-block;
+    background: url("@{images-url}service-icons-color.png?v=2") no-repeat;
+    overflow: hidden;
+  }
+  .ds-service-icon-grey {
+    //background-position-x: -16px;   // firefox doesn't support this property
+    background-image: url("@{images-url}service-icons-grey.png");
+  }
+  .ds-service-link {
+    height: 16px !important;
+    line-height: 16px;
+    padding-left: 22px;
+    display: block;
+    background: url("@{images-url}service-icons-color.png?v=2") no-repeat;
+    overflow: hidden;
+  }
+  .ds-weibo {
+    background-position: 0 0;
+  }
+  .ds-renren {
+    background-position: 0 -32px;
+  }
+  .ds-qqt {
+    background-position: 0 -64px;
+  }
+  .ds-kaixin {
+    background-position: 0 -80px;
+  }
+  .ds-douban {
+    background-position: 0 -96px;
+  }
+  .ds-qzone {
+    background-position: 0 -128px;
+  }
+  .ds-duoshuo {
+    background-position: 0 -144px;
+  }
+  .ds-qq {
+    background-position: 0 -192px;
+  }
+  .ds-baidu {
+    background-position: 0 -208px;
+  }
+  .ds-google {
+    background-position: 0 -240px;
+  }
+  .ds-weixin {
+    background-position: 0 -272px;
+  }
+  .ds-wechat {
+    background-position: 0 -272px;
+  }
+}
+
+.ds-icons-32 {
+  a {
+    display: block;
+    cursor:pointer;
+    width: 32px !important;
+    height: 32px !important;
+    background: url("@{images-url}icons_large.png") no-repeat !important;
+    overflow: hidden;
+    text-indent:-9999px;
+
+    &.ds-weibo {
+      background-position: -37px 0 !important;
+    }
+    &.ds-qzone {
+      background-position: 0 0 !important;
+    }
+    &.ds-qqt {
+      background-position: -74px 0 !important;
+    }
+    &.ds-renren {
+      background-position: -148px 0 !important;
+    }
+    &.ds-kaixin {
+      background-position: -111px 0 !important;
+    }
+    &.ds-weixin {
+      background-position: -224px 0 !important;
+    }
+    &.ds-wechat {
+      background-position: -224px 0 !important;
+    }
+    &.ds-qq {
+      background-position: -488px 0 !important;
+    }
+    &.ds-douban {
+      background-position: -186px 0 !important;
+    }
+    &.ds-baidu {
+      background-position: -262px 0 !important;
+    }
+  }
+}
+
+#ds-reset #ds-ctx {  //  通用样式
+  padding: 0;
+  margin : 8px 0;
+  max-width:640px;
+
+  .ds-ctx-entry {
+    position: relative;
+    padding: 10px;
+    border-bottom: 1px solid #e6e6e6;
+
+    .ds-ctx-head a {
+      color: @text-muted;
+    }
+    .ds-avatar {
+      top: 10px;
+      left: 10px;
+      width: @avatar-small-size;
+      height: @avatar-small-size;
+      img {
+        width: @avatar-small-size;
+        height: @avatar-small-size;
+        box-shadow: none;
+      }
+    }
+    .ds-ctx-body{
+      margin-left: 40px;
+    }
+    .ds-ctx-head {
+      position : relative;
+      line-height: 1em;
+      padding: 1px 0 0;
+      margin : 0 0 .25em;
+    }
+    .ds-ctx-nth{
+      color : @gray-lighter;
+      font-size: 12px;
+      position: absolute;
+      top:2px;
+      right:0;
+    }
+    .ds-time {
+      font-size: @font-size-small;
+      margin-left: 8px;
+      color: @text-muted;
+    }
+    .ds-ctx-content {
+      position : relative;
+      padding: 0;
+      margin: 0;
+      overflow:hidden;
+      line-height:1.5em;
+    }
+  }
+
+  .ds-comment-actions {  //  放到.ds-ctx-entry里面去会导致优先级过高reply-active的样式无法生效
+    text-align: right;
+    line-height:18px;
+
+    a {
+      margin: 0 0 0 6px;
+    }
+  }
+}
+
+
+/**
+*
+* 上下文样式
+*
+**/
+#ds-reset {
+  .ds-comment-body #ds-ctx { //  在评论列表中的样式
+    border-left: 3px solid @gray-lightest;
+    background-color: rgba(0,0,0,.03);
+  }
+  &.ds-no-opacity .ds-comment-body #ds-ctx {
+    background: @gray-background;
+  }
+  .ds-dialog-body #ds-ctx .ds-ctx-entry:hover .ds-comment-actions {
+    display:none;
+  }
+}

@@ -14,26 +14,30 @@ menu:
   archives:
     text: 文章
     url: /archives
-  tags:
-    text: 标签
-    url: /tags
-  github:
-    url: https://github.com/lxchuan12
+  # tags:
+  #   text: 标签
+  #   url: /tags
+  book:
+    text: 简书
+    url: http://www.jianshu.com/users/83129d433d72/latest_articles
     target: _blank
   weibo:
     text: 微博
     url: http://weibo.com/lxchuan12
     target: _blank
+  github:
+    url: https://github.com/lxchuan12
+    target: _blank
   # link:
   #   text: 测试
   #   url: /404
-  book:
-    text: 简书
-    url: http://www.jianshu.com/users/83129d433d72/latest_articles
-    target: _blank
   hand-o-right:
     text: 作品展示
     url: https://lxchuan12.github.io/works/
+    target: _blank
+  user:
+    text: 关于我
+    url: https://lxchuan12.github.io/2016/09/07/20160907-How-do-I-set-foot-on-the-front-end-of-the-road/
     target: _blank
 
 rss: /atom.xml

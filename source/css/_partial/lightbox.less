@@ -1,0 +1,67 @@
+.img-lightbox {
+    text-align: center;
+    &.ready {
+        position: relative;
+        top: 0;
+        left: 0;
+        img {
+            position: absolute;
+            z-index: 890;
+            &.zoom-in {
+                .transition(.3s);
+            }
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 888;
+            background: #2f2d2d;
+            opacity: 0;
+            will-change: opacity;
+            .transition(.3s);
+        }
+
+        .overlay-title {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 900;
+            height: 40px;
+            line-height: 40px;
+            color: #fff;
+            opacity: 0;
+            .transform(translate3d(0, 30px, 0));
+            .transition(.3s);
+        }
+    }
+
+    &.active {
+        img {
+            cursor: -webkit-zoom-out;
+            cursor: zoom-out;
+        }
+        .overlay,
+        .overlay-title {
+            opacity: 1
+        }
+        .overlay-title {
+            .transform(translate3d(0, 0, 0));
+        }
+    }
+
+    img {
+        display: inline;
+        margin: 0;
+        cursor: -webkit-zoom-in;
+        cursor: zoom-in;
+
+        &:hover {
+            will-change: left, top, width, height;
+        }
+    }
+}
+

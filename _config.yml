@@ -30,6 +30,9 @@ rss: /atom.xml
 #你的头像url
 avatar: /img/logo.jpg
 
+#添加个人介绍页面
+aboutme: /about
+
 # email
 email: 634206017@qq.com
 

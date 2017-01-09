@@ -19,17 +19,17 @@
     position: absolute;
     top: 0;
     left: 0;
-    background-color: #fff;
-    box-shadow: 0 1px 1px rgba(255, 255, 255, .75);
-    .rounded(@border-radius);
+    .rounded(50%);
+    &:hover {
+        box-shadow: 0 3px 12px rgba(0, 0, 0,.3)
+    }
 
     img {
       display: block;
       visibility: visible;
       width: @avatar-size;
       height: @avatar-size;
-      box-shadow: 0 1px 3px rgba(0,0,0,.22);
-      .rounded(@border-radius);
+      .rounded(50%);
     }
     .ds-service-icon {
       display:block;
@@ -173,7 +173,6 @@
   .ds-ctx-entry {
     position: relative;
     padding: 10px;
-    border-bottom: 1px solid #e6e6e6;
 
     .ds-ctx-head a {
       color: @text-muted;
@@ -191,6 +190,12 @@
     }
     .ds-ctx-body{
       margin-left: 40px;
+      .ds-avatar {
+          left: 0
+      }
+    }
+    .ds-post-button {
+        background: #dcdcdc
     }
     .ds-ctx-head {
       position : relative;
@@ -237,8 +242,7 @@
 **/
 #ds-reset {
   .ds-comment-body #ds-ctx { //  在评论列表中的样式
-    border-left: 3px solid @gray-lightest;
-    background-color: rgba(0,0,0,.03);
+    background-color: rgba(0,0,0,.04);
   }
   &.ds-no-opacity .ds-comment-body #ds-ctx {
     background: @gray-background;

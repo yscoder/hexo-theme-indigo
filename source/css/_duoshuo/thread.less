@@ -45,19 +45,20 @@
 
   /* Meta */
   .ds-meta {
-    position : relative;
+    position: relative;
+    margin-bottom: 15px;
     padding: 8px 0;
     line-height: 24px;
-    border-bottom: @border-shadow;
   }
 
   .ds-like-tooltip {
     position: absolute;
     z-index: 9999;
+    margin-left: 20px;
     padding: 8px 14px;
-    border: @border-gray;
     background: #fff;
     font-size: @font-size-small;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .3);
 
     ul {
       width:84px;
@@ -79,10 +80,10 @@
   a.ds-like-thread-button {
     color: @gray;
     padding: 4px 8px;
-    border: @border-gray;
     margin-right:15px;
 
     .icon-heart {
+      font-size: 18px;
       color: @link-color;
       opacity: .6;
     }
@@ -138,6 +139,9 @@
   .ds-visitor {
     line-height:1.5em;
     margin-right:6px;
+  }
+  .ds-visitor-name {
+      font-size: @font-size-large
   }
   .ds-account-control {
     position:relative;
@@ -199,7 +203,8 @@
   .ds-login-buttons {
     width: 100%;
     position: relative;
-    padding: 10px 0 6px;
+    padding: 10px 0 56px;
+    text-align: right;
     p {
       float: left;
       line-height: 24px;
@@ -208,7 +213,6 @@
     .ds-service-list li {
       float: left;
       height: 16px;
-      width: 54px;
       padding:4px 0;
       margin: 0 0 0 6px;  //  for compatible
     }
@@ -225,7 +229,6 @@
     }
     .ds-social-links{
       float:left;
-      width:306px;  // ie6 有3px margin的bug
     }
 
     &:after {
@@ -281,7 +284,7 @@
     textarea {
       -webkit-appearance: none; //remove inner shadow on mobile webkit
       overflow: auto;
-      padding: 8px 0;
+      padding: 8px 4px;
       height: 38px;
       margin: 0;
       resize: none;
@@ -399,15 +402,16 @@
 
     a {
       color: @text-muted;
-      padding: 0 4px; //  padding更大可以扩大可点击区域
-      margin: 0 2px;  //  仍然保留一点间隙，以免被误点
+      padding: 4px 1em;
       cursor: pointer;
       &:hover {
         color: @link-hover-color;
+        text-decoration: none
       }
 
       &.ds-current {
         color: @link-color;
+        border-bottom: 2px solid @link-color;
       }
     }
   }
@@ -515,13 +519,13 @@
 
   #ds-bubble {
     position: absolute;
-    background-color: #fff;
-    .rounded(@border-radius);
+    z-index: 9999;
     padding: 10px;
     color: #333;
-    border: @border-gray;
-    z-index: 9999;
+    background-color: #fff;
     font-size: @font-size-base;
+    .rounded(@border-radius);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     p {
       line-height: 18px;
     }
@@ -569,7 +573,7 @@
       overflow:hidden;
       white-space:nowrap;
       text-overflow:ellipsis;
-      font-size:@font-size-large;
+      font-size:@font-size-base;
     }
     .ds-user-card-meta {
       margin:14px 0 0 0;
@@ -609,7 +613,7 @@
 
   .ds-user-name {
     color: @gray-light;
-    font-size: @font-size-base;
+    font-size: @font-size-large;
     margin-right: 8px;
   }
 
@@ -702,88 +706,85 @@
 }
 
 
-#ds-thread.ds-narrow #ds-reset{
+#ds-thread.ds-narrow {
+  padding: 20px 16px;
+  border-radius: 0;
 
-  .ds-avatar img {
-    width: @avatar-small-size;
-    height: @avatar-small-size;
-  }
-  .ds-post-button {
-    width: 70px;
-  }
-  .ds-post-options {
-    margin-right:70px;
-  }
-  .ds-post-self,
-  .ds-replybox {
-      padding-left: 45px
+  #ds-reset{
+    .ds-avatar img {
+      width: @avatar-small-size;
+      height: @avatar-small-size;
+    }
+    .ds-post-self {
+        padding-left: 38px
+    }
   }
 }
 
 #ds-smilies-tooltip {
-  position: absolute;
-  width: 400px;
-  background-color: #FFF;
-  z-index: 9999;
-  box-shadow: 0 2px 8px rgba(0,0,0,.2);
-  text-shadow: @text-shadow;
-  .rounded(@border-radius);
-
-  a {
-    cursor:pointer;
-  }
-  ul {
-    list-style-type: none;
-    padding: 0;
-    margin:0;
-  }
-  ul.ds-smilies-tabs {
-    width:119px;
     position: absolute;
-    top: 0;
-    left: 0;
-    height:100%;
-    overflow-y:auto;
-    background: @gray-background;
-    border-right: @border-gray;
-    border-top-left-radius: @border-radius;
-    border-bottom-left-radius: @border-radius;
-    li {
-      a {
-        color: @gray-lighter;
-        padding: 6px 10px;
-        display: block;
-        border-bottom: @border-gray;
-        font-size: @font-size-small;
-        line-height: 1.3em;
-      }
-      &:first-child a {
-        border-top-left-radius: @border-radius;
-      }
-      a.ds-current {
-        color: #666;
-        background: #e3e3e3;
-        box-shadow: inset 0 0 4px rgba(0,0,0,.1);
-      }
-    }
-  }
-  .ds-smilies-container{
-    padding: 10px 5px;
-    height:140px;
-    margin-left: 125px;
-    overflow-y:auto;
-    li {
-      list-style: none;
-      float:left;
-      width: 26px;
-      height: 26px;
-      text-align:center;
-      cursor:pointer;
+    width: 400px;
+    background-color: #FFF;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,.2);
+    text-shadow: @text-shadow;
+    .rounded(@border-radius);
 
-      &:hover {
-        position: relative;
-        top: -1px;
-      }
+    a {
+        cursor:pointer;
     }
-  }
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin:0;
+    }
+    ul.ds-smilies-tabs {
+        width:119px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height:100%;
+        overflow-y:auto;
+        background: @gray-background;
+        border-right: @border-gray;
+        border-top-left-radius: @border-radius;
+        border-bottom-left-radius: @border-radius;
+        li {
+            a {
+                color: @gray-lighter;
+                padding: 6px 10px;
+                display: block;
+                border-bottom: @border-gray;
+                font-size: @font-size-small;
+                line-height: 1.3em;
+            }
+            &:first-child a {
+                border-top-left-radius: @border-radius;
+            }
+            a.ds-current {
+                color: #666;
+                background: #e3e3e3;
+                box-shadow: inset 0 0 4px rgba(0,0,0,.1);
+            }
+        }
+    }
+    .ds-smilies-container{
+        padding: 10px 5px;
+        height:140px;
+        margin-left: 125px;
+        overflow-y:auto;
+        li {
+            list-style: none;
+            float:left;
+            width: 26px;
+            height: 26px;
+            text-align:center;
+            cursor:pointer;
+
+            &:hover {
+                position: relative;
+                top: -1px;
+            }
+        }
+    }
 }

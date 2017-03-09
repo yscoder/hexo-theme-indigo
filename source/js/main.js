@@ -410,14 +410,17 @@
     };
 
     w.addEventListener('load', function () {
+        loading.classList.remove('active');
+        Blog.page.loaded();
+        w.lazyScripts && w.lazyScripts.length && Blog.loadScript(w.lazyScripts)
+    });
+
+    w.addEventListener('DOMContentLoaded', function() {
         Blog.waterfall();
         var top = docEl.scrollTop;
         Blog.toc.fixed(top);
         Blog.toc.actived(top);
-        loading.classList.remove('active');
         Blog.page.loaded();
-
-        w.lazyScripts && w.lazyScripts.length && Blog.loadScript(w.lazyScripts)
     });
 
     var ignoreUnload = false;

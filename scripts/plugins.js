@@ -11,8 +11,8 @@ function renderImage(src, alt = '', title = '') {
             </figure>`
 }
 
-hexo.extend.tag.register('image', ([src, title]) => {
-    return renderImage(src, title)
+hexo.extend.tag.register('image', ([src, alt, title]) => {
+    return renderImage(src, alt, title)
 })
 
 hexo.extend.filter.register('before_post_render', data => {
@@ -29,7 +29,7 @@ hexo.extend.filter.register('before_post_render', data => {
         return match.replace(/\!\[(.*)\]\((.+)\)/, (img, alt, src) => {
             const attrs = src.split(' ')
             const title = (attrs[1] && attrs[1].replace(/\"|\'/g, '')) || ''
-            return `{% image ${attrs[0]} ${alt} ${title} %}`
+            return `{% image ${attrs[0]} '${alt}' '${title}' %}`
         })
     })
     return data

@@ -110,19 +110,25 @@
 
             toc.querySelector('a[href="#' + titles[0].id + '"]').parentNode.classList.add('active');
 
+            function scrollTo(hash) {
+                if(!hash) return;
+                var top = offset($('[id="' + decodeURIComponent(hash).substr(1) + '"]')).y - headerH;
+                // animate(Blog.goTop.bind(Blog, top));
+                docEl.scrollTop = top;
+            }
+
             forEach.call($$('a[href^="#"]'), function (el) {
 
                 el.addEventListener('click', function (e) {
                     e.preventDefault();
-                    var top = offset($('[id="' + decodeURIComponent(this.hash).substr(1) + '"]')).y - headerH;
-                    // animate(Blog.goTop.bind(Blog, top));
-                    docEl.scrollTop = top;
+                    scrollTo(this.hash)
                 })
             });
 
             return {
                 fixed: function (top) {
-                    top >= bannerH - headerH ? toc.classList.add('fixed') : toc.classList.remove('fixed')
+                    top >= bannerH - headerH ? toc.classList.add('fixed') : toc.classList.remove('fixed');
+                    scrollTo(w.location.hash)
                 },
                 actived: function (top) {
                     for (i = 0, len = titles.length; i < len; i++) {

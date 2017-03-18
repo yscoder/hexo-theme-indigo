@@ -127,8 +127,10 @@
 
             return {
                 fixed: function (top) {
+                    var hash = w.location.hash;
+                    w.location.hash = '';
+                    scrollTo(hash);
                     top >= bannerH - headerH ? toc.classList.add('fixed') : toc.classList.remove('fixed');
-                    scrollTo(w.location.hash)
                 },
                 actived: function (top) {
                     for (i = 0, len = titles.length; i < len; i++) {

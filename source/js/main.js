@@ -110,26 +110,8 @@
 
             toc.querySelector('a[href="#' + titles[0].id + '"]').parentNode.classList.add('active');
 
-            function scrollTo(hash) {
-                if(!hash) return;
-                var top = offset($('[id="' + decodeURIComponent(hash).substr(1) + '"]')).y - headerH;
-                // animate(Blog.goTop.bind(Blog, top));
-                docEl.scrollTop = top;
-            }
-
-            forEach.call($$('a[href^="#"]'), function (el) {
-
-                el.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    scrollTo(this.hash)
-                })
-            });
-
             return {
                 fixed: function (top) {
-                    var hash = w.location.hash;
-                    w.location.hash = '';
-                    scrollTo(hash);
                     top >= bannerH - headerH ? toc.classList.add('fixed') : toc.classList.remove('fixed');
                 },
                 actived: function (top) {

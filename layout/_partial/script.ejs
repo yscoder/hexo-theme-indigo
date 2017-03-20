@@ -19,21 +19,4 @@ lazyScripts.push('//s95.cnzz.com/z_stat.php?id=<%-theme.cnzz %>&web_id=<%-theme.
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <% } %>
 
-<% if (theme.title_change) { %>
-<script class="xh-highlight">
-        var OriginTitile = document.title;
-        var titleTime;
-        document.addEventListener('visibilitychange',
-        function() {
-         if (document.hidden) {
-          document.title = '<%- theme.title_change.leave %>';
-          clearTimeout(titleTime);
-        } else {
-          document.title = '<%- theme.title_change.normal %>';
-          titleTime = setTimeout(function() {
-            document.title = OriginTitile;
-          },
-          2000);
-        }
-      });</script>
-<% } %>
+<%- partial('plugins/dynamic-title') %>

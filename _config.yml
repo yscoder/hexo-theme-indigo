@@ -121,3 +121,9 @@ about: 用户页面中作者相关的描述性文字，如不需要设为 false
 visit_counter:
   site_uv: 站点总访客数：
   site_pv: 站点总访问量：
+
+
+#动态定义title
+title_change:
+  normal: (つェ⊂)咦!又好了!  
+  leave: 死鬼去哪里了！

@@ -124,8 +124,10 @@ visit_counter:
   site_uv: 站点总访客数：
   site_pv: 站点总访问量：
 
-
-#动态定义title
+# 动态定义title
 title_change:
   normal: (つェ⊂)咦!又好了!
   leave: 死鬼去哪里了！
+
+# 设置为 true 发布后将使用 unpkg cdn
+cdn: true

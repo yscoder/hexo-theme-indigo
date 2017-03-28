@@ -1,4 +1,4 @@
 <% if (theme.duoshuo && enabled ){ %>
 var duoshuoQuery = {short_name:'<%- theme.duoshuo %>', theme: 'none'};
-lazyScripts.push('<%- url_for('/js/embed' + (cache ? '.min': '') + '.js?v=' + theme_version()) %>');
+lazyScripts.push('<%- url_for(theme_js("/js/embed", cache)) %>');
 <% } %>

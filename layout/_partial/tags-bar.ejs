@@ -1,25 +1,25 @@
-<% 
-if(type === 'categories' || type === 'tags'){ %> 
+<%
+if(type === 'categories' || type === 'tags'){ %>
 <div class="tabs-bar container">
     <nav class="tags-list">
         <a href="<%= url_for('/' + type) %>" style="-webkit-order:-1;order:-1" class="tags-list-item waves-effect waves-button waves-light
-            <% if(path === type + '/index.html'){%> active<%}%>">全部</a>
-        <% 
+            <% if(path === type + '/index.html'){%> active<%}%>"><%= __('tag.all') %></a>
+        <%
             var options = [];
-            
+
             (type === 'tags' ? site.tags : site.categories).each(function(o) {
                 if(o.posts.length) {
                     options.push(o)
                 }
             })
-            
+
             var index = _.findIndex(options, function(o) {
                 return is_current(o.path)
             })
             var len = options.length
             var order = 0
-            options.forEach(function(tag, i){ 
-                
+            options.forEach(function(tag, i){
+
                 if(index <= 1) {
                     order = i
                 } else {
@@ -31,7 +31,7 @@ if(type === 'categories' || type === 'tags'){ %>
                     }
                 }
 
-            %> 
+            %>
 
             <a href="<%- url_for(tag.path) %>" style="-webkit-order:<%= order%>;order:<%= order%>" class="tags-list-item waves-effect waves-button waves-light<% if(is_current(tag.path)){%> active<%}%>"><%-tag.name%></a>
 

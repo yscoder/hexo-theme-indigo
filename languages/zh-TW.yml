@@ -1,0 +1,13 @@
+global:
+  search_input_hint: "搜尋"
+
+post:
+  continue_reading: "閱讀全文…"
+  last_updated: "最後更新時間："
+
+footer:
+  license: '本部落格係採用<a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW">創用 CC 姓名標示 4.0 國際 授權條款授權</a>'
+
+tag:
+  all: "全部"
+  tags: "標籤"

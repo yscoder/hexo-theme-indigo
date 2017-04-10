@@ -23,26 +23,30 @@ function renderImage(src, alt = '', title = '') {
             </figure>`
 }
 
-hexo.extend.tag.register('image', ([src, alt, title]) => {
-    return renderImage(src, alt, title)
-})
+if (hexo.theme.config.lightbox) {
+    hexo.extend.tag.register('image', ([src, alt, title]) => {
+        return renderImage(src, alt, title)
+    })
+}
 
 hexo.extend.filter.register('before_post_render', data => {
 
-    // 包含图片的代码块 <escape>[\s\S]*\!\[(.*)\]\((.+)\)[\s\S]*<\/escape>
-    // 行内图片 [^`]\s*\!\[(.*)\]\((.+)\)([^`]|$)
-    data.content = data.content.replace(/<escape>.*\!\[(.*)\]\((.+)\).*<\/escape>|([^`]\s*|^)\!\[(.*)\]\((.+)\)([^`]|$)/gm, match => {
+    if (hexo.theme.config.lightbox) {
+        // 包含图片的代码块 <escape>[\s\S]*\!\[(.*)\]\((.+)\)[\s\S]*<\/escape>
+        // 行内图片 [^`]\s*\!\[(.*)\]\((.+)\)([^`]|$)
+        data.content = data.content.replace(/<escape>.*\!\[(.*)\]\((.+)\).*<\/escape>|([^`]\s*|^)\!\[(.*)\]\((.+)\)([^`]|$)/gm, match => {
 
-        // 忽略代码块中的图片
-        if (/<escape>[\s\S]*<\/escape>|.?\s{3,}/.test(match)) {
-            return match
-        }
+            // 忽略代码块中的图片
+            if (/<escape>[\s\S]*<\/escape>|.?\s{3,}/.test(match)) {
+                return match
+            }
 
-        return match.replace(/\!\[(.*)\]\((.+)\)/, (img, alt, src) => {
-            const attrs = src.split(' ')
-            const title = (attrs[1] && attrs[1].replace(/\"|\'/g, '')) || ''
-            return `{% image ${attrs[0]} '${alt}' '${title}' %}`
+            return match.replace(/\!\[(.*)\]\((.+)\)/, (img, alt, src) => {
+                const attrs = src.split(' ')
+                const title = (attrs[1] && attrs[1].replace(/\"|\'/g, '')) || ''
+                return `{% image ${attrs[0]} '${alt}' '${title}' %}`
+            })
         })
-    })
+    }
     return data
 })

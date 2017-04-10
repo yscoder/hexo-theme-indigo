@@ -8,7 +8,7 @@
             <div class="waterfall">
           <% page.posts.each(function(post){ %>
 
-            <%- partial('_partial/archive', {post: post, date_format: 'MMM D, YYYY'}) %>
+            <%- partial('_partial/archive', {post: post, date_format: config.date_format}) %>
 
         <% }) %>
             </div>
@@ -22,7 +22,7 @@
             <div class="waterfall">
             <% cate.posts.each(function(post){  %>
 
-                <%- partial('_partial/archive', {post: post, date_format: 'MMM D, YYYY'}) %>
+                <%- partial('_partial/archive', {post: post, date_format: config.date_format}) %>
             <% }) %>
             </div>
 

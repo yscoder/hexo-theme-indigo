@@ -1,1 +1,1 @@
-<time class="post-time" title="<%- post.date.format('YYYY年MM月DD日 H:mm') %>" datetime="<%- date_xml(post.date) %>"  itemprop="datePublished"><%- post.date.format(date_format) %></time>
+<time class="post-time" title="<%- post.date.format(config.date_format) %>" datetime="<%- date_xml(post.date) %>"  itemprop="datePublished"><%- post.date.format(config.date_format) %></time>

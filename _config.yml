@@ -28,8 +28,6 @@ menu:
     text: 测试
     url: /custom
 
-rss: /atom.xml
-
 # 你的头像url
 avatar: /img/avatar.jpg
 # 头像背景图

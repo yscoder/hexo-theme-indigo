@@ -3,7 +3,7 @@ const { version, name } = require('../package.json')
 hexo.extend.helper.register('theme_version', () => version)
 
 const source = (path, cache, ext) => {
-    if(cache) {
+    if (cache) {
         const minFile = `${path}${ext === '.js' ? '.min' : ''}${ext}`
         return hexo.theme.config.cdn ? `//unpkg.com/${name}@${version}${minFile}` : `${minFile}?v=${version}`
     } else {
@@ -23,14 +23,11 @@ function renderImage(src, alt = '', title = '') {
             </figure>`
 }
 
-if (hexo.theme.config.lightbox) {
-    hexo.extend.tag.register('image', ([src, alt, title]) => {
-        return renderImage(src, alt, title)
-    })
-}
+hexo.extend.tag.register('image', ([src, alt = '', title = '']) => {
+    return hexo.theme.config.lightbox ? renderImage(src, alt, title) : `<img src="${src}" alt="${alt}" title="${title}">`
+})
 
 hexo.extend.filter.register('before_post_render', data => {
-
     if (hexo.theme.config.lightbox) {
         // 包含图片的代码块 <escape>[\s\S]*\!\[(.*)\]\((.+)\)[\s\S]*<\/escape>
         // 行内图片 [^`]\s*\!\[(.*)\]\((.+)\)([^`]|$)

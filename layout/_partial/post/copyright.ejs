@@ -1,7 +1,9 @@
 <blockquote class="post-copyright">
     <div class="content">
         <%- partial('updated') %>
-        <%- _.template(theme.copyright)(locals) %>
+        <% if(theme.postMessage) {%>
+        <%- _.template(theme.postMessage)(locals) %>
+        <% } %>
     </div>
     <footer>
         <a href="<%- config.url %>">

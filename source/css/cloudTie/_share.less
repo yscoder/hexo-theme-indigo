@@ -1,0 +1,103 @@
+.shareListWin{
+    position:absolute;
+    top:-999px;
+    left:-999px;
+    width:101px;
+    height:34px;
+    border:1px solid #dbdcdc;
+    background:#fff;
+    box-sizing:content-box;
+    z-index:9999;
+
+    .icon {
+        float:left;
+        display:block;
+        overflow:hidden;
+        width:24px;
+        height:24px;
+        margin:6px 7px 0 0;
+        text-decoration:none;
+        background:url("https://img1.cache.netease.com/f2e/tie/yun/sdk/pc/icons_1.png") no-repeat;
+    }
+
+    .i-qq {
+        margin-left:8px;
+        background-position:-50px 0;
+        &:hover {
+            background-position:0 -110px
+        }
+    }
+    .i-weibo {
+        background-position:-25px 0;
+        &:hover {
+            background-position:-25px -110px
+        }
+    }
+    .i-yixin {
+        background-position:-100px 0;
+        &:hover {
+            background-position:-50px -110px
+        }
+    }
+
+    .arrow {
+        position:absolute;
+        top:33px;
+        left:45px;
+        width:10px;
+        height:5px;
+        z-index:-1;
+
+        .arrow-top,
+        .arrow-btm {
+            position:absolute;
+            left: 0;
+            width:0;
+            height:0;
+            border: 5px solid transparent;
+        }
+
+        .arrow-top {
+            position:absolute;
+            top:0;
+            z-index:2;
+            border-top-color:#fff;
+        }
+
+        .arrow-btm {
+            position:absolute;
+            top:1px;
+            border-top-color:#dee4e9;
+        }
+    }
+}
+
+.share-loading-win {
+    position:fixed;
+    width:244px;
+    height:66px;
+    background-color:#f0f7fe;
+    opacity:.3;
+    top:50%;
+    left:50%;
+    margin:-10px 0 0 -122px;
+    text-align:center;
+    line-height:66px;
+
+    .icon-share-loading{
+        position:relative;
+        top:13px;
+        display:inline-block;
+        width:22px;
+        height:21px;
+        background-position:-80px -100px;
+        vertical-align:top;
+    }
+
+    .loading-txt{
+        margin-left:10px;
+        font-size:18px;
+        font-weight:bold;
+        color:#89b3e3;
+    }
+}

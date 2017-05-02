@@ -1,0 +1,14 @@
+<% if (theme.wangyi_ygt){ %>
+    <div id="cloud-tie-wrapper" class="comments cloud-tie-wrapper"></div>
+    <script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+    <script>
+    var cloudTieConfig = {
+      url: '<%- url %>',
+      sourceId: '<%- key %>',
+      productKey: '<%- theme.wangyi_ygt %>',
+      target: 'cloud-tie-wrapper'
+    };
+    var yunManualLoad = true;
+    Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
+    </script>
+<% } %>

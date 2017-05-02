@@ -100,8 +100,9 @@ less:
   paths:
     - source/css/style.less
 
+# 以下评论插件开启一个即可
 # 是否开启多说评论，填写你在多说创建的站点二级域名
-duoshuo: ysblog
+duoshuo: false
 # 是否开启多说评论计数（该服务不稳定）
 duoshuo_count: false
 # 使用 disqus 时关闭多说评论
@@ -109,7 +110,7 @@ disqus_shortname: false
 # 是否开启友言评论, 填写友言用户id
 uyan_uid: false
 # 是否开启网易云跟帖， 填写app sdk中的app key
-wangyi: false
+wangyi_ygt: 1638de6430b6493ba3bdbcfab050b9af
 
 # 规范网址
 # 让搜索引擎重定向你的不同域名、不同子域、同域不同目录的站点到你期望的路径

@@ -9,5 +9,8 @@
 
 <%- partial('../plugins/uyan') %>
 
-<%- partial('../plugins/wangyi') %>
+<%- partial('../plugins/wangyi-ygt', {
+    key: post.slug,
+    url: url
+}) %>
 <%} %>

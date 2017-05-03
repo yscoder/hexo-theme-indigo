@@ -3,7 +3,7 @@
     width: 20%;
     padding-left: 30px;
     min-height: 1px;
-    + .post-article {
+    +.post-article {
         float: left;
         width: 80%;
         padding-right: 30px;
@@ -20,7 +20,8 @@
         overflow-y: auto;
     }
 
-    ol, ul {
+    ol,
+    ul {
         list-style: none;
         margin: 0;
     }
@@ -39,8 +40,8 @@
     display: inline-block;
     padding: 0;
     font-size: 13px;
-    > .post-toc-item {
-        position: relative
+    >.post-toc-item {
+        position: relative;
     }
 }
 .post-toc-item {
@@ -48,8 +49,7 @@
     color: @secondaryTextColor;
 
     &.active {
-
-        > .post-toc-link {
+        >.post-toc-link {
             font-weight: 600;
             color: @primaryColor;
             &:before {
@@ -77,7 +77,7 @@
 
     &:before,
     &:after {
-        content: '';
+        content: "";
         position: absolute;
         z-index: 1;
         top: 0;
@@ -85,12 +85,10 @@
         width: 100%;
         height: 100%;
     }
-
 }
 
 
 .post-article {
-
     .post-content {
         padding-top: 20px;
     }
@@ -113,7 +111,8 @@
     margin-top: 30px;
     padding: 16px 0 0;
 
-    .prev, .next {
+    .prev,
+    .next {
         width: 47%;
         background: @codeBg;
     }
@@ -121,7 +120,6 @@
     .next {
         text-align: right;
     }
-
 }
 
 .post-nav-link {
@@ -141,7 +139,6 @@
     .tips {
         color: @secondaryTextColor;
     }
-
 }
 
 .post-copyright {
@@ -193,15 +190,15 @@
     padding-bottom: 20px;
     line-height: 1.8;
 
-    > .highlight,
-    > .image-bubble,
-    > pre {
+    >.highlight,
+    >.image-bubble,
+    >pre {
         margin-left: -35px;
         margin-right: -35px;
     }
 
-    > .highlight,
-    > pre {
+    >.highlight,
+    >pre {
         padding: 20px 35px;
     }
 
@@ -223,7 +220,7 @@
         color: @lightPrimaryColor;
 
         &:before {
-            content: '#'
+            content: "#";
         }
     }
 
@@ -244,9 +241,7 @@
                 border-bottom-style: solid;
                 opacity: .7;
             }
-
         }
-
     }
 
     strong {
@@ -325,9 +320,6 @@
 
     blockquote p:first-child,
     blockquote:first-child,
-    h2:first-child,
-    h3:first-child,
-    h4:first-child,
     ol:first-child,
     p:first-child,
     pre:first-child,
@@ -367,7 +359,6 @@
             text-align: right;
             font-size: 80%;
         }
-
     }
 
     table {
@@ -385,14 +376,14 @@
             tr {
                 background: #f8f8f8;
             }
-
         }
 
         tbody {
-            tr:hover {
-                background: #efefef;
+            tr {
+                &:hover {
+                    background: #efefef;
+                }
             }
-
         }
 
         td,
@@ -400,7 +391,6 @@
             border: 1px solid #dedede;
             padding: 0 10px;
         }
-
     }
 
     figure {
@@ -410,18 +400,17 @@
             margin: 0;
 
             tbody {
-                tr:hover {
-                    background: none;
+                tr {
+                    &:hover {
+                        background: none;
+                    }
                 }
 
                 td {
                     border: none;
                 }
-
             }
-
         }
-
     }
 
     code,
@@ -485,10 +474,9 @@
             margin-top: -40px;
             padding: 20px 12px;
             background: #fff;
-            box-shadow: 0 1px 4px 0 rgba(0,0,0,0.16);
+            box-shadow: 0 1px 4px 0 rgba(0,0,0,.16);
             border-radius: 2px;
         }
-
     }
 
     .post-card-title {
@@ -533,12 +521,12 @@
     .post-content {
         .highlight,
         .image-bubble,
-        > pre {
+        >pre {
             margin-left: -16px;
             margin-right: -16px;
         }
         .highlight,
-        > pre {
+        >pre {
             padding: 16px;
         }
     }

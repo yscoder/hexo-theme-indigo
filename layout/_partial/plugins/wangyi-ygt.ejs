@@ -2,13 +2,17 @@
     <div id="cloud-tie-wrapper" class="comments cloud-tie-wrapper"></div>
     <script>
     var cloudTieConfig = {
-      url: '<%- url %>',
-      sourceId: '<%- key %>',
-      productKey: '<%- theme.wangyi_ygt %>',
-      target: 'cloud-tie-wrapper',
-      files: [
-            '<%- url_for(theme_css("/css/cloudTie/theme", cache)) %>',
-            '<%- url_for(theme_js("/js/cloudTie/sdk", cache)) %>'
+        url: '<%- url %>',
+        sourceId: '<%- key %>',
+        productKey: '<%- theme.wangyi_ygt %>',
+        target: 'cloud-tie-wrapper',
+        pcFiles: [
+            '<%- url_for(theme_css("/css/cloudTie/pc", cache)) %>',
+            '<%- url_for(theme_js("/js/cloudTie/pc", cache)) %>',
+        ],
+        mobileFiles: [
+            '<%- url_for(theme_css("/css/cloudTie/mobile", cache)) %>',
+            '<%- url_for(theme_js("/js/cloudTie/mobile", cache)) %>'
         ]
     };
     </script>

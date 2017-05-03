@@ -1,0 +1,345 @@
+@font-face {
+    font-family: "iconfont";
+    src: url("https://img1.cache.netease.com/f2e/tie/yun/sdk/mobile/icons/iconfont.ttf") format("truetype")
+}
+
+@media screen and (max-width:320px) {
+    .cloud-tie-wrapper,
+    .cloud-tie-join-count,
+    #ygt-fix-wrap-1415 {
+        font-size: 14px
+    }
+}
+@media screen and (min-width:321px) and (max-width:413px) {
+    .cloud-tie-wrapper,
+    .cloud-tie-join-count,
+    #ygt-fix-wrap-1415 {
+        font-size: 16px
+    }
+}
+@media screen and (min-width:414px) and (max-width:639px) {
+    .cloud-tie-wrapper,
+    .cloud-tie-join-count,
+    #ygt-fix-wrap-1415 {
+        font-size: 17px
+    }
+}
+@media screen and (min-width:640px) {
+    .cloud-tie-wrapper,
+    .cloud-tie-join-count,
+    #ygt-fix-wrap-1415 {
+        font-size: 18px
+    }
+}
+.cloud-tie-wrapper {
+    overflow: hidden;
+}
+.cloud-tie-wrapper iframe {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    width: 100%;
+    background-color: #fff;
+    box-sizing: border-box
+}
+.cloud-tie-join-count {
+    cursor: default;
+    text-decoration: none
+}
+.cloud-tie-join-count .icon-comment {
+    color: #7e7e7e;
+    font-family: "iconfont"!important;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: .2px
+}
+.cloud-tie-join-count .join-count {
+    color: #ef2d36;
+    margin: 0 4px 0 2px
+}
+.cloud-tie-join-count .join-text {
+    color: #383838
+}
+body >#ygt-fix-wrap-1415 >#ygt-input-mask-1415 {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 99998;
+    background-color: #f5f5f5;
+    overflow: hidden
+}
+body >#ygt-fix-wrap-1415 >#ygt-input-bar-1415 {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    z-index: 99999;
+    background-color: #f5f5f5;
+    overflow: hidden
+}
+body >#ygt-fix-wrap-1415 >#ygt-input-bar-1415 .input-read {
+    display: none;
+    -webkit-align-content: space-between;
+            align-content: space-between;
+    padding: 10px 5px
+}
+body >#ygt-fix-wrap-1415 >#ygt-input-bar-1415 .input-read .read-box {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+    -webkit-flex: 1;
+            flex: 1
+}
+body >#ygt-fix-wrap-1415 >#ygt-input-bar-1415 .input-read .read-box .box-shape {
+    background-color: #fff;
+    border-radius: 30px;
+    color: #8b8b8b;
+    position: relative;
+    height: 36px;
+    line-height: 36px
+}
+body >#ygt-fix-wrap-1415 >#ygt-input-bar-1415 .input-read .read-box .box-shape .i-write-tie {
+    width: 6%;
+    margin: 0 2%
+}
+body >#ygt-fix-wrap-1415 >#ygt-input-bar-1415 .input-read .read-total {
+    line-height: 36px;
+    padding-left: 5px
+}
+body >#ygt-fix-wrap-1415 >#ygt-input-bar-1415 .input-read .read-total .total-num {
+    color: #dd1031;
+    margin: 18% 0 0 0;
+    text-align: left
+}
+body >#ygt-fix-wrap-1415 >#ygt-input-bar-1415 .input-read .read-total .total-txt {
+    color: #848484;
+    font-size: .5em
+}
+body >#ygt-fix-wrap-1415 >#ygt-input-bar-1415 .input-write {
+    padding: 0 1em;
+    display: none;
+    overflow: hidden
+}
+body >#ygt-fix-wrap-1415 >#ygt-input-bar-1415 .input-write .submit-row {
+    line-height: 1em;
+    overflow: hidden;
+    position: relative
+}
+body >#ygt-fix-wrap-1415 >#ygt-input-bar-1415 .input-write .submit-row span {
+    display: block;
+    width: 50%;
+    padding: 2em 0 1em
+}
+body >#ygt-fix-wrap-1415 >#ygt-input-bar-1415 .input-write .submit-row .row-title {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 1.2em;
+    color: #333;
+    z-index: -1;
+    padding-top: 1.6em
+}
+body >#ygt-fix-wrap-1415 >#ygt-input-bar-1415 .input-write .submit-row .submit-cancel {
+    float: left;
+    color: #8b8b8b
+}
+body >#ygt-fix-wrap-1415 >#ygt-input-bar-1415 .input-write .submit-row .submit-ok {
+    float: right;
+    color: #3f96ec;
+    text-align: right
+}
+body >#ygt-fix-wrap-1415 >#ygt-input-bar-1415 .input-write .input-row {
+    margin-bottom: 1em;
+    overflow: hidden
+}
+body >#ygt-fix-wrap-1415 >#ygt-input-bar-1415 .input-write .input-row .input-txt {
+    width: 100%;
+    height: 10em;
+    font-size: 1em;
+    line-height: 1.3em;
+    box-sizing: border-box;
+    display: inline-block;
+    padding: .6em;
+    float: left;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    outline: 0
+}
+body >#ygt-fix-wrap-1415 >#ygt-input-bar-1415 .input-write .input-row .input-txt:focus {
+    outline: solid 1px #3f96ec
+}
+body >#ygt-fix-wrap-1415 >#ygt-input-bar-1415.z-read {
+    bottom: 0
+}
+body >#ygt-fix-wrap-1415 >#ygt-input-bar-1415.z-read .input-read {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex
+}
+body >#ygt-fix-wrap-1415 >#ygt-input-bar-1415.z-read .input-write {
+    display: none
+}
+body >#ygt-fix-wrap-1415 >#ygt-input-bar-1415.z-write {
+    top: 0
+}
+body >#ygt-fix-wrap-1415 >#ygt-input-bar-1415.z-write .input-write {
+    display: block
+}
+body >#ygt-fix-wrap-1415 >#ygt-input-bar-1415.z-write .input-read {
+    display: none
+}
+body >#ygt-fix-wrap-1415 >#ygt-input-bar-1415.z-visible {
+    display: block
+}
+body >#ygt-fix-wrap-1415 >#ygt-input-bar-1415.z-hidden {
+    display: none
+}
+body >#ygt-fix-wrap-1415 >#ygt-g-mask-1415 {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #5b5b5b;
+    opacity: .5;
+    z-index: 91
+}
+body >#ygt-fix-wrap-1415 >#ygt-tip-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 100000;
+    width: 12em;
+    height: 6em;
+    color: #f6f6f6;
+    background-color: #999;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: -3em;
+    margin-left: -6em;
+    display: none
+}
+body >#ygt-fix-wrap-1415 >#ygt-tip-box .icon {
+    display: block;
+    width: 54px;
+    height: 51px;
+    background: url("https://img1.cache.netease.com/f2e/tie/yun/sdk/mobile/icons/tip_fail.png") no-repeat;
+    margin: .5em auto
+}
+body >#ygt-fix-wrap-1415 >#ygt-tip-box.z-fcs {
+    display: block;
+    -webkit-animation: showTip 2s linear forwards;
+            animation: showTip 2s linear forwards
+}
+body >#ygt-fix-wrap-1415 >#ygt-tip-box.z-load .icon {
+    width: 47px;
+    height: 50px;
+    background: url("https://img1.cache.netease.com/f2e/tie/yun/sdk/mobile/icons/tip_load.png")
+}
+body >#ygt-fix-wrap-1415 >#ygt-tip-box.z-ok .icon {
+    width: 67px;
+    height: 49px;
+    background: url("https://img1.cache.netease.com/f2e/tie/yun/sdk/mobile/icons/tip_ok.png")
+}
+body >#ygt-fix-wrap-1415 >#ygt-tip-box.z-ok,
+body >#ygt-fix-wrap-1415 >#ygt-tip-box.z-load {
+    background-color: #3f96ec;
+    color: #f6f6f6
+}
+@-webkit-keyframes showTip {
+    0% {
+        opacity: 1
+    }
+    99% {
+        opacity: 1
+    }
+    100% {
+        opacity: 0
+    }
+}
+@keyframes showTip {
+    0% {
+        opacity: 1
+    }
+    99% {
+        opacity: 1
+    }
+    100% {
+        opacity: 0
+    }
+}
+body >#ygt-fix-wrap-1415 >#ygt-login-popup-1415 {
+    visibility: hidden;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: -500px;
+    z-index: 10000;
+    color: #555;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden
+}
+body >#ygt-fix-wrap-1415 >#ygt-login-popup-1415.z-show {
+    visibility: visible;
+    -webkit-transform: translatey(-500px);
+            transform: translatey(-500px);
+    -webkit-transition: transform .5s linear .1s;
+            transition: transform .5s linear .1s
+}
+body >#ygt-fix-wrap-1415 >#ygt-login-popup-1415 .login-wrap {
+    background-color: #fff;
+    margin: .5em;
+    border-radius: 8px
+}
+body >#ygt-fix-wrap-1415 >#ygt-login-popup-1415 .login-title {
+    border-bottom: solid 1px #dee4e9;
+    margin: 0 1em;
+    padding: .7em 0;
+    text-align: center;
+    height: 6%
+}
+body >#ygt-fix-wrap-1415 >#ygt-login-popup-1415 .login-item {
+    border-bottom: solid 1px #dee4e9;
+    padding: 15px 0
+}
+body >#ygt-fix-wrap-1415 >#ygt-login-popup-1415 .login-item .item-mail {
+    background: url("https://img1.cache.netease.com/f2e/tie/yun/sdk/mobile/icons/login_mail_62.png")
+}
+body >#ygt-fix-wrap-1415 >#ygt-login-popup-1415 .login-item .item-qq {
+    background: url("https://img1.cache.netease.com/f2e/tie/yun/sdk/mobile/icons/login_qq_62.png")
+}
+body >#ygt-fix-wrap-1415 >#ygt-login-popup-1415 .login-item .item-weibo {
+    background: url("https://img1.cache.netease.com/f2e/tie/yun/sdk/mobile/icons/login_weibo_62.png")
+}
+body >#ygt-fix-wrap-1415 >#ygt-login-popup-1415 .login-item .item {
+    height: 35px;
+    margin: 0 1em;
+    background-repeat: no-repeat;
+    background-size: contain
+}
+body >#ygt-fix-wrap-1415 >#ygt-login-popup-1415 .login-item .item .item-txt {
+    margin-left: 3em;
+    line-height: 35px
+}
+body >#ygt-fix-wrap-1415 >#ygt-login-popup-1415 .login-item.item-close-btn {
+    text-align: center;
+    margin: .5em;
+    padding: 1em 0;
+    background-color: #fff;
+    border-radius: 8px
+}
+body.z-ygt-lock {
+    position: relative;
+    line-height: 130%
+}
+body.z-ygt-lock >* {
+    display: none
+}
+body.z-ygt-lock >#ygt-fix-wrap-1415 {
+    display: block
+}

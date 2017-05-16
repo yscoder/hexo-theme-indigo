@@ -54,8 +54,17 @@
         border-radius: 50%;
         overflow: hidden;
         box-shadow: @boxShadow;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#6cc3fe), to(#21a1d0));
+        -webkit-animation-timing-function: ease-in-out;
+        -webkit-animation-name: breathe;
+        -webkit-animation-duration: 2700ms;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-direction: alternate;
     }
-
+    @-webkit-keyframes breathe {
+        0% { opacity: .2; box-shadow:0 1px 2px rgba(255,255,255,0.1);}
+        100% { opacity: 1; border:1px solid rgba(59,235,235,1); box-shadow:0 1px 30px rgba(59,255,255,1);}
+    }
     .introduce {
         margin: 1em 0 0;
         color: @textPrimaryColor;

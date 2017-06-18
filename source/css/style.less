@@ -1,12 +1,12 @@
-@import '_partial/variable';
-@import '_partial/roboto';
-@import '_partial/fontawesome';
+@import "_partial/variable";
+@import "_partial/roboto";
+@import "_partial/fontawesome";
 
 *,
 *::before,
 *::after {
     -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+            box-sizing: border-box;
 }
 
 ::-webkit-scrollbar {
@@ -14,7 +14,9 @@
     width: 8px;
     height: 8px;
 
-    &-track { background-color: inherit; }
+    &-track {
+        background-color: inherit;
+    }
     &-thumb {
         background-color: @dividerColor;
         border: 1px solid #fff;
@@ -110,7 +112,6 @@ ul {
         padding: 0;
         list-style: none;
     }
-
 }
 
 ol ol,
@@ -277,29 +278,29 @@ hr,
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
-    display: flex;
+    display:         flex;
 }
 .flex-column {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
 }
 .flex-row-vertical {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
 }
 
 /* 多行布局 */
 .flex-row-wrap,
 .flex-column {
     -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
 }
 
 /* 子元素反向排列 */
@@ -307,20 +308,20 @@ hr,
     -webkit-box-orient: horizontal;
     -webkit-box-direction: reverse;
     -webkit-flex-direction: row-reverse;
-    -ms-flex-direction: row-reverse;
-    flex-direction: row-reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
 }
 
 /* 子元素默认平均分布 */
-.flex-row > * {
+.flex-row >* {
     display: block;
 }
 
 .flex-col {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
+        -ms-flex: 1;
+            flex: 1;
 }
 
 /* 垂直居中 */
@@ -328,7 +329,7 @@ hr,
     -webkit-box-align: center;
     -webkit-align-items: center;
     -ms-flex-align: center;
-    align-items: center;
+            align-items: center;
 }
 
 /* 底部对齐 */
@@ -336,7 +337,7 @@ hr,
     -webkit-box-align: end;
     -webkit-align-items: flex-end;
     -ms-flex-align: end;
-    align-items: flex-end;
+            align-items: flex-end;
 }
 
 /* 沿主轴方向排列方式 */
@@ -344,68 +345,67 @@ hr,
     -webkit-box-pack: start;
     -webkit-justify-content: flex-start;
     -ms-flex-pack: start;
-    justify-content: flex-start;
+            justify-content: flex-start;
 }
 
 .flex-justify-end {
     -webkit-box-pack: end;
     -webkit-justify-content: flex-end;
     -ms-flex-pack: end;
-    justify-content: flex-end;
+            justify-content: flex-end;
 }
 
 .flex-justify-between {
     -webkit-box-pack: justify;
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
-    justify-content: space-between;
+            justify-content: space-between;
 }
 
 /* 沿侧轴方向排列方式 */
 .flex-align-start {
     -webkit-align-content: flex-start;
     -ms-flex-line-pack: start;
-    align-content: flex-start;
+            align-content: flex-start;
 }
 
 .flex-align-end {
     -webkit-align-content: flex-end;
     -ms-flex-line-pack: end;
-    align-content: flex-end;
+            align-content: flex-end;
 }
 
 .flex-align-around {
     -webkit-align-content: space-around;
     -ms-flex-line-pack: distribute;
-    align-content: space-around;
+            align-content: space-around;
 }
 
 .flex-align-between {
     -webkit-align-content: space-between;
     -ms-flex-line-pack: justify;
-    align-content: space-between;
+            align-content: space-between;
 }
 
 .flex-col-auto {
     -webkit-box-flex: 0;
     -webkit-flex: 0 auto;
-    -ms-flex: 0 auto;
-    flex: 0 auto;
+        -ms-flex: 0 auto;
+            flex: 0 auto;
 }
 
-@import '_partial/loading';
-@import '_partial/waves';
-@import '_partial/layout';
-@import '_partial/header';
-@import '_partial/highlight';
-@import '_partial/postlist';
-@import '_partial/gotop';
-@import '_partial/share';
-@import '_partial/article';
-@import '_partial/archives';
-@import '_partial/page';
-@import '_partial/tags';
-@import '_partial/search';
-@import '_partial/reward';
-@import '_partial/lightbox';
-@import '_duoshuo/embed';
+@import "_partial/loading";
+@import "_partial/waves";
+@import "_partial/layout";
+@import "_partial/header";
+@import "_partial/highlight";
+@import "_partial/postlist";
+@import "_partial/gotop";
+@import "_partial/share";
+@import "_partial/article";
+@import "_partial/archives";
+@import "_partial/page";
+@import "_partial/tags";
+@import "_partial/search";
+@import "_partial/reward";
+@import "_partial/lightbox";

@@ -101,11 +101,7 @@ less:
     - source/css/style.less
 
 # 以下评论插件开启一个即可
-# 是否开启多说评论，填写你在多说创建的站点二级域名
-duoshuo: false
-# 是否开启多说评论计数（该服务不稳定）
-duoshuo_count: false
-# 使用 disqus 时关闭多说评论
+# 是否开启 disqus
 disqus_shortname: false
 # 是否开启友言评论, 填写友言用户id
 uyan_uid: false

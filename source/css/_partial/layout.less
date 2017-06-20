@@ -20,14 +20,14 @@
     min-height: 100%;
     background: #fff;
     box-shadow: @boxShadow;
-    .transition(.4s, cubic-bezier(0.18, 0.81, 0.3, 0.89));
+    .transition(.4s, cubic-bezier(.18, .81, .3, .89));
 
     &.hide {
         .transform(translateX(-100%));
         #menu-off {
             .transform(scale(0));
         }
-        + #main {
+        +#main {
             padding-left: 0;
         }
     }
@@ -94,15 +94,13 @@
 
             &:hover,
             &.active {
-                background: rgba(0, 0, 0, 0.05);
+                background: rgba(0, 0, 0, .05);
 
                 a,
                 .icon {
                     color: @primaryColor;
                 }
-
             }
-
         }
 
         a {
@@ -114,9 +112,7 @@
             color: @secondaryTextColor;
             text-decoration: none;
         }
-
     }
-
 }
 
 #main {
@@ -135,7 +131,7 @@
     margin: 0 auto;
 
     &:after {
-        content: '';
+        content: "";
         display: table;
         clear: both;
     }
@@ -152,7 +148,6 @@
     height: 100%;
     background: #000;
     opacity: 0;
-    filter: alpha(opacity=0);
     pointer-events: none;
     .transition(.3s);
 
@@ -164,31 +159,35 @@
 }
 
 .footer {
+    color: rgba(255,255,255,.6);
     background: @darkPrimaryColor;
     p {
         margin: 0;
         line-height: 1.6;
         font-size: 13px;
         text-align: center;
-
-        span:not(:first-child):before {
-            content: '·';
-            padding: 0 .5em;
+        span {
+            &:not(:first-child):before {
+                content: "·";
+                padding: 0 .5em;
+            }
         }
         a {
-            border-bottom: 1px dotted darken(@lightPrimaryColor, 15%);
+            border-bottom: 1px dotted rgba(255,255,255,.5);
             &:hover {
-                border-bottom: 1px solid #fff;
+                border-bottom: 1px solid rgba(255,255,255,.7);
             }
         }
     }
+
     .top {
         padding: 16px;
-        color: darken(@lightPrimaryColor, 10%);
         background: @primaryColor;
     }
     a {
-        color: @lightPrimaryColor;
+        color: inherit;
+        opacity: .8;
+
         &:hover {
             color: #fff;
             text-decoration: none
@@ -196,7 +195,6 @@
     }
     .bottom {
         padding: 16px;
-        color: darken(@lightPrimaryColor, 15%);
     }
 }
 
@@ -205,7 +203,6 @@ a[title="站长统计"] {
 }
 
 @media screen and (max-width:1240px) {
-
     #menu-off {
         display: none;
     }
@@ -218,13 +215,11 @@ a[title="站长统计"] {
         &.show {
             .transform(translateX(0));
         }
-
     }
 
     #main {
         padding-left: 0;
     }
-
 }
 
 
@@ -236,7 +231,6 @@ a[title="站长统计"] {
 }
 
 @media screen and (max-width:760px) {
-
     #main {
         width: 100%;
         overflow-x: hidden;
@@ -255,14 +249,11 @@ a[title="站长统计"] {
                 height: @mNavH;
                 line-height: @mNavH;
             }
-
         }
-
     }
 
     ::-webkit-scrollbar {
         display: none;
     }
-
 }
 

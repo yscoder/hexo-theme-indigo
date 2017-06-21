@@ -6,20 +6,25 @@
         <%=theme.reward.title %>
         <i class="icon icon-quote-right"></i>
     </h3>
-    <ul class="reward-items">
-        <% if(theme.reward.wechat){ %>
-        <li>
-            <img src="<%- url_for(theme.reward.wechat) %>" title="微信打赏二维码" alt="微信打赏二维码">
-            <p>微信</p>
-        </li>
+    <div class="reward-content">
+        <%
+            var wechat = theme.reward.wechat;
+            var alipay = theme.reward.alipay;
+        %>
+        <div class="reward-code">
+            <img id="rewardCode" src="<%- url_for(wechat || alipay) %>" alt="打赏二维码">
+        </div>
+        <% if(!!wechat && !!alipay) { %>
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="<%- wechat %>" data-alipay="<%- alipay %>">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
         <% } %>
-
-        <% if(theme.reward.alipay){ %>
-        <li>
-            <img src="<%- url_for(theme.reward.alipay) %>" title="支付宝打赏二维码" alt="支付宝打赏二维码">
-            <p>支付宝</p>
-        </li>
-        <% } %>
-    </ul>
+    </div>
 </div>
 <% } %>

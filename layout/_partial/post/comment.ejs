@@ -1,9 +1,4 @@
 <% if(post.comments){ %>
-<%- partial('../plugins/duoshuo', {
-    key: post.slug,
-    title: post.title,
-    url: url
-  }) %>
 
 <%- partial('../plugins/disqus') %>
 

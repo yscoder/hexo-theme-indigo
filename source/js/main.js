@@ -32,7 +32,7 @@
                 y: y
             };
         },
-        docEl = !!navigator.userAgent.match(/firefox/i) || navigator.msPointerEnabled ? d.documentElement : body;
+        docEl = d.documentElement;
 
     var Blog = {
         goTop: function (end) {

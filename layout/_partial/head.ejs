@@ -50,4 +50,12 @@
     <%- favicon_tag(theme.favicon) %>
     <link rel="stylesheet" href="<%- url_for(theme_css('/css/style', cache)) %>">
     <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    <% if (site.data.head) { %>
+        <% for (var i in site.data.head) { %>
+            <%- site.data.head[i] %>
+        <% } %>
+    <% } %>
+
 </head>

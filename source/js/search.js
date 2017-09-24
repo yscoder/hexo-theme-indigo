@@ -69,7 +69,7 @@
 
                 return tpl(searchTpl, {
                     title: post.title,
-                    path: (G.BLOG.ROOT + '/' + post.path).replace(/\/{2}/g, '/'),
+                    path: (G.BLOG.ROOT + '/' + post.path).replace(/\/{2,}/g, '/'),
                     date: new Date(post.date).toLocaleDateString(),
                     tags: post.tags.map(function (tag) {
                         return '<span>#' + tag.name + '</span>';

@@ -105,8 +105,6 @@ less:
 disqus_shortname: false
 # 是否开启友言评论, 填写友言用户id
 uyan_uid: false
-# 是否开启网易云跟帖， 填写app sdk中的app key
-wangyi_ygt: false
 # 是否使用 gitment，https://github.com/imsun/gitment
 gitment: false
 # gitment:

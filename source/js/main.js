@@ -421,9 +421,13 @@
     });
 
     var ignoreUnload = false;
-    $('a[href^="mailto"]').addEventListener(even, function () {
-        ignoreUnload = true;
-    });
+    var $mailTarget = $('a[href^="mailto"]');
+    if($mailTarget) {
+        $mailTarget.addEventListener(even, function () {
+            ignoreUnload = true;
+        });
+    }
+
     w.addEventListener('beforeunload', function (e) {
         if (!ignoreUnload) {
             Blog.page.unload();

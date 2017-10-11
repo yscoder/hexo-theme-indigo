@@ -17,7 +17,7 @@
         <% if(!!wechat && !!alipay) { %>
         <label class="reward-toggle">
             <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
-                data-wechat="<%- wechat %>" data-alipay="<%- alipay %>">
+                data-wechat="<%- url_for(wechat) %>" data-alipay="<%- url_for(alipay) %>">
             <div class="reward-toggle-ctrol">
                 <span class="reward-toggle-item wechat">微信</span>
                 <span class="reward-toggle-label"></span>

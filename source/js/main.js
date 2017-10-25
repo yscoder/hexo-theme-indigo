@@ -32,18 +32,20 @@
                 y: y
             };
         },
-        docEl = d.documentElement;
+        rootScollTop = function() {
+            return d.documentElement.scrollTop || d.body.scrollTop;
+        };
 
     var Blog = {
         goTop: function (end) {
-            var top = docEl.scrollTop;
+            var top = rootScollTop();
             var interval = arguments.length > 2 ? arguments[1] : Math.abs(top - end) / scrollSpeed;
 
             if (top && top > end) {
-                docEl.scrollTop = Math.max(top - interval, 0);
+                w.scrollTo(0, Math.max(top - interval, 0));
                 animate(arguments.callee.bind(this, end, interval));
             } else if (end && top < end) {
-                docEl.scrollTop = Math.min(top + interval, end);
+                w.scrollTo(0, Math.min(top + interval, end));
                 animate(arguments.callee.bind(this, end, interval));
             } else {
                 this.toc.actived(end);
@@ -66,7 +68,7 @@
                     menu.classList.add('show');
 
                     if (isWX) {
-                        var top = docEl.scrollTop;
+                        var top = rootScollTop();
                         main.classList.add('lock');
                         main.scrollTop = top;
                     } else {
@@ -80,7 +82,7 @@
                 if (isWX) {
                     var top = main.scrollTop;
                     main.classList.remove('lock');
-                    docEl.scrollTop = top;
+                    w.scrollTo(0, top);
                 } else {
                     root.classList.remove('lock');
                 }
@@ -414,7 +416,7 @@
 
     w.addEventListener('DOMContentLoaded', function () {
         Blog.waterfall();
-        var top = docEl.scrollTop;
+        var top = rootScollTop();
         Blog.toc.fixed(top);
         Blog.toc.actived(top);
         Blog.page.loaded();
@@ -469,7 +471,7 @@
     }, false);
 
     d.addEventListener('scroll', function () {
-        var top = docEl.scrollTop;
+        var top = rootScollTop();
         Blog.toggleGotop(top);
         Blog.fixedHeader(top);
         Blog.toc.fixed(top);

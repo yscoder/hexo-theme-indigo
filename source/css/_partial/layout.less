@@ -21,6 +21,7 @@
     background: #fff;
     box-shadow: @boxShadow;
     .transition(.4s, cubic-bezier(.18, .81, .3, .89));
+    will-change: transform, -webkit-transform;
 
     &.hide {
         .transform(translateX(-100%));

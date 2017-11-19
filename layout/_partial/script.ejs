@@ -20,30 +20,3 @@ lazyScripts.push('//s95.cnzz.com/z_stat.php?id=<%-theme.cnzz %>&web_id=<%-theme.
 <% } %>
 
 <%- partial('plugins/dynamic-title') %>
-
-
-<!-- Valine Comments -->
-<% if (theme.valine.enable){ %>
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
-    <script type="text/javascript">
-        var notify = '<%= theme.valine.notify %>' == true ? true : false;
-        var verify = '<%= theme.valine.verify %>' == true ? true : false;
-        var GUEST_INFO = ['nick','mail','link'];
-        var guest_info = '<%= theme.valine.guest_info %>'.split(',').filter(function(item){
-          return GUEST_INFO.indexOf(item) > -1
-        });
-        guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
-        new Valine({
-            el: '.vcomment',
-            notify: notify,
-            verify: verify,
-            appId: "<%= theme.valine.appId %>",
-            appKey: "<%= theme.valine.appKey %>",
-            avatar:"<%= theme.valine.avatar %>",
-            placeholder: "<%= theme.valine.placeholder %>",
-            guest_info:guest_info,
-            pageSize:"<%= theme.valine.pageSize %>"
-        })
-    </script>
-    <% } %>

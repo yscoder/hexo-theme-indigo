@@ -1,0 +1,13 @@
+global:
+  search_input_hint: "Zoeken"
+
+post:
+  continue_reading: "Lees verder..."
+  last_updated: "Laatste update: "
+
+footer:
+  license: 'Deze blog valt onder de <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International Licentie</a>.'
+
+tag:
+  all: "Alle"
+  tags: "Labels"

@@ -113,6 +113,20 @@ gitment: false
 #   client_id:
 #   client_secret:
 
+# Valine Comment system. https://valine.js.org
+valine:
+  enable: false # 如果你想使用valine，请将值设置为 true
+  appId:  # your leancloud appId
+  appKey:  # your leancloud appKey
+  notify: false # Mail notify
+  verify: false # Verify code
+  avatar: mm # Gravatar style : mm/identicon/monsterid/wavatar/retro/hide
+  placeholder: Just go go # Comment Box placeholder
+  guest_info: nick,mail,link # Comment header info
+  pageSize: 10 # comment list page size
+
+
+
 # 规范网址
 # 让搜索引擎重定向你的不同域名、不同子域、同域不同目录的站点到你期望的路径
 # https://support.google.com/webmasters/answer/139066
@@ -135,7 +149,8 @@ title_change:
   normal: (つェ⊂)咦!又好了!
   leave: 死鬼去哪里了！
 
-# 设置为 true 发布后将使用 unpkg cdn
+# 设置为 true 发布后将使用 unpkg cdn 最新的主题样式
+# 如果想让你的自定义样式生效，把此项设为 false
 cdn: true
 
 # 设置为 true 将使用 lightbox render 图片

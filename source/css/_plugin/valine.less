@@ -1,0 +1,64 @@
+#comments.vcomment {
+    margin-top: 40px;
+    padding: 30px;
+    background: #fff;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .2);
+    border-radius: 4px;
+
+    .vheader {
+        .vinput {
+            &:focus {
+                border-bottom: 1px solid @accentColor
+            }
+        }
+    }
+
+    .vsubmit {
+        &:active,
+        &:hover {
+            color: #fff;
+            background: @primaryColor;
+            border-color: @primaryColor;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .4)
+        }
+    }
+
+    .vlist {
+        .vsys {
+            padding: .2rem .4rem;
+            line-height: 1;
+            color: #fff;
+
+            &:nth-child(n+2) {
+                background: @tag-color-1
+            }
+            &:nth-child(n+3) {
+                background: @tag-color-3
+            }
+            &:nth-child(n+4) {
+                background: @tag-color-4
+            }
+            &:nth-child(n+5) {
+                background: @tag-color-5
+            }
+            &:nth-child(n+6) {
+                background: @tag-color-6
+            }
+        }
+        a,
+        .vname {
+            &:hover {
+                color: @accentColor
+            }
+        }
+        .vat {
+            color: @accentColor
+        }
+    }
+
+    .vcard {
+        section {
+            border-bottom: 1px solid @borderColor
+        }
+    }
+}

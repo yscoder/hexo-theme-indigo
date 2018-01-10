@@ -1,10 +1,10 @@
 <blockquote class="post-copyright">
-    <div class="content">
-        <%- partial('updated') %>
+    <%- partial('updated') %>
         <% if(theme.postMessage) {%>
-        <%- _.template(theme.postMessage)(locals) %>
-        <% } %>
-    </div>
+        <div class="content">
+            <%- _.template(theme.postMessage)(locals) %>
+        </div>
+    <% } %>
     <footer>
         <a href="<%- config.url %>">
             <img src="<%- url_for(theme.avatar) %>" alt="<%- config.author %>">

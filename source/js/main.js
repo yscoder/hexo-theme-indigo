@@ -110,7 +110,10 @@
                 headerH = header.clientHeight,
                 titles = $('#post-content').querySelectorAll('h1, h2, h3, h4, h5, h6');
 
-            toc.querySelector('a[href="#' + titles[0].id + '"]').parentNode.classList.add('active');
+            var firstLink = titles.length > 0 ? toc.querySelector('a[href="#' + titles[0].id + '"]') : toc.querySelectorAll('a')[0];
+
+            if (firstLink)
+                firstLink.parentNode.classList.add('active');
 
             // Make every child shrink initially
             var tocChilds = toc.querySelectorAll('.post-toc-child');
@@ -118,8 +121,7 @@
                 tocChilds[i].classList.add('post-toc-shrink');
             }
             var firstChild =
-                toc.querySelector('a[href="#' + titles[0].id + '"]')
-                    .nextElementSibling;
+                firstLink.nextElementSibling;
             if (firstChild) {
                 firstChild.classList.add('post-toc-expand');
                 firstChild.classList.remove('post-toc-shrink');
@@ -152,6 +154,11 @@
                     top >= bannerH - headerH ? toc.classList.add('fixed') : toc.classList.remove('fixed');
                 },
                 actived: function (top) {
+
+                    if (titles.length == 0) {
+                        titles = $('#post-content').querySelectorAll('h1, h2, h3, h4, h5, h6');
+                    }
+
                     for (i = 0, len = titles.length; i < len; i++) {
                         if (top > offset(titles[i]).y - headerH - 5) {
                             var prevListEle = toc.querySelector('li.active');
@@ -161,7 +168,7 @@
                         }
                     }
 
-                    if (top < offset(titles[0]).y) {
+                    if (titles.length > 0 && top < offset(titles[0]).y) {
                         handleTocActive(
                             toc.querySelector('li.active'),
                             toc.querySelector('a[href="#' + titles[0].id + '"]').parentNode

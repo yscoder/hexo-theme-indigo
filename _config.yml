@@ -125,6 +125,9 @@ valine:
   guest_info: nick,mail,link # Comment header info
   pageSize: 10 # comment list page size
 
+# 是否开启Hyper Comments，填写id则启用，false则禁用。http://hypercomments.com
+# Hyper Comments support. Write your id here, or false to disable
+hyper_id: false
 
 
 # 规范网址

@@ -94,6 +94,9 @@ tajs: false
 google_analytics: false
 google_site_verification: false
 
+# sogou站长验证 http://zhanzhang.sogou.com/
+sogou_site_verification: false
+
 # less
 less:
   compress: true

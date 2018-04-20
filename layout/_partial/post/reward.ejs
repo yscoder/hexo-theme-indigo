@@ -8,20 +8,20 @@
     </h3>
     <div class="reward-content">
         <%
-            var wechat = theme.reward.wechat;
-            var alipay = theme.reward.alipay;
+        var paymentOne = theme.reward.payment_one;
+        var paymentTwo = theme.reward.payment_two;
         %>
         <div class="reward-code">
-            <img id="rewardCode" src="<%- url_for(wechat || alipay) %>" alt="打赏二维码">
+            <img id="rewardCode" src="<%- url_for(paymentOne || paymentTwo) %>" alt="打赏二维码">
         </div>
-        <% if(!!wechat && !!alipay) { %>
+        <% if(!!paymentOne && !!paymentTwo) { %>
         <label class="reward-toggle">
             <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
-                data-wechat="<%- url_for(wechat) %>" data-alipay="<%- url_for(alipay) %>">
+                data-paymentone="<%- url_for(paymentOne) %>" data-paymenttwo="<%- url_for(paymentTwo) %>">
             <div class="reward-toggle-ctrol">
-                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-item payment-one"><%=theme.reward.payment_one_name %></span>
                 <span class="reward-toggle-label"></span>
-                <span class="reward-toggle-item alipay">支付宝</span>
+                <span class="reward-toggle-item payment-two"><%=theme.reward.payment_two_name %></span>
             </div>
         </label>
         <% } %>

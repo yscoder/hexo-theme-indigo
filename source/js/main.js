@@ -247,7 +247,7 @@
             var $rewardCode = $('#rewardCode');
             if ($rewardToggle) {
                 $rewardToggle.addEventListener('change', function () {
-                    $rewardCode.src = this.checked ? this.dataset.alipay : this.dataset.wechat
+                    $rewardCode.src = this.checked ? this.dataset.paymenttwo : this.dataset.paymentone
                 })
             }
         },

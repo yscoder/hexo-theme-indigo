@@ -64,8 +64,10 @@ share: true
 # 是否开启打赏，关闭 reward: false
 reward:
   title: 谢谢大爷~
-  wechat: /img/wechat.jpg     #微信，关闭设为 false
-  alipay: /img/alipay.jpg     #支付宝，关闭设为 false
+  payment_one_name: 比特币
+  payment_one: /img/bitcoin.png    #比特币，关闭设为 false
+  payment_two_name: 支付宝
+  payment_two: /img/alipay.png     #支付宝，关闭设为 false
 
 # 是否开启搜索
 search: true

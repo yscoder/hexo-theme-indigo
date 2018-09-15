@@ -1,0 +1,20 @@
+<% if (theme.gitalk){ %>
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var gitalk = new Gitalk({
+            clientID: '<%- theme.gitalk.client_id %>',
+            clientSecret: '<%- theme.gitalk.client_secret %>',
+            repo: '<%- theme.gitalk.repo %>',
+            owner: '<%- theme.gitalk.owner %>',
+            admin: '<%- theme.gitalk.admin %>',
+            id: '<%= page.date %>',
+            distractionFreeMode: '<%- theme.gitalk.distraction_free_mode %>'
+            })
+            
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+<% } %>

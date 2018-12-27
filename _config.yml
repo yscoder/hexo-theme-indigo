@@ -12,24 +12,21 @@ menu:
     text: 主页
     url: /
   archives:
-    url: /archives
+    url: /archives/
   tags:
-    url: /tags
+    url: /tags/
   th-list:
     text: Categories
-    url: /categories
+    url: /categories/
+  address-card:
+    text: About Me
+    url: /about/
   github:
-    url: https://github.com/yscoder
+    url: https://github.com/rebill
     target: _blank
-  weibo:
-    url: http://www.weibo.com/ysweb
-    target: _blank
-  link:
-    text: 测试
-    url: /custom
 
 # 你的头像url
-avatar: /img/avatar.jpg
+avatar: /img/avatar.jpeg
 # avatar link
 avatar_link: /
 # 头像背景图
@@ -38,7 +35,7 @@ brand: /img/brand.jpg
 favicon: /favicon.ico
 
 # email
-email: 634206017@qq.com
+email: rebill#qq.com
 
 # 设置 Android L Chrome 浏览器状态栏颜色
 color: '#3F51B5'
@@ -63,7 +60,7 @@ share: true
 
 # 是否开启打赏，关闭 reward: false
 reward:
-  title: 谢谢大爷~
+  title: 如果觉得文章对您有用，请打赏二两银子~
   wechat: /img/wechat.jpg     #微信，关闭设为 false
   alipay: /img/alipay.jpg     #支付宝，关闭设为 false
 
@@ -79,7 +76,7 @@ toc:
   list_number: true  # 是否显示数字排序
 
 # 文章页留言内容，hexo中所有变量及辅助函数等均可调用，具体请查阅 hexo.io
-postMessage: 这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="<%- url_for(page.path).replace(/index\.html$/, '') %>" target="_blank" rel="external"><%- page.permalink.replace(/index\.html$/, '') %></a>
+postMessage: 原始链接：<a href="<%- url_for(page.path).replace(/index\.html$/, '') %>" target="_blank" rel="external"><%- page.permalink.replace(/index\.html$/, '') %></a>
 
 # 站长统计，如要开启，输入CNZZ站点id，如 cnzz: 1255152447
 cnzz: false
@@ -109,12 +106,12 @@ disqus_shortname: false
 # 是否开启友言评论, 填写友言用户id
 uyan_uid: false
 # 是否使用 gitment，https://github.com/imsun/gitment
-gitment: false
-# gitment:
-#   owner:
-#   repo:
-#   client_id:
-#   client_secret:
+# gitment: false
+gitment:
+  owner: rebill
+  repo: rebill.github.com
+  client_id: c36ea7b3876663d5fe00
+  client_secret: 6410167bbc446b05c6a7e1a7c9482cc87791e2f0
 
 # Valine Comment system. https://valine.js.org
 valine:
@@ -140,10 +137,10 @@ hyper_id: false
 canonical: false
 
 # 版权起始年份
-since_year: 2015
+since_year: 2018
 
 # 用户页面中作者相关的描述性文字，如不需要设为 false
-about: 用户页面中作者相关的描述性文字，如不需要设为 false
+about: false
 
 # “不蒜子”访问量统计，详见 http://ibruce.info/2015/04/04/busuanzi/
 visit_counter:
@@ -151,9 +148,9 @@ visit_counter:
   site_pv: 站点总访问量：
 
 # 动态定义title
-title_change:
-  normal: (つェ⊂)咦!又好了!
-  leave: 死鬼去哪里了！
+title_change: false
+#  normal: (つェ⊂)咦!又好了!
+#  leave: 死鬼去哪里了！
 
 # 设置为 true 发布后将使用 unpkg cdn 最新的主题样式
 # 如果想让你的自定义样式生效，把此项设为 false

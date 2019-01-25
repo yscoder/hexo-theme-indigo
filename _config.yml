@@ -116,6 +116,13 @@ gitment: false
 #   client_id:
 #   client_secret:
 
+# use gitalk://github.com/gitalk/gitalk
+gitalk: false
+#  owner: 
+#  repo: 
+#  client_id: 
+#  client_secret: 
+
 # Valine Comment system. https://valine.js.org
 valine:
   enable: false # 如果你想使用valine，请将值设置为 true

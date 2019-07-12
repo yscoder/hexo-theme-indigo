@@ -22,6 +22,14 @@ Material Design 风格的Hexo主题，基于 Hexo 3.0+ 制作。 [Preview](http:
 
 [文档 | Document](https://github.com/yscoder/hexo-theme-indigo/wiki)
 
+## 修改gitment评论相关内容
+
+因gitment项目请求token的服务挂了，因此需要自行请求github token，需要修改`layout/_partial/plugins/gitment.ejs`中的内容
+
+暂时使用别人搭建的。[https://www.wenjunjiang.win/js/gitment.js](https://www.wenjunjiang.win/js/gitment.js)
+
+具体可参考https://github.com/imsun/gitment/issues/170
+
 ## ChangeLog
 
 升级前请仔细查看更改内容，如非必要可不升级。

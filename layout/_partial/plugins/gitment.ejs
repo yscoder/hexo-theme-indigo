@@ -1,10 +1,11 @@
 <% if (theme.gitment){ %>
 <section class="comments" id="comments">
     <div id="gitment_thread"></div>
-    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
-    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <link rel="stylesheet" href="/gitment/style/default.css">
+    <script src="https://www.wenjunjiang.win/js/gitment.js"></script>
     <script>
         var gitment = new Gitment({
+            id: '<%= page.date %>',
             owner: '<%- theme.gitment.owner %>',
             repo: '<%- theme.gitment.repo %>',
             oauth: {

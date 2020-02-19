@@ -31,3 +31,7 @@ Material Design 风格的Hexo主题，基于 Hexo 3.0+ 制作。 [Preview](http:
 ## OtherVersion
 
 * [vuepress-theme-indigo](https://github.com/yscoder/vuepress-theme-indigo)
+
+## 使用indigo主题的博客 (欢迎大家添加)
+1. [Yusen's Blog](https://imys.net/)
+2. [Autolife's Blog](http://www.chenzhaoqiang.com/)

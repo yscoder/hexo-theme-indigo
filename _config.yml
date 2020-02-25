@@ -118,10 +118,9 @@ gitment: false
 
 # use gitalk://github.com/gitalk/gitalk
 gitalk: false
-#  owner: 
-#  repo: 
-#  client_id: 
-#  client_secret: 
+#  owner:
+#  repo:
+#  access_token:
 
 # Valine Comment system. https://valine.js.org
 valine:

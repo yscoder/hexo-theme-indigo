@@ -5,6 +5,8 @@
         top: 0;
         left: 0;
         img {
+            max-height:none; //放缩后不限制高度
+            max-width:auto;
             position: absolute;
             z-index: 890;
             &.zoom-in {
@@ -23,7 +25,6 @@
             will-change: opacity;
             .transition(.3s);
         }
-
         .overlay-title {
             position: fixed;
             left: 0;
@@ -38,7 +39,6 @@
             .transition(.3s);
         }
     }
-
     &.active {
         img {
             cursor: -webkit-zoom-out;
@@ -52,10 +52,11 @@
             .transform(translate3d(0, 0, 0));
         }
     }
-
     img {
         display: inline;
         margin: 0;
+        max-height:500px; //放缩前限制高度
+        max-width:auto;
         cursor: -webkit-zoom-in;
         cursor: zoom-in;
 

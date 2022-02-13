@@ -13,7 +13,7 @@ if(type === 'categories' || type === 'tags'){ %>
                 }
             })
 
-            var index = _.findIndex(options, function(o) {
+            var index = options.findIndex(function(o) {
                 return is_current(o.path)
             })
             var len = options.length

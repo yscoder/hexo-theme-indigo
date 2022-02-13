@@ -5,12 +5,13 @@
 <div class="container body-wrap fade">
     <%
         var posts = [];
-
+        const sortBy = (key) => {
+            return (a, b) => (a[key] < b[key]) ? 1 : ((b[key] < a[key]) ? -1 : 0);
+          };
         page.posts.each(function(post){
             posts.push(post);
         });
-
-        var sortPosts = _[_.orderBy ? 'orderBy' : 'sortByOrder'](posts, ['date'], ['desc']);
+        var sortPosts = posts.concat().sort(sortBy("date"));
     %>
 
     <%

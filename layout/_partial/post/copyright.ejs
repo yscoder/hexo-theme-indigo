@@ -2,8 +2,8 @@
     <% if(theme.postMessage || theme.show_last_updated) { %>
     <div class="content">
         <%- partial('updated') %>
-        <% if(theme.postMessage) {%>
-        <%- _.template(theme.postMessage)(locals) %>
+        <% if(theme.postMessage) { const templateLiteral = (value) => theme.postMessage;%>
+        <%- templateLiteral(locals) %>
         <% } %>
     </div>
     <% } %>

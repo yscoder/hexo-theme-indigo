@@ -19,15 +19,23 @@
         <%
           var menuItem, isActive = function(item) {
               var pageUrl = url_for(page.path)
-              return item.url === '/' ? pageUrl === url_for(item.url + 'index.html') : _.startsWith(pageUrl, url_for(item.url))
+              return item.url === '/' ? pageUrl === url_for(item.url + 'index.html') : pageUrl.startsWith( url_for(item.url))
           };
+          function startCase(str) {
+            return str.replace(
+              /\w\S*/g,
+              function(txt) {
+                return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+              }
+            );
+          }
           for (var i in theme.menu) {
             menuItem = theme.menu[i];
           %>
             <li class="waves-block waves-effect<% if(isActive(menuItem)){ %> active<% } %>">
               <a href="<%- url_for(menuItem.url) %>" <% if(menuItem.target){ %>target="_blank"<% } %> >
                 <i class="icon icon-lg icon-<%= i %>"></i>
-                <%=(menuItem.text || _.startCase(i)) %>
+                <%=(menuItem.text || startCase(i)) %>
               </a>
             </li>
         <% } %>
